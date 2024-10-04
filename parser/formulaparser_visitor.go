@@ -49,6 +49,60 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#and.
 	VisitAnd(ctx *AndContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#begins.
+	VisitBegins(ctx *BeginsContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#blankvalue.
+	VisitBlankvalue(ctx *BlankvalueContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#br.
+	VisitBr(ctx *BrContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#case.
+	VisitCase(ctx *CaseContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#casesafeid.
+	VisitCasesafeid(ctx *CasesafeidContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#ceiling.
+	VisitCeiling(ctx *CeilingContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#contains.
+	VisitContains(ctx *ContainsContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#currencyrate.
+	VisitCurrencyrate(ctx *CurrencyrateContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#date.
+	VisitDate(ctx *DateContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#datevalue.
+	VisitDatevalue(ctx *DatevalueContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#datetimevalue.
+	VisitDatetimevalue(ctx *DatetimevalueContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#day.
+	VisitDay(ctx *DayContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#valueExpression.
+	VisitValueExpression(ctx *ValueExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#resultExpression.
+	VisitResultExpression(ctx *ResultExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#defaultExpression.
+	VisitDefaultExpression(ctx *DefaultExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#yearExpression.
+	VisitYearExpression(ctx *YearExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#monthExpression.
+	VisitMonthExpression(ctx *MonthExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#dayExpression.
+	VisitDayExpression(ctx *DayExpressionContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#primary.
 	VisitPrimary(ctx *PrimaryContext) interface{}
 
