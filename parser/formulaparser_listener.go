@@ -13,14 +13,41 @@ type FormulaParserListener interface {
 	// EnterPrimaryExpression is called when entering the primaryExpression production.
 	EnterPrimaryExpression(c *PrimaryExpressionContext)
 
-	// EnterBinaryExpression is called when entering the binaryExpression production.
-	EnterBinaryExpression(c *BinaryExpressionContext)
+	// EnterCompareExpression is called when entering the compareExpression production.
+	EnterCompareExpression(c *CompareExpressionContext)
+
+	// EnterEqualityExpression is called when entering the equalityExpression production.
+	EnterEqualityExpression(c *EqualityExpressionContext)
+
+	// EnterLogicExpression is called when entering the logicExpression production.
+	EnterLogicExpression(c *LogicExpressionContext)
+
+	// EnterFunctionCallExpression is called when entering the functionCallExpression production.
+	EnterFunctionCallExpression(c *FunctionCallExpressionContext)
+
+	// EnterFieldReference is called when entering the fieldReference production.
+	EnterFieldReference(c *FieldReferenceContext)
+
+	// EnterExponentiationExpression is called when entering the exponentiationExpression production.
+	EnterExponentiationExpression(c *ExponentiationExpressionContext)
+
+	// EnterArithExpression is called when entering the arithExpression production.
+	EnterArithExpression(c *ArithExpressionContext)
+
+	// EnterConcatExpression is called when entering the concatExpression production.
+	EnterConcatExpression(c *ConcatExpressionContext)
 
 	// EnterFunctionCall is called when entering the functionCall production.
 	EnterFunctionCall(c *FunctionCallContext)
 
-	// EnterFieldReference is called when entering the fieldReference production.
-	EnterFieldReference(c *FieldReferenceContext)
+	// EnterAbs is called when entering the abs production.
+	EnterAbs(c *AbsContext)
+
+	// EnterAddMonths is called when entering the addMonths production.
+	EnterAddMonths(c *AddMonthsContext)
+
+	// EnterAnd is called when entering the and production.
+	EnterAnd(c *AndContext)
 
 	// EnterPrimary is called when entering the primary production.
 	EnterPrimary(c *PrimaryContext)
@@ -37,14 +64,41 @@ type FormulaParserListener interface {
 	// ExitPrimaryExpression is called when exiting the primaryExpression production.
 	ExitPrimaryExpression(c *PrimaryExpressionContext)
 
-	// ExitBinaryExpression is called when exiting the binaryExpression production.
-	ExitBinaryExpression(c *BinaryExpressionContext)
+	// ExitCompareExpression is called when exiting the compareExpression production.
+	ExitCompareExpression(c *CompareExpressionContext)
+
+	// ExitEqualityExpression is called when exiting the equalityExpression production.
+	ExitEqualityExpression(c *EqualityExpressionContext)
+
+	// ExitLogicExpression is called when exiting the logicExpression production.
+	ExitLogicExpression(c *LogicExpressionContext)
+
+	// ExitFunctionCallExpression is called when exiting the functionCallExpression production.
+	ExitFunctionCallExpression(c *FunctionCallExpressionContext)
+
+	// ExitFieldReference is called when exiting the fieldReference production.
+	ExitFieldReference(c *FieldReferenceContext)
+
+	// ExitExponentiationExpression is called when exiting the exponentiationExpression production.
+	ExitExponentiationExpression(c *ExponentiationExpressionContext)
+
+	// ExitArithExpression is called when exiting the arithExpression production.
+	ExitArithExpression(c *ArithExpressionContext)
+
+	// ExitConcatExpression is called when exiting the concatExpression production.
+	ExitConcatExpression(c *ConcatExpressionContext)
 
 	// ExitFunctionCall is called when exiting the functionCall production.
 	ExitFunctionCall(c *FunctionCallContext)
 
-	// ExitFieldReference is called when exiting the fieldReference production.
-	ExitFieldReference(c *FieldReferenceContext)
+	// ExitAbs is called when exiting the abs production.
+	ExitAbs(c *AbsContext)
+
+	// ExitAddMonths is called when exiting the addMonths production.
+	ExitAddMonths(c *AddMonthsContext)
+
+	// ExitAnd is called when exiting the and production.
+	ExitAnd(c *AndContext)
 
 	// ExitPrimary is called when exiting the primary production.
 	ExitPrimary(c *PrimaryContext)

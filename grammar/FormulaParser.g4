@@ -7,17 +7,33 @@ compilationUnit
 
 expression
     :   primary                                                   # primaryExpression
-    |   Identifier LPAREN arguments? RPAREN                       # functionCall
+    |   functionCall                                              # functionCallExpression
     |   Identifier (DOT Identifier)*                              # fieldReference
-    |   expression CARET expression                               # binaryExpression
-    |   expression BITAND expression                              # binaryExpression
-    |   expression ADD expression                                 # binaryExpression
-    |   expression SUB expression                                 # binaryExpression
-    |   expression MUL expression                                 # binaryExpression
-    |   expression DIV expression                                 # binaryExpression
-    |   expression (GT | LT) ASSIGN? expression                   # binaryExpression
-    |   expression (EQUAL | NOTEQUAL | LESSANDGREATER) expression # binaryExpression
-    |   expression (AND | OR) expression                          # binaryExpression
+    |   expression CARET expression                               # exponentiationExpression
+    |   expression BITAND expression                              # concatExpression
+    |   expression (ADD|SUB|DIV|MUL) expression                   # arithExpression
+    |   expression (GT | LT) ASSIGN? expression                   # compareExpression
+    |   expression (EQUAL | NOTEQUAL | LESSANDGREATER) expression # equalityExpression
+    |   expression (AND | OR) expression                          # logicExpression
+    ;
+
+
+functionCall
+    : abs
+    | addMonths
+    | and
+    ;
+
+abs
+    : ABS LPAREN expression RPAREN
+    ;
+
+addMonths
+    : ADDMONTHS LPAREN expression COMMA expression RPAREN
+    ;
+
+and
+    : AND_FUNC LPAREN expression COMMA expression (COMMA expression)* RPAREN
     ;
 
 primary
