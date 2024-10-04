@@ -103,6 +103,27 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#geolocation.
 	VisitGeolocation(ctx *GeolocationContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#getrecordids.
+	VisitGetrecordids(ctx *GetrecordidsContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#getsessionid.
+	VisitGetsessionid(ctx *GetsessionidContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#hour.
+	VisitHour(ctx *HourContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#htmlencode.
+	VisitHtmlencode(ctx *HtmlencodeContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#hyperlink.
+	VisitHyperlink(ctx *HyperlinkContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#if.
+	VisitIf(ctx *IfContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#image.
+	VisitImage(ctx *ImageContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#valueExpression.
 	VisitValueExpression(ctx *ValueExpressionContext) interface{}
 
@@ -138,6 +159,30 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#longitudeExpression.
 	VisitLongitudeExpression(ctx *LongitudeExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#urlExpression.
+	VisitUrlExpression(ctx *UrlExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#nameExpression.
+	VisitNameExpression(ctx *NameExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#targetExpression.
+	VisitTargetExpression(ctx *TargetExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#logicalExpression.
+	VisitLogicalExpression(ctx *LogicalExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#ifTrueExpression.
+	VisitIfTrueExpression(ctx *IfTrueExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#ifFalseExpression.
+	VisitIfFalseExpression(ctx *IfFalseExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#heightExpression.
+	VisitHeightExpression(ctx *HeightExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#widthExpression.
+	VisitWidthExpression(ctx *WidthExpressionContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#primary.
 	VisitPrimary(ctx *PrimaryContext) interface{}

@@ -103,6 +103,27 @@ type FormulaParserListener interface {
 	// EnterGeolocation is called when entering the geolocation production.
 	EnterGeolocation(c *GeolocationContext)
 
+	// EnterGetrecordids is called when entering the getrecordids production.
+	EnterGetrecordids(c *GetrecordidsContext)
+
+	// EnterGetsessionid is called when entering the getsessionid production.
+	EnterGetsessionid(c *GetsessionidContext)
+
+	// EnterHour is called when entering the hour production.
+	EnterHour(c *HourContext)
+
+	// EnterHtmlencode is called when entering the htmlencode production.
+	EnterHtmlencode(c *HtmlencodeContext)
+
+	// EnterHyperlink is called when entering the hyperlink production.
+	EnterHyperlink(c *HyperlinkContext)
+
+	// EnterIf is called when entering the if production.
+	EnterIf(c *IfContext)
+
+	// EnterImage is called when entering the image production.
+	EnterImage(c *ImageContext)
+
 	// EnterValueExpression is called when entering the valueExpression production.
 	EnterValueExpression(c *ValueExpressionContext)
 
@@ -138,6 +159,30 @@ type FormulaParserListener interface {
 
 	// EnterLongitudeExpression is called when entering the longitudeExpression production.
 	EnterLongitudeExpression(c *LongitudeExpressionContext)
+
+	// EnterUrlExpression is called when entering the urlExpression production.
+	EnterUrlExpression(c *UrlExpressionContext)
+
+	// EnterNameExpression is called when entering the nameExpression production.
+	EnterNameExpression(c *NameExpressionContext)
+
+	// EnterTargetExpression is called when entering the targetExpression production.
+	EnterTargetExpression(c *TargetExpressionContext)
+
+	// EnterLogicalExpression is called when entering the logicalExpression production.
+	EnterLogicalExpression(c *LogicalExpressionContext)
+
+	// EnterIfTrueExpression is called when entering the ifTrueExpression production.
+	EnterIfTrueExpression(c *IfTrueExpressionContext)
+
+	// EnterIfFalseExpression is called when entering the ifFalseExpression production.
+	EnterIfFalseExpression(c *IfFalseExpressionContext)
+
+	// EnterHeightExpression is called when entering the heightExpression production.
+	EnterHeightExpression(c *HeightExpressionContext)
+
+	// EnterWidthExpression is called when entering the widthExpression production.
+	EnterWidthExpression(c *WidthExpressionContext)
 
 	// EnterPrimary is called when entering the primary production.
 	EnterPrimary(c *PrimaryContext)
@@ -244,6 +289,27 @@ type FormulaParserListener interface {
 	// ExitGeolocation is called when exiting the geolocation production.
 	ExitGeolocation(c *GeolocationContext)
 
+	// ExitGetrecordids is called when exiting the getrecordids production.
+	ExitGetrecordids(c *GetrecordidsContext)
+
+	// ExitGetsessionid is called when exiting the getsessionid production.
+	ExitGetsessionid(c *GetsessionidContext)
+
+	// ExitHour is called when exiting the hour production.
+	ExitHour(c *HourContext)
+
+	// ExitHtmlencode is called when exiting the htmlencode production.
+	ExitHtmlencode(c *HtmlencodeContext)
+
+	// ExitHyperlink is called when exiting the hyperlink production.
+	ExitHyperlink(c *HyperlinkContext)
+
+	// ExitIf is called when exiting the if production.
+	ExitIf(c *IfContext)
+
+	// ExitImage is called when exiting the image production.
+	ExitImage(c *ImageContext)
+
 	// ExitValueExpression is called when exiting the valueExpression production.
 	ExitValueExpression(c *ValueExpressionContext)
 
@@ -279,6 +345,30 @@ type FormulaParserListener interface {
 
 	// ExitLongitudeExpression is called when exiting the longitudeExpression production.
 	ExitLongitudeExpression(c *LongitudeExpressionContext)
+
+	// ExitUrlExpression is called when exiting the urlExpression production.
+	ExitUrlExpression(c *UrlExpressionContext)
+
+	// ExitNameExpression is called when exiting the nameExpression production.
+	ExitNameExpression(c *NameExpressionContext)
+
+	// ExitTargetExpression is called when exiting the targetExpression production.
+	ExitTargetExpression(c *TargetExpressionContext)
+
+	// ExitLogicalExpression is called when exiting the logicalExpression production.
+	ExitLogicalExpression(c *LogicalExpressionContext)
+
+	// ExitIfTrueExpression is called when exiting the ifTrueExpression production.
+	ExitIfTrueExpression(c *IfTrueExpressionContext)
+
+	// ExitIfFalseExpression is called when exiting the ifFalseExpression production.
+	ExitIfFalseExpression(c *IfFalseExpressionContext)
+
+	// ExitHeightExpression is called when exiting the heightExpression production.
+	ExitHeightExpression(c *HeightExpressionContext)
+
+	// ExitWidthExpression is called when exiting the widthExpression production.
+	ExitWidthExpression(c *WidthExpressionContext)
 
 	// ExitPrimary is called when exiting the primary production.
 	ExitPrimary(c *PrimaryContext)

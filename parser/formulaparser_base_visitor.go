@@ -135,6 +135,34 @@ func (v *BaseFormulaParserVisitor) VisitGeolocation(ctx *GeolocationContext) int
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitGetrecordids(ctx *GetrecordidsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitGetsessionid(ctx *GetsessionidContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitHour(ctx *HourContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitHtmlencode(ctx *HtmlencodeContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitHyperlink(ctx *HyperlinkContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitIf(ctx *IfContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitImage(ctx *ImageContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitValueExpression(ctx *ValueExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -180,6 +208,38 @@ func (v *BaseFormulaParserVisitor) VisitLatitudeExpression(ctx *LatitudeExpressi
 }
 
 func (v *BaseFormulaParserVisitor) VisitLongitudeExpression(ctx *LongitudeExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitUrlExpression(ctx *UrlExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitNameExpression(ctx *NameExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitTargetExpression(ctx *TargetExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitLogicalExpression(ctx *LogicalExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitIfTrueExpression(ctx *IfTrueExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitIfFalseExpression(ctx *IfFalseExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitHeightExpression(ctx *HeightExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitWidthExpression(ctx *WidthExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

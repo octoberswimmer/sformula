@@ -63,6 +63,17 @@ func TestCompilationUnit(t *testing.T) {
 	'km'
 )`,
 			},
+			{
+				`$Api.Session_ID`,
+				`$Api.Session_ID`,
+			},
+			{
+				`HYPERLINK("ymsgr:sendIM?" & Yahoo_Name__c, IMAGE("http://opi.yahoo.com/online?u=" & Yahoo_Name__c & "&m;=g&t;=0", "Yahoo"))`,
+				`HYPERLINK(
+	"ymsgr:sendIM?" & Yahoo_Name__c,
+	IMAGE("http://opi.yahoo.com/online?u=" & Yahoo_Name__c & "&m;=g&t;=0", "Yahoo")
+)`,
+			},
 		}
 	for _, tt := range tests {
 		input := antlr.NewInputStream(tt.input)

@@ -40,6 +40,13 @@ functionCall
     | find
     | floor
     | geolocation
+    | getrecordids
+    | getsessionid
+    | hour
+    | htmlencode
+    | hyperlink
+    | if
+    | image
 
     ;
 
@@ -65,6 +72,15 @@ exp : EXP LPAREN expression RPAREN ;
 find : FIND LPAREN searchExpression COMMA textExpression (COMMA startExpression)? RPAREN ;
 floor : FLOOR LPAREN expression RPAREN ;
 geolocation : GEOLOCATION LPAREN latitudeExpression COMMA longitudeExpression RPAREN ;
+// TOOD: Only allow literals, $SObjectType.<object>?
+getrecordids : GETRECORDIDS LPAREN expression RPAREN ;
+getsessionid : GETSESSIONID LPAREN RPAREN ;
+hour : HOUR LPAREN expression RPAREN ;
+htmlencode : HTMLENCODE LPAREN expression RPAREN ;
+hyperlink : HYPERLINK LPAREN urlExpression COMMA nameExpression (COMMA targetExpression)? RPAREN ;
+if : IF LPAREN logicalExpression COMMA ifTrueExpression COMMA ifFalseExpression RPAREN ;
+image : IMAGE LPAREN urlExpression COMMA textExpression (COMMA heightExpression COMMA widthExpression)? RPAREN ;
+
 
 valueExpression : expression ;
 resultExpression : expression ;
@@ -82,6 +98,17 @@ startExpression : expression ;
 
 latitudeExpression : expression ;
 longitudeExpression : expression ;
+
+urlExpression : expression ;
+nameExpression : expression ;
+targetExpression : expression ;
+
+logicalExpression : expression ;
+ifTrueExpression : expression ;
+ifFalseExpression : expression ;
+
+heightExpression : expression ;
+widthExpression : expression ;
 
 primary
     :   literal

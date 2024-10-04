@@ -66,6 +66,61 @@ func (v *FormatVisitor) VisitGeolocation(ctx *parser.GeolocationContext) interfa
 	return fmt.Sprintf("GEOLOCATION(%s, %s)", v.visitRule(ctx.LatitudeExpression()), v.visitRule(ctx.LongitudeExpression()))
 }
 
+func (v *FormatVisitor) VisitHyperlink(ctx *parser.HyperlinkContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	target := ""
+	if t := ctx.TargetExpression(); t != nil {
+		target = v.visitRule(t).(string)
+	}
+	if v.wrap {
+		args := []string{
+			v.indent(v.visitRule(ctx.UrlExpression()).(string)),
+			v.indent(v.visitRule(ctx.NameExpression()).(string)),
+		}
+		if target != "" {
+			args = append(args, v.indent(v.visitRule(ctx.TargetExpression()).(string)))
+		}
+		return fmt.Sprintf("HYPERLINK(\n%s\n)", strings.Join(args, ",\n"))
+	}
+	args := []string{
+		v.visitRule(ctx.UrlExpression()).(string),
+		v.visitRule(ctx.NameExpression()).(string),
+	}
+	if target != "" {
+		args = append(args, v.visitRule(ctx.TargetExpression()).(string))
+	}
+	return fmt.Sprintf("HYPERLINK(%s)", strings.Join(args, ", "))
+}
+
+func (v *FormatVisitor) VisitImage(ctx *parser.ImageContext) interface{} {
+	if len(ctx.GetText()) < 80 {
+		defer restoreWrap(unwrap(v))
+	}
+	if v.wrap {
+		args := []string{
+			v.indent(v.visitRule(ctx.UrlExpression()).(string)),
+			v.indent(v.visitRule(ctx.TextExpression()).(string)),
+		}
+		if h := ctx.HeightExpression(); h != nil {
+			args = append(args, v.indent(v.visitRule(h).(string)))
+			args = append(args, v.indent(v.visitRule(ctx.WidthExpression()).(string)))
+		}
+		return fmt.Sprintf("IMAGE(\n%s\n)", strings.Join(args, ",\n"))
+	}
+
+	args := []string{
+		v.visitRule(ctx.UrlExpression()).(string),
+		v.visitRule(ctx.TextExpression()).(string),
+	}
+	if h := ctx.HeightExpression(); h != nil {
+		args = append(args, v.visitRule(h).(string))
+		args = append(args, v.visitRule(ctx.WidthExpression()).(string))
+	}
+	return fmt.Sprintf("IMAGE(%s)", strings.Join(args, ", "))
+}
+
 func (v *FormatVisitor) VisitLatitudeExpression(ctx *parser.LatitudeExpressionContext) interface{} {
 	return v.visitRule(ctx.Expression())
 }
@@ -80,6 +135,22 @@ func (v *FormatVisitor) VisitFieldReference(ctx *parser.FieldReferenceContext) i
 
 func (v *FormatVisitor) VisitUnitExpression(ctx *parser.UnitExpressionContext) interface{} {
 	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitUrlExpression(ctx *parser.UrlExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitTextExpression(ctx *parser.TextExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitNameExpression(ctx *parser.NameExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitConcatExpression(ctx *parser.ConcatExpressionContext) interface{} {
+	return fmt.Sprintf("%s & %s", v.visitRule(ctx.Expression(0)), v.visitRule(ctx.Expression(1)))
 }
 
 func (v *FormatVisitor) VisitArithExpression(ctx *parser.ArithExpressionContext) interface{} {
