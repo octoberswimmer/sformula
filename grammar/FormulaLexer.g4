@@ -92,7 +92,6 @@ VLOOKUP        : V L O O K U P;
 WEEKDAY        : W E E K D A Y;
 YEAR           : Y E A R;
 
-
 StringLiteral            : SQSTRING | DQSTRING;
 
 fragment DQSTRING : '"' (DQESC | .)*? '"';
