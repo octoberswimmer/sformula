@@ -15,6 +15,10 @@ func (v *BaseFormulaParserVisitor) VisitPrimaryExpression(ctx *PrimaryExpression
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitNegationExpression(ctx *NegationExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitCompareExpression(ctx *CompareExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -111,6 +115,26 @@ func (v *BaseFormulaParserVisitor) VisitDay(ctx *DayContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitDistance(ctx *DistanceContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitExp(ctx *ExpContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitFind(ctx *FindContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitFloor(ctx *FloorContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitGeolocation(ctx *GeolocationContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitValueExpression(ctx *ValueExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -132,6 +156,30 @@ func (v *BaseFormulaParserVisitor) VisitMonthExpression(ctx *MonthExpressionCont
 }
 
 func (v *BaseFormulaParserVisitor) VisitDayExpression(ctx *DayExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitUnitExpression(ctx *UnitExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitSearchExpression(ctx *SearchExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitTextExpression(ctx *TextExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitStartExpression(ctx *StartExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitLatitudeExpression(ctx *LatitudeExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitLongitudeExpression(ctx *LongitudeExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

@@ -13,6 +13,9 @@ type FormulaParserListener interface {
 	// EnterPrimaryExpression is called when entering the primaryExpression production.
 	EnterPrimaryExpression(c *PrimaryExpressionContext)
 
+	// EnterNegationExpression is called when entering the negationExpression production.
+	EnterNegationExpression(c *NegationExpressionContext)
+
 	// EnterCompareExpression is called when entering the compareExpression production.
 	EnterCompareExpression(c *CompareExpressionContext)
 
@@ -85,6 +88,21 @@ type FormulaParserListener interface {
 	// EnterDay is called when entering the day production.
 	EnterDay(c *DayContext)
 
+	// EnterDistance is called when entering the distance production.
+	EnterDistance(c *DistanceContext)
+
+	// EnterExp is called when entering the exp production.
+	EnterExp(c *ExpContext)
+
+	// EnterFind is called when entering the find production.
+	EnterFind(c *FindContext)
+
+	// EnterFloor is called when entering the floor production.
+	EnterFloor(c *FloorContext)
+
+	// EnterGeolocation is called when entering the geolocation production.
+	EnterGeolocation(c *GeolocationContext)
+
 	// EnterValueExpression is called when entering the valueExpression production.
 	EnterValueExpression(c *ValueExpressionContext)
 
@@ -103,6 +121,24 @@ type FormulaParserListener interface {
 	// EnterDayExpression is called when entering the dayExpression production.
 	EnterDayExpression(c *DayExpressionContext)
 
+	// EnterUnitExpression is called when entering the unitExpression production.
+	EnterUnitExpression(c *UnitExpressionContext)
+
+	// EnterSearchExpression is called when entering the searchExpression production.
+	EnterSearchExpression(c *SearchExpressionContext)
+
+	// EnterTextExpression is called when entering the textExpression production.
+	EnterTextExpression(c *TextExpressionContext)
+
+	// EnterStartExpression is called when entering the startExpression production.
+	EnterStartExpression(c *StartExpressionContext)
+
+	// EnterLatitudeExpression is called when entering the latitudeExpression production.
+	EnterLatitudeExpression(c *LatitudeExpressionContext)
+
+	// EnterLongitudeExpression is called when entering the longitudeExpression production.
+	EnterLongitudeExpression(c *LongitudeExpressionContext)
+
 	// EnterPrimary is called when entering the primary production.
 	EnterPrimary(c *PrimaryContext)
 
@@ -117,6 +153,9 @@ type FormulaParserListener interface {
 
 	// ExitPrimaryExpression is called when exiting the primaryExpression production.
 	ExitPrimaryExpression(c *PrimaryExpressionContext)
+
+	// ExitNegationExpression is called when exiting the negationExpression production.
+	ExitNegationExpression(c *NegationExpressionContext)
 
 	// ExitCompareExpression is called when exiting the compareExpression production.
 	ExitCompareExpression(c *CompareExpressionContext)
@@ -190,6 +229,21 @@ type FormulaParserListener interface {
 	// ExitDay is called when exiting the day production.
 	ExitDay(c *DayContext)
 
+	// ExitDistance is called when exiting the distance production.
+	ExitDistance(c *DistanceContext)
+
+	// ExitExp is called when exiting the exp production.
+	ExitExp(c *ExpContext)
+
+	// ExitFind is called when exiting the find production.
+	ExitFind(c *FindContext)
+
+	// ExitFloor is called when exiting the floor production.
+	ExitFloor(c *FloorContext)
+
+	// ExitGeolocation is called when exiting the geolocation production.
+	ExitGeolocation(c *GeolocationContext)
+
 	// ExitValueExpression is called when exiting the valueExpression production.
 	ExitValueExpression(c *ValueExpressionContext)
 
@@ -207,6 +261,24 @@ type FormulaParserListener interface {
 
 	// ExitDayExpression is called when exiting the dayExpression production.
 	ExitDayExpression(c *DayExpressionContext)
+
+	// ExitUnitExpression is called when exiting the unitExpression production.
+	ExitUnitExpression(c *UnitExpressionContext)
+
+	// ExitSearchExpression is called when exiting the searchExpression production.
+	ExitSearchExpression(c *SearchExpressionContext)
+
+	// ExitTextExpression is called when exiting the textExpression production.
+	ExitTextExpression(c *TextExpressionContext)
+
+	// ExitStartExpression is called when exiting the startExpression production.
+	ExitStartExpression(c *StartExpressionContext)
+
+	// ExitLatitudeExpression is called when exiting the latitudeExpression production.
+	ExitLatitudeExpression(c *LatitudeExpressionContext)
+
+	// ExitLongitudeExpression is called when exiting the longitudeExpression production.
+	ExitLongitudeExpression(c *LongitudeExpressionContext)
 
 	// ExitPrimary is called when exiting the primary production.
 	ExitPrimary(c *PrimaryContext)

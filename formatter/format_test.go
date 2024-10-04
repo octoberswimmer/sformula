@@ -51,6 +51,18 @@ func TestCompilationUnit(t *testing.T) {
 	true
 )`,
 			},
+			{
+				`GEOLOCATION(37.775,-122.418)`,
+				`GEOLOCATION(37.775, -122.418)`,
+			},
+			{
+				`DISTANCE(warehouse_location__c, GEOLOCATION(37.775,-122.418), 'km')`,
+				`DISTANCE(
+	warehouse_location__c,
+	GEOLOCATION(37.775, -122.418),
+	'km'
+)`,
+			},
 		}
 	for _, tt := range tests {
 		input := antlr.NewInputStream(tt.input)

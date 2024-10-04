@@ -32,6 +32,12 @@ func (s *BaseFormulaParserListener) EnterPrimaryExpression(ctx *PrimaryExpressio
 // ExitPrimaryExpression is called when production primaryExpression is exited.
 func (s *BaseFormulaParserListener) ExitPrimaryExpression(ctx *PrimaryExpressionContext) {}
 
+// EnterNegationExpression is called when production negationExpression is entered.
+func (s *BaseFormulaParserListener) EnterNegationExpression(ctx *NegationExpressionContext) {}
+
+// ExitNegationExpression is called when production negationExpression is exited.
+func (s *BaseFormulaParserListener) ExitNegationExpression(ctx *NegationExpressionContext) {}
+
 // EnterCompareExpression is called when production compareExpression is entered.
 func (s *BaseFormulaParserListener) EnterCompareExpression(ctx *CompareExpressionContext) {}
 
@@ -178,6 +184,36 @@ func (s *BaseFormulaParserListener) EnterDay(ctx *DayContext) {}
 // ExitDay is called when production day is exited.
 func (s *BaseFormulaParserListener) ExitDay(ctx *DayContext) {}
 
+// EnterDistance is called when production distance is entered.
+func (s *BaseFormulaParserListener) EnterDistance(ctx *DistanceContext) {}
+
+// ExitDistance is called when production distance is exited.
+func (s *BaseFormulaParserListener) ExitDistance(ctx *DistanceContext) {}
+
+// EnterExp is called when production exp is entered.
+func (s *BaseFormulaParserListener) EnterExp(ctx *ExpContext) {}
+
+// ExitExp is called when production exp is exited.
+func (s *BaseFormulaParserListener) ExitExp(ctx *ExpContext) {}
+
+// EnterFind is called when production find is entered.
+func (s *BaseFormulaParserListener) EnterFind(ctx *FindContext) {}
+
+// ExitFind is called when production find is exited.
+func (s *BaseFormulaParserListener) ExitFind(ctx *FindContext) {}
+
+// EnterFloor is called when production floor is entered.
+func (s *BaseFormulaParserListener) EnterFloor(ctx *FloorContext) {}
+
+// ExitFloor is called when production floor is exited.
+func (s *BaseFormulaParserListener) ExitFloor(ctx *FloorContext) {}
+
+// EnterGeolocation is called when production geolocation is entered.
+func (s *BaseFormulaParserListener) EnterGeolocation(ctx *GeolocationContext) {}
+
+// ExitGeolocation is called when production geolocation is exited.
+func (s *BaseFormulaParserListener) ExitGeolocation(ctx *GeolocationContext) {}
+
 // EnterValueExpression is called when production valueExpression is entered.
 func (s *BaseFormulaParserListener) EnterValueExpression(ctx *ValueExpressionContext) {}
 
@@ -213,6 +249,42 @@ func (s *BaseFormulaParserListener) EnterDayExpression(ctx *DayExpressionContext
 
 // ExitDayExpression is called when production dayExpression is exited.
 func (s *BaseFormulaParserListener) ExitDayExpression(ctx *DayExpressionContext) {}
+
+// EnterUnitExpression is called when production unitExpression is entered.
+func (s *BaseFormulaParserListener) EnterUnitExpression(ctx *UnitExpressionContext) {}
+
+// ExitUnitExpression is called when production unitExpression is exited.
+func (s *BaseFormulaParserListener) ExitUnitExpression(ctx *UnitExpressionContext) {}
+
+// EnterSearchExpression is called when production searchExpression is entered.
+func (s *BaseFormulaParserListener) EnterSearchExpression(ctx *SearchExpressionContext) {}
+
+// ExitSearchExpression is called when production searchExpression is exited.
+func (s *BaseFormulaParserListener) ExitSearchExpression(ctx *SearchExpressionContext) {}
+
+// EnterTextExpression is called when production textExpression is entered.
+func (s *BaseFormulaParserListener) EnterTextExpression(ctx *TextExpressionContext) {}
+
+// ExitTextExpression is called when production textExpression is exited.
+func (s *BaseFormulaParserListener) ExitTextExpression(ctx *TextExpressionContext) {}
+
+// EnterStartExpression is called when production startExpression is entered.
+func (s *BaseFormulaParserListener) EnterStartExpression(ctx *StartExpressionContext) {}
+
+// ExitStartExpression is called when production startExpression is exited.
+func (s *BaseFormulaParserListener) ExitStartExpression(ctx *StartExpressionContext) {}
+
+// EnterLatitudeExpression is called when production latitudeExpression is entered.
+func (s *BaseFormulaParserListener) EnterLatitudeExpression(ctx *LatitudeExpressionContext) {}
+
+// ExitLatitudeExpression is called when production latitudeExpression is exited.
+func (s *BaseFormulaParserListener) ExitLatitudeExpression(ctx *LatitudeExpressionContext) {}
+
+// EnterLongitudeExpression is called when production longitudeExpression is entered.
+func (s *BaseFormulaParserListener) EnterLongitudeExpression(ctx *LongitudeExpressionContext) {}
+
+// ExitLongitudeExpression is called when production longitudeExpression is exited.
+func (s *BaseFormulaParserListener) ExitLongitudeExpression(ctx *LongitudeExpressionContext) {}
 
 // EnterPrimary is called when production primary is entered.
 func (s *BaseFormulaParserListener) EnterPrimary(ctx *PrimaryContext) {}

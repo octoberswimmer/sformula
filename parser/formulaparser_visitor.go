@@ -13,6 +13,9 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#primaryExpression.
 	VisitPrimaryExpression(ctx *PrimaryExpressionContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#negationExpression.
+	VisitNegationExpression(ctx *NegationExpressionContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#compareExpression.
 	VisitCompareExpression(ctx *CompareExpressionContext) interface{}
 
@@ -85,6 +88,21 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#day.
 	VisitDay(ctx *DayContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#distance.
+	VisitDistance(ctx *DistanceContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#exp.
+	VisitExp(ctx *ExpContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#find.
+	VisitFind(ctx *FindContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#floor.
+	VisitFloor(ctx *FloorContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#geolocation.
+	VisitGeolocation(ctx *GeolocationContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#valueExpression.
 	VisitValueExpression(ctx *ValueExpressionContext) interface{}
 
@@ -102,6 +120,24 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#dayExpression.
 	VisitDayExpression(ctx *DayExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#unitExpression.
+	VisitUnitExpression(ctx *UnitExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#searchExpression.
+	VisitSearchExpression(ctx *SearchExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#textExpression.
+	VisitTextExpression(ctx *TextExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#startExpression.
+	VisitStartExpression(ctx *StartExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#latitudeExpression.
+	VisitLatitudeExpression(ctx *LatitudeExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#longitudeExpression.
+	VisitLongitudeExpression(ctx *LongitudeExpressionContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#primary.
 	VisitPrimary(ctx *PrimaryContext) interface{}

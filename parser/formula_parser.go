@@ -64,114 +64,149 @@ func formulaparserParserInit() {
 		"compilationUnit", "expression", "functionCall", "abs", "addMonths",
 		"and", "begins", "blankvalue", "br", "case", "casesafeid", "ceiling",
 		"contains", "currencyrate", "date", "datevalue", "datetimevalue", "day",
-		"valueExpression", "resultExpression", "defaultExpression", "yearExpression",
-		"monthExpression", "dayExpression", "primary", "arguments", "literal",
+		"distance", "exp", "find", "floor", "geolocation", "valueExpression",
+		"resultExpression", "defaultExpression", "yearExpression", "monthExpression",
+		"dayExpression", "unitExpression", "searchExpression", "textExpression",
+		"startExpression", "latitudeExpression", "longitudeExpression", "primary",
+		"arguments", "literal",
 	}
 	staticData.PredictionContextCache = antlr.NewPredictionContextCache()
 	staticData.serializedATN = []int32{
-		4, 1, 111, 252, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
+		4, 1, 111, 330, 2, 0, 7, 0, 2, 1, 7, 1, 2, 2, 7, 2, 2, 3, 7, 3, 2, 4, 7,
 		4, 2, 5, 7, 5, 2, 6, 7, 6, 2, 7, 7, 7, 2, 8, 7, 8, 2, 9, 7, 9, 2, 10, 7,
 		10, 2, 11, 7, 11, 2, 12, 7, 12, 2, 13, 7, 13, 2, 14, 7, 14, 2, 15, 7, 15,
 		2, 16, 7, 16, 2, 17, 7, 17, 2, 18, 7, 18, 2, 19, 7, 19, 2, 20, 7, 20, 2,
 		21, 7, 21, 2, 22, 7, 22, 2, 23, 7, 23, 2, 24, 7, 24, 2, 25, 7, 25, 2, 26,
-		7, 26, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 63, 8, 1,
-		10, 1, 12, 1, 66, 9, 1, 3, 1, 68, 8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 82, 8, 1, 1, 1, 1, 1, 1, 1,
-		1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 91, 8, 1, 10, 1, 12, 1, 94, 9, 1, 1, 2, 1,
-		2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1,
-		2, 1, 2, 3, 2, 111, 8, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 4, 1, 4, 1,
-		4, 1, 4, 1, 4, 1, 4, 1, 4, 1, 5, 1, 5, 1, 5, 1, 5, 1, 5, 1, 5, 1, 5, 5,
-		5, 132, 8, 5, 10, 5, 12, 5, 135, 9, 5, 1, 5, 1, 5, 1, 6, 1, 6, 1, 6, 1,
-		6, 1, 6, 1, 6, 1, 6, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 8, 1,
-		8, 1, 8, 1, 8, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1,
-		9, 1, 9, 1, 9, 5, 9, 169, 8, 9, 10, 9, 12, 9, 172, 9, 9, 1, 9, 1, 9, 1,
-		9, 1, 10, 1, 10, 1, 10, 1, 10, 1, 10, 1, 11, 1, 11, 1, 11, 1, 11, 1, 11,
-		1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 13, 1, 13, 1, 13, 1,
-		13, 1, 13, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14,
-		1, 15, 1, 15, 1, 15, 1, 15, 1, 15, 1, 16, 1, 16, 1, 16, 1, 16, 1, 16, 1,
-		17, 1, 17, 1, 17, 1, 17, 1, 17, 1, 18, 1, 18, 1, 19, 1, 19, 1, 20, 1, 20,
-		1, 21, 1, 21, 1, 22, 1, 22, 1, 23, 1, 23, 1, 24, 1, 24, 1, 24, 1, 24, 1,
-		24, 3, 24, 240, 8, 24, 1, 25, 1, 25, 1, 25, 5, 25, 245, 8, 25, 10, 25,
-		12, 25, 248, 9, 25, 1, 26, 1, 26, 1, 26, 0, 1, 2, 27, 0, 2, 4, 6, 8, 10,
-		12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46,
-		48, 50, 52, 0, 5, 1, 0, 98, 101, 1, 0, 102, 103, 1, 0, 105, 107, 1, 0,
-		108, 109, 1, 0, 86, 90, 252, 0, 54, 1, 0, 0, 0, 2, 67, 1, 0, 0, 0, 4, 110,
-		1, 0, 0, 0, 6, 112, 1, 0, 0, 0, 8, 117, 1, 0, 0, 0, 10, 124, 1, 0, 0, 0,
-		12, 138, 1, 0, 0, 0, 14, 145, 1, 0, 0, 0, 16, 152, 1, 0, 0, 0, 18, 156,
-		1, 0, 0, 0, 20, 176, 1, 0, 0, 0, 22, 181, 1, 0, 0, 0, 24, 186, 1, 0, 0,
-		0, 26, 193, 1, 0, 0, 0, 28, 198, 1, 0, 0, 0, 30, 207, 1, 0, 0, 0, 32, 212,
-		1, 0, 0, 0, 34, 217, 1, 0, 0, 0, 36, 222, 1, 0, 0, 0, 38, 224, 1, 0, 0,
-		0, 40, 226, 1, 0, 0, 0, 42, 228, 1, 0, 0, 0, 44, 230, 1, 0, 0, 0, 46, 232,
-		1, 0, 0, 0, 48, 239, 1, 0, 0, 0, 50, 241, 1, 0, 0, 0, 52, 249, 1, 0, 0,
-		0, 54, 55, 3, 2, 1, 0, 55, 1, 1, 0, 0, 0, 56, 57, 6, 1, -1, 0, 57, 68,
-		3, 48, 24, 0, 58, 68, 3, 4, 2, 0, 59, 64, 5, 91, 0, 0, 60, 61, 5, 94, 0,
-		0, 61, 63, 5, 91, 0, 0, 62, 60, 1, 0, 0, 0, 63, 66, 1, 0, 0, 0, 64, 62,
-		1, 0, 0, 0, 64, 65, 1, 0, 0, 0, 65, 68, 1, 0, 0, 0, 66, 64, 1, 0, 0, 0,
-		67, 56, 1, 0, 0, 0, 67, 58, 1, 0, 0, 0, 67, 59, 1, 0, 0, 0, 68, 92, 1,
-		0, 0, 0, 69, 70, 10, 6, 0, 0, 70, 71, 5, 96, 0, 0, 71, 91, 3, 2, 1, 7,
-		72, 73, 10, 5, 0, 0, 73, 74, 5, 97, 0, 0, 74, 91, 3, 2, 1, 6, 75, 76, 10,
-		4, 0, 0, 76, 77, 7, 0, 0, 0, 77, 91, 3, 2, 1, 5, 78, 79, 10, 3, 0, 0, 79,
-		81, 7, 1, 0, 0, 80, 82, 5, 104, 0, 0, 81, 80, 1, 0, 0, 0, 81, 82, 1, 0,
-		0, 0, 82, 83, 1, 0, 0, 0, 83, 91, 3, 2, 1, 4, 84, 85, 10, 2, 0, 0, 85,
-		86, 7, 2, 0, 0, 86, 91, 3, 2, 1, 3, 87, 88, 10, 1, 0, 0, 88, 89, 7, 3,
-		0, 0, 89, 91, 3, 2, 1, 2, 90, 69, 1, 0, 0, 0, 90, 72, 1, 0, 0, 0, 90, 75,
-		1, 0, 0, 0, 90, 78, 1, 0, 0, 0, 90, 84, 1, 0, 0, 0, 90, 87, 1, 0, 0, 0,
-		91, 94, 1, 0, 0, 0, 92, 90, 1, 0, 0, 0, 92, 93, 1, 0, 0, 0, 93, 3, 1, 0,
-		0, 0, 94, 92, 1, 0, 0, 0, 95, 111, 3, 6, 3, 0, 96, 111, 3, 8, 4, 0, 97,
-		111, 3, 10, 5, 0, 98, 111, 3, 12, 6, 0, 99, 111, 3, 14, 7, 0, 100, 111,
-		3, 16, 8, 0, 101, 111, 3, 18, 9, 0, 102, 111, 3, 20, 10, 0, 103, 111, 3,
-		22, 11, 0, 104, 111, 3, 24, 12, 0, 105, 111, 3, 26, 13, 0, 106, 111, 3,
-		28, 14, 0, 107, 111, 3, 30, 15, 0, 108, 111, 3, 32, 16, 0, 109, 111, 3,
-		34, 17, 0, 110, 95, 1, 0, 0, 0, 110, 96, 1, 0, 0, 0, 110, 97, 1, 0, 0,
-		0, 110, 98, 1, 0, 0, 0, 110, 99, 1, 0, 0, 0, 110, 100, 1, 0, 0, 0, 110,
-		101, 1, 0, 0, 0, 110, 102, 1, 0, 0, 0, 110, 103, 1, 0, 0, 0, 110, 104,
-		1, 0, 0, 0, 110, 105, 1, 0, 0, 0, 110, 106, 1, 0, 0, 0, 110, 107, 1, 0,
-		0, 0, 110, 108, 1, 0, 0, 0, 110, 109, 1, 0, 0, 0, 111, 5, 1, 0, 0, 0, 112,
-		113, 5, 1, 0, 0, 113, 114, 5, 92, 0, 0, 114, 115, 3, 2, 1, 0, 115, 116,
-		5, 93, 0, 0, 116, 7, 1, 0, 0, 0, 117, 118, 5, 2, 0, 0, 118, 119, 5, 92,
-		0, 0, 119, 120, 3, 2, 1, 0, 120, 121, 5, 95, 0, 0, 121, 122, 3, 2, 1, 0,
-		122, 123, 5, 93, 0, 0, 123, 9, 1, 0, 0, 0, 124, 125, 5, 3, 0, 0, 125, 126,
-		5, 92, 0, 0, 126, 127, 3, 2, 1, 0, 127, 128, 5, 95, 0, 0, 128, 133, 3,
-		2, 1, 0, 129, 130, 5, 95, 0, 0, 130, 132, 3, 2, 1, 0, 131, 129, 1, 0, 0,
-		0, 132, 135, 1, 0, 0, 0, 133, 131, 1, 0, 0, 0, 133, 134, 1, 0, 0, 0, 134,
-		136, 1, 0, 0, 0, 135, 133, 1, 0, 0, 0, 136, 137, 5, 93, 0, 0, 137, 11,
-		1, 0, 0, 0, 138, 139, 5, 4, 0, 0, 139, 140, 5, 92, 0, 0, 140, 141, 3, 2,
-		1, 0, 141, 142, 5, 95, 0, 0, 142, 143, 3, 2, 1, 0, 143, 144, 5, 93, 0,
-		0, 144, 13, 1, 0, 0, 0, 145, 146, 5, 5, 0, 0, 146, 147, 5, 92, 0, 0, 147,
-		148, 3, 2, 1, 0, 148, 149, 5, 95, 0, 0, 149, 150, 3, 2, 1, 0, 150, 151,
-		5, 93, 0, 0, 151, 15, 1, 0, 0, 0, 152, 153, 5, 6, 0, 0, 153, 154, 5, 92,
-		0, 0, 154, 155, 5, 93, 0, 0, 155, 17, 1, 0, 0, 0, 156, 157, 5, 7, 0, 0,
-		157, 158, 5, 92, 0, 0, 158, 159, 3, 2, 1, 0, 159, 160, 5, 95, 0, 0, 160,
-		161, 3, 36, 18, 0, 161, 162, 5, 95, 0, 0, 162, 170, 3, 38, 19, 0, 163,
-		164, 5, 95, 0, 0, 164, 165, 3, 36, 18, 0, 165, 166, 5, 95, 0, 0, 166, 167,
-		3, 38, 19, 0, 167, 169, 1, 0, 0, 0, 168, 163, 1, 0, 0, 0, 169, 172, 1,
-		0, 0, 0, 170, 168, 1, 0, 0, 0, 170, 171, 1, 0, 0, 0, 171, 173, 1, 0, 0,
-		0, 172, 170, 1, 0, 0, 0, 173, 174, 3, 40, 20, 0, 174, 175, 5, 93, 0, 0,
-		175, 19, 1, 0, 0, 0, 176, 177, 5, 8, 0, 0, 177, 178, 5, 92, 0, 0, 178,
-		179, 3, 2, 1, 0, 179, 180, 5, 93, 0, 0, 180, 21, 1, 0, 0, 0, 181, 182,
-		5, 9, 0, 0, 182, 183, 5, 92, 0, 0, 183, 184, 3, 2, 1, 0, 184, 185, 5, 93,
-		0, 0, 185, 23, 1, 0, 0, 0, 186, 187, 5, 10, 0, 0, 187, 188, 5, 92, 0, 0,
-		188, 189, 3, 2, 1, 0, 189, 190, 5, 95, 0, 0, 190, 191, 3, 2, 1, 0, 191,
-		192, 5, 93, 0, 0, 192, 25, 1, 0, 0, 0, 193, 194, 5, 11, 0, 0, 194, 195,
-		5, 92, 0, 0, 195, 196, 3, 2, 1, 0, 196, 197, 5, 93, 0, 0, 197, 27, 1, 0,
-		0, 0, 198, 199, 5, 12, 0, 0, 199, 200, 5, 92, 0, 0, 200, 201, 3, 42, 21,
-		0, 201, 202, 5, 95, 0, 0, 202, 203, 3, 44, 22, 0, 203, 204, 5, 95, 0, 0,
-		204, 205, 3, 46, 23, 0, 205, 206, 5, 93, 0, 0, 206, 29, 1, 0, 0, 0, 207,
-		208, 5, 13, 0, 0, 208, 209, 5, 92, 0, 0, 209, 210, 3, 2, 1, 0, 210, 211,
-		5, 93, 0, 0, 211, 31, 1, 0, 0, 0, 212, 213, 5, 14, 0, 0, 213, 214, 5, 92,
-		0, 0, 214, 215, 3, 2, 1, 0, 215, 216, 5, 93, 0, 0, 216, 33, 1, 0, 0, 0,
-		217, 218, 5, 15, 0, 0, 218, 219, 5, 92, 0, 0, 219, 220, 3, 2, 1, 0, 220,
-		221, 5, 93, 0, 0, 221, 35, 1, 0, 0, 0, 222, 223, 3, 2, 1, 0, 223, 37, 1,
-		0, 0, 0, 224, 225, 3, 2, 1, 0, 225, 39, 1, 0, 0, 0, 226, 227, 3, 2, 1,
-		0, 227, 41, 1, 0, 0, 0, 228, 229, 3, 2, 1, 0, 229, 43, 1, 0, 0, 0, 230,
-		231, 3, 2, 1, 0, 231, 45, 1, 0, 0, 0, 232, 233, 3, 2, 1, 0, 233, 47, 1,
-		0, 0, 0, 234, 240, 3, 52, 26, 0, 235, 236, 5, 92, 0, 0, 236, 237, 3, 2,
-		1, 0, 237, 238, 5, 93, 0, 0, 238, 240, 1, 0, 0, 0, 239, 234, 1, 0, 0, 0,
-		239, 235, 1, 0, 0, 0, 240, 49, 1, 0, 0, 0, 241, 246, 3, 2, 1, 0, 242, 243,
-		5, 95, 0, 0, 243, 245, 3, 2, 1, 0, 244, 242, 1, 0, 0, 0, 245, 248, 1, 0,
-		0, 0, 246, 244, 1, 0, 0, 0, 246, 247, 1, 0, 0, 0, 247, 51, 1, 0, 0, 0,
-		248, 246, 1, 0, 0, 0, 249, 250, 7, 4, 0, 0, 250, 53, 1, 0, 0, 0, 10, 64,
-		67, 81, 90, 92, 110, 133, 170, 239, 246,
+		7, 26, 2, 27, 7, 27, 2, 28, 7, 28, 2, 29, 7, 29, 2, 30, 7, 30, 2, 31, 7,
+		31, 2, 32, 7, 32, 2, 33, 7, 33, 2, 34, 7, 34, 2, 35, 7, 35, 2, 36, 7, 36,
+		2, 37, 7, 37, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+		1, 5, 1, 87, 8, 1, 10, 1, 12, 1, 90, 9, 1, 3, 1, 92, 8, 1, 1, 1, 1, 1,
+		1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 106,
+		8, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 5, 1, 115, 8, 1, 10, 1,
+		12, 1, 118, 9, 1, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2,
+		1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 1, 2, 3, 2,
+		140, 8, 2, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 4, 1, 4, 1, 4, 1, 4, 1, 4,
+		1, 4, 1, 4, 1, 5, 1, 5, 1, 5, 1, 5, 1, 5, 1, 5, 1, 5, 5, 5, 161, 8, 5,
+		10, 5, 12, 5, 164, 9, 5, 1, 5, 1, 5, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6, 1, 6,
+		1, 6, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 7, 1, 8, 1, 8, 1, 8, 1, 8,
+		1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9, 1, 9,
+		5, 9, 198, 8, 9, 10, 9, 12, 9, 201, 9, 9, 1, 9, 1, 9, 1, 9, 1, 10, 1, 10,
+		1, 10, 1, 10, 1, 10, 1, 11, 1, 11, 1, 11, 1, 11, 1, 11, 1, 12, 1, 12, 1,
+		12, 1, 12, 1, 12, 1, 12, 1, 12, 1, 13, 1, 13, 1, 13, 1, 13, 1, 13, 1, 14,
+		1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 14, 1, 15, 1, 15, 1,
+		15, 1, 15, 1, 15, 1, 16, 1, 16, 1, 16, 1, 16, 1, 16, 1, 17, 1, 17, 1, 17,
+		1, 17, 1, 17, 1, 18, 1, 18, 1, 18, 1, 18, 1, 18, 1, 18, 1, 18, 1, 18, 1,
+		18, 1, 19, 1, 19, 1, 19, 1, 19, 1, 19, 1, 20, 1, 20, 1, 20, 1, 20, 1, 20,
+		1, 20, 1, 20, 3, 20, 273, 8, 20, 1, 20, 1, 20, 1, 21, 1, 21, 1, 21, 1,
+		21, 1, 21, 1, 22, 1, 22, 1, 22, 1, 22, 1, 22, 1, 22, 1, 22, 1, 23, 1, 23,
+		1, 24, 1, 24, 1, 25, 1, 25, 1, 26, 1, 26, 1, 27, 1, 27, 1, 28, 1, 28, 1,
+		29, 1, 29, 1, 30, 1, 30, 1, 31, 1, 31, 1, 32, 1, 32, 1, 33, 1, 33, 1, 34,
+		1, 34, 1, 35, 1, 35, 1, 35, 1, 35, 1, 35, 3, 35, 318, 8, 35, 1, 36, 1,
+		36, 1, 36, 5, 36, 323, 8, 36, 10, 36, 12, 36, 326, 9, 36, 1, 37, 1, 37,
+		1, 37, 0, 1, 2, 38, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26,
+		28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60, 62,
+		64, 66, 68, 70, 72, 74, 0, 5, 1, 0, 98, 101, 1, 0, 102, 103, 1, 0, 105,
+		107, 1, 0, 108, 109, 1, 0, 86, 90, 326, 0, 76, 1, 0, 0, 0, 2, 91, 1, 0,
+		0, 0, 4, 139, 1, 0, 0, 0, 6, 141, 1, 0, 0, 0, 8, 146, 1, 0, 0, 0, 10, 153,
+		1, 0, 0, 0, 12, 167, 1, 0, 0, 0, 14, 174, 1, 0, 0, 0, 16, 181, 1, 0, 0,
+		0, 18, 185, 1, 0, 0, 0, 20, 205, 1, 0, 0, 0, 22, 210, 1, 0, 0, 0, 24, 215,
+		1, 0, 0, 0, 26, 222, 1, 0, 0, 0, 28, 227, 1, 0, 0, 0, 30, 236, 1, 0, 0,
+		0, 32, 241, 1, 0, 0, 0, 34, 246, 1, 0, 0, 0, 36, 251, 1, 0, 0, 0, 38, 260,
+		1, 0, 0, 0, 40, 265, 1, 0, 0, 0, 42, 276, 1, 0, 0, 0, 44, 281, 1, 0, 0,
+		0, 46, 288, 1, 0, 0, 0, 48, 290, 1, 0, 0, 0, 50, 292, 1, 0, 0, 0, 52, 294,
+		1, 0, 0, 0, 54, 296, 1, 0, 0, 0, 56, 298, 1, 0, 0, 0, 58, 300, 1, 0, 0,
+		0, 60, 302, 1, 0, 0, 0, 62, 304, 1, 0, 0, 0, 64, 306, 1, 0, 0, 0, 66, 308,
+		1, 0, 0, 0, 68, 310, 1, 0, 0, 0, 70, 317, 1, 0, 0, 0, 72, 319, 1, 0, 0,
+		0, 74, 327, 1, 0, 0, 0, 76, 77, 3, 2, 1, 0, 77, 1, 1, 0, 0, 0, 78, 79,
+		6, 1, -1, 0, 79, 92, 3, 70, 35, 0, 80, 92, 3, 4, 2, 0, 81, 82, 5, 99, 0,
+		0, 82, 92, 3, 2, 1, 8, 83, 88, 5, 91, 0, 0, 84, 85, 5, 94, 0, 0, 85, 87,
+		5, 91, 0, 0, 86, 84, 1, 0, 0, 0, 87, 90, 1, 0, 0, 0, 88, 86, 1, 0, 0, 0,
+		88, 89, 1, 0, 0, 0, 89, 92, 1, 0, 0, 0, 90, 88, 1, 0, 0, 0, 91, 78, 1,
+		0, 0, 0, 91, 80, 1, 0, 0, 0, 91, 81, 1, 0, 0, 0, 91, 83, 1, 0, 0, 0, 92,
+		116, 1, 0, 0, 0, 93, 94, 10, 6, 0, 0, 94, 95, 5, 96, 0, 0, 95, 115, 3,
+		2, 1, 7, 96, 97, 10, 5, 0, 0, 97, 98, 5, 97, 0, 0, 98, 115, 3, 2, 1, 6,
+		99, 100, 10, 4, 0, 0, 100, 101, 7, 0, 0, 0, 101, 115, 3, 2, 1, 5, 102,
+		103, 10, 3, 0, 0, 103, 105, 7, 1, 0, 0, 104, 106, 5, 104, 0, 0, 105, 104,
+		1, 0, 0, 0, 105, 106, 1, 0, 0, 0, 106, 107, 1, 0, 0, 0, 107, 115, 3, 2,
+		1, 4, 108, 109, 10, 2, 0, 0, 109, 110, 7, 2, 0, 0, 110, 115, 3, 2, 1, 3,
+		111, 112, 10, 1, 0, 0, 112, 113, 7, 3, 0, 0, 113, 115, 3, 2, 1, 2, 114,
+		93, 1, 0, 0, 0, 114, 96, 1, 0, 0, 0, 114, 99, 1, 0, 0, 0, 114, 102, 1,
+		0, 0, 0, 114, 108, 1, 0, 0, 0, 114, 111, 1, 0, 0, 0, 115, 118, 1, 0, 0,
+		0, 116, 114, 1, 0, 0, 0, 116, 117, 1, 0, 0, 0, 117, 3, 1, 0, 0, 0, 118,
+		116, 1, 0, 0, 0, 119, 140, 3, 6, 3, 0, 120, 140, 3, 8, 4, 0, 121, 140,
+		3, 10, 5, 0, 122, 140, 3, 12, 6, 0, 123, 140, 3, 14, 7, 0, 124, 140, 3,
+		16, 8, 0, 125, 140, 3, 18, 9, 0, 126, 140, 3, 20, 10, 0, 127, 140, 3, 22,
+		11, 0, 128, 140, 3, 24, 12, 0, 129, 140, 3, 26, 13, 0, 130, 140, 3, 28,
+		14, 0, 131, 140, 3, 30, 15, 0, 132, 140, 3, 32, 16, 0, 133, 140, 3, 34,
+		17, 0, 134, 140, 3, 36, 18, 0, 135, 140, 3, 38, 19, 0, 136, 140, 3, 40,
+		20, 0, 137, 140, 3, 42, 21, 0, 138, 140, 3, 44, 22, 0, 139, 119, 1, 0,
+		0, 0, 139, 120, 1, 0, 0, 0, 139, 121, 1, 0, 0, 0, 139, 122, 1, 0, 0, 0,
+		139, 123, 1, 0, 0, 0, 139, 124, 1, 0, 0, 0, 139, 125, 1, 0, 0, 0, 139,
+		126, 1, 0, 0, 0, 139, 127, 1, 0, 0, 0, 139, 128, 1, 0, 0, 0, 139, 129,
+		1, 0, 0, 0, 139, 130, 1, 0, 0, 0, 139, 131, 1, 0, 0, 0, 139, 132, 1, 0,
+		0, 0, 139, 133, 1, 0, 0, 0, 139, 134, 1, 0, 0, 0, 139, 135, 1, 0, 0, 0,
+		139, 136, 1, 0, 0, 0, 139, 137, 1, 0, 0, 0, 139, 138, 1, 0, 0, 0, 140,
+		5, 1, 0, 0, 0, 141, 142, 5, 1, 0, 0, 142, 143, 5, 92, 0, 0, 143, 144, 3,
+		2, 1, 0, 144, 145, 5, 93, 0, 0, 145, 7, 1, 0, 0, 0, 146, 147, 5, 2, 0,
+		0, 147, 148, 5, 92, 0, 0, 148, 149, 3, 2, 1, 0, 149, 150, 5, 95, 0, 0,
+		150, 151, 3, 2, 1, 0, 151, 152, 5, 93, 0, 0, 152, 9, 1, 0, 0, 0, 153, 154,
+		5, 3, 0, 0, 154, 155, 5, 92, 0, 0, 155, 156, 3, 2, 1, 0, 156, 157, 5, 95,
+		0, 0, 157, 162, 3, 2, 1, 0, 158, 159, 5, 95, 0, 0, 159, 161, 3, 2, 1, 0,
+		160, 158, 1, 0, 0, 0, 161, 164, 1, 0, 0, 0, 162, 160, 1, 0, 0, 0, 162,
+		163, 1, 0, 0, 0, 163, 165, 1, 0, 0, 0, 164, 162, 1, 0, 0, 0, 165, 166,
+		5, 93, 0, 0, 166, 11, 1, 0, 0, 0, 167, 168, 5, 4, 0, 0, 168, 169, 5, 92,
+		0, 0, 169, 170, 3, 2, 1, 0, 170, 171, 5, 95, 0, 0, 171, 172, 3, 2, 1, 0,
+		172, 173, 5, 93, 0, 0, 173, 13, 1, 0, 0, 0, 174, 175, 5, 5, 0, 0, 175,
+		176, 5, 92, 0, 0, 176, 177, 3, 2, 1, 0, 177, 178, 5, 95, 0, 0, 178, 179,
+		3, 2, 1, 0, 179, 180, 5, 93, 0, 0, 180, 15, 1, 0, 0, 0, 181, 182, 5, 6,
+		0, 0, 182, 183, 5, 92, 0, 0, 183, 184, 5, 93, 0, 0, 184, 17, 1, 0, 0, 0,
+		185, 186, 5, 7, 0, 0, 186, 187, 5, 92, 0, 0, 187, 188, 3, 2, 1, 0, 188,
+		189, 5, 95, 0, 0, 189, 190, 3, 46, 23, 0, 190, 191, 5, 95, 0, 0, 191, 199,
+		3, 48, 24, 0, 192, 193, 5, 95, 0, 0, 193, 194, 3, 46, 23, 0, 194, 195,
+		5, 95, 0, 0, 195, 196, 3, 48, 24, 0, 196, 198, 1, 0, 0, 0, 197, 192, 1,
+		0, 0, 0, 198, 201, 1, 0, 0, 0, 199, 197, 1, 0, 0, 0, 199, 200, 1, 0, 0,
+		0, 200, 202, 1, 0, 0, 0, 201, 199, 1, 0, 0, 0, 202, 203, 3, 50, 25, 0,
+		203, 204, 5, 93, 0, 0, 204, 19, 1, 0, 0, 0, 205, 206, 5, 8, 0, 0, 206,
+		207, 5, 92, 0, 0, 207, 208, 3, 2, 1, 0, 208, 209, 5, 93, 0, 0, 209, 21,
+		1, 0, 0, 0, 210, 211, 5, 9, 0, 0, 211, 212, 5, 92, 0, 0, 212, 213, 3, 2,
+		1, 0, 213, 214, 5, 93, 0, 0, 214, 23, 1, 0, 0, 0, 215, 216, 5, 10, 0, 0,
+		216, 217, 5, 92, 0, 0, 217, 218, 3, 2, 1, 0, 218, 219, 5, 95, 0, 0, 219,
+		220, 3, 2, 1, 0, 220, 221, 5, 93, 0, 0, 221, 25, 1, 0, 0, 0, 222, 223,
+		5, 11, 0, 0, 223, 224, 5, 92, 0, 0, 224, 225, 3, 2, 1, 0, 225, 226, 5,
+		93, 0, 0, 226, 27, 1, 0, 0, 0, 227, 228, 5, 12, 0, 0, 228, 229, 5, 92,
+		0, 0, 229, 230, 3, 52, 26, 0, 230, 231, 5, 95, 0, 0, 231, 232, 3, 54, 27,
+		0, 232, 233, 5, 95, 0, 0, 233, 234, 3, 56, 28, 0, 234, 235, 5, 93, 0, 0,
+		235, 29, 1, 0, 0, 0, 236, 237, 5, 13, 0, 0, 237, 238, 5, 92, 0, 0, 238,
+		239, 3, 2, 1, 0, 239, 240, 5, 93, 0, 0, 240, 31, 1, 0, 0, 0, 241, 242,
+		5, 14, 0, 0, 242, 243, 5, 92, 0, 0, 243, 244, 3, 2, 1, 0, 244, 245, 5,
+		93, 0, 0, 245, 33, 1, 0, 0, 0, 246, 247, 5, 15, 0, 0, 247, 248, 5, 92,
+		0, 0, 248, 249, 3, 2, 1, 0, 249, 250, 5, 93, 0, 0, 250, 35, 1, 0, 0, 0,
+		251, 252, 5, 16, 0, 0, 252, 253, 5, 92, 0, 0, 253, 254, 3, 2, 1, 0, 254,
+		255, 5, 95, 0, 0, 255, 256, 3, 2, 1, 0, 256, 257, 5, 95, 0, 0, 257, 258,
+		3, 58, 29, 0, 258, 259, 5, 93, 0, 0, 259, 37, 1, 0, 0, 0, 260, 261, 5,
+		17, 0, 0, 261, 262, 5, 92, 0, 0, 262, 263, 3, 2, 1, 0, 263, 264, 5, 93,
+		0, 0, 264, 39, 1, 0, 0, 0, 265, 266, 5, 18, 0, 0, 266, 267, 5, 92, 0, 0,
+		267, 268, 3, 60, 30, 0, 268, 269, 5, 95, 0, 0, 269, 272, 3, 62, 31, 0,
+		270, 271, 5, 95, 0, 0, 271, 273, 3, 64, 32, 0, 272, 270, 1, 0, 0, 0, 272,
+		273, 1, 0, 0, 0, 273, 274, 1, 0, 0, 0, 274, 275, 5, 93, 0, 0, 275, 41,
+		1, 0, 0, 0, 276, 277, 5, 19, 0, 0, 277, 278, 5, 92, 0, 0, 278, 279, 3,
+		2, 1, 0, 279, 280, 5, 93, 0, 0, 280, 43, 1, 0, 0, 0, 281, 282, 5, 20, 0,
+		0, 282, 283, 5, 92, 0, 0, 283, 284, 3, 66, 33, 0, 284, 285, 5, 95, 0, 0,
+		285, 286, 3, 68, 34, 0, 286, 287, 5, 93, 0, 0, 287, 45, 1, 0, 0, 0, 288,
+		289, 3, 2, 1, 0, 289, 47, 1, 0, 0, 0, 290, 291, 3, 2, 1, 0, 291, 49, 1,
+		0, 0, 0, 292, 293, 3, 2, 1, 0, 293, 51, 1, 0, 0, 0, 294, 295, 3, 2, 1,
+		0, 295, 53, 1, 0, 0, 0, 296, 297, 3, 2, 1, 0, 297, 55, 1, 0, 0, 0, 298,
+		299, 3, 2, 1, 0, 299, 57, 1, 0, 0, 0, 300, 301, 3, 2, 1, 0, 301, 59, 1,
+		0, 0, 0, 302, 303, 3, 2, 1, 0, 303, 61, 1, 0, 0, 0, 304, 305, 3, 2, 1,
+		0, 305, 63, 1, 0, 0, 0, 306, 307, 3, 2, 1, 0, 307, 65, 1, 0, 0, 0, 308,
+		309, 3, 2, 1, 0, 309, 67, 1, 0, 0, 0, 310, 311, 3, 2, 1, 0, 311, 69, 1,
+		0, 0, 0, 312, 318, 3, 74, 37, 0, 313, 314, 5, 92, 0, 0, 314, 315, 3, 2,
+		1, 0, 315, 316, 5, 93, 0, 0, 316, 318, 1, 0, 0, 0, 317, 312, 1, 0, 0, 0,
+		317, 313, 1, 0, 0, 0, 318, 71, 1, 0, 0, 0, 319, 324, 3, 2, 1, 0, 320, 321,
+		5, 95, 0, 0, 321, 323, 3, 2, 1, 0, 322, 320, 1, 0, 0, 0, 323, 326, 1, 0,
+		0, 0, 324, 322, 1, 0, 0, 0, 324, 325, 1, 0, 0, 0, 325, 73, 1, 0, 0, 0,
+		326, 324, 1, 0, 0, 0, 327, 328, 7, 4, 0, 0, 328, 75, 1, 0, 0, 0, 11, 88,
+		91, 105, 114, 116, 139, 162, 199, 272, 317, 324,
 	}
 	deserializer := antlr.NewATNDeserializer(nil)
 	staticData.atn = deserializer.Deserialize(staticData.serializedATN)
@@ -325,33 +360,44 @@ const (
 
 // FormulaParser rules.
 const (
-	FormulaParserRULE_compilationUnit   = 0
-	FormulaParserRULE_expression        = 1
-	FormulaParserRULE_functionCall      = 2
-	FormulaParserRULE_abs               = 3
-	FormulaParserRULE_addMonths         = 4
-	FormulaParserRULE_and               = 5
-	FormulaParserRULE_begins            = 6
-	FormulaParserRULE_blankvalue        = 7
-	FormulaParserRULE_br                = 8
-	FormulaParserRULE_case              = 9
-	FormulaParserRULE_casesafeid        = 10
-	FormulaParserRULE_ceiling           = 11
-	FormulaParserRULE_contains          = 12
-	FormulaParserRULE_currencyrate      = 13
-	FormulaParserRULE_date              = 14
-	FormulaParserRULE_datevalue         = 15
-	FormulaParserRULE_datetimevalue     = 16
-	FormulaParserRULE_day               = 17
-	FormulaParserRULE_valueExpression   = 18
-	FormulaParserRULE_resultExpression  = 19
-	FormulaParserRULE_defaultExpression = 20
-	FormulaParserRULE_yearExpression    = 21
-	FormulaParserRULE_monthExpression   = 22
-	FormulaParserRULE_dayExpression     = 23
-	FormulaParserRULE_primary           = 24
-	FormulaParserRULE_arguments         = 25
-	FormulaParserRULE_literal           = 26
+	FormulaParserRULE_compilationUnit     = 0
+	FormulaParserRULE_expression          = 1
+	FormulaParserRULE_functionCall        = 2
+	FormulaParserRULE_abs                 = 3
+	FormulaParserRULE_addMonths           = 4
+	FormulaParserRULE_and                 = 5
+	FormulaParserRULE_begins              = 6
+	FormulaParserRULE_blankvalue          = 7
+	FormulaParserRULE_br                  = 8
+	FormulaParserRULE_case                = 9
+	FormulaParserRULE_casesafeid          = 10
+	FormulaParserRULE_ceiling             = 11
+	FormulaParserRULE_contains            = 12
+	FormulaParserRULE_currencyrate        = 13
+	FormulaParserRULE_date                = 14
+	FormulaParserRULE_datevalue           = 15
+	FormulaParserRULE_datetimevalue       = 16
+	FormulaParserRULE_day                 = 17
+	FormulaParserRULE_distance            = 18
+	FormulaParserRULE_exp                 = 19
+	FormulaParserRULE_find                = 20
+	FormulaParserRULE_floor               = 21
+	FormulaParserRULE_geolocation         = 22
+	FormulaParserRULE_valueExpression     = 23
+	FormulaParserRULE_resultExpression    = 24
+	FormulaParserRULE_defaultExpression   = 25
+	FormulaParserRULE_yearExpression      = 26
+	FormulaParserRULE_monthExpression     = 27
+	FormulaParserRULE_dayExpression       = 28
+	FormulaParserRULE_unitExpression      = 29
+	FormulaParserRULE_searchExpression    = 30
+	FormulaParserRULE_textExpression      = 31
+	FormulaParserRULE_startExpression     = 32
+	FormulaParserRULE_latitudeExpression  = 33
+	FormulaParserRULE_longitudeExpression = 34
+	FormulaParserRULE_primary             = 35
+	FormulaParserRULE_arguments           = 36
+	FormulaParserRULE_literal             = 37
 )
 
 // ICompilationUnitContext is an interface to support dynamic dispatch.
@@ -451,7 +497,7 @@ func (p *FormulaParser) CompilationUnit() (localctx ICompilationUnitContext) {
 	p.EnterRule(localctx, 0, FormulaParserRULE_compilationUnit)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(54)
+		p.SetState(76)
 		p.expression(0)
 	}
 
@@ -572,6 +618,66 @@ func (s *PrimaryExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interf
 	switch t := visitor.(type) {
 	case FormulaParserVisitor:
 		return t.VisitPrimaryExpression(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+type NegationExpressionContext struct {
+	ExpressionContext
+}
+
+func NewNegationExpressionContext(parser antlr.Parser, ctx antlr.ParserRuleContext) *NegationExpressionContext {
+	var p = new(NegationExpressionContext)
+
+	InitEmptyExpressionContext(&p.ExpressionContext)
+	p.parser = parser
+	p.CopyAll(ctx.(*ExpressionContext))
+
+	return p
+}
+
+func (s *NegationExpressionContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *NegationExpressionContext) SUB() antlr.TerminalNode {
+	return s.GetToken(FormulaParserSUB, 0)
+}
+
+func (s *NegationExpressionContext) Expression() IExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpressionContext)
+}
+
+func (s *NegationExpressionContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.EnterNegationExpression(s)
+	}
+}
+
+func (s *NegationExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.ExitNegationExpression(s)
+	}
+}
+
+func (s *NegationExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FormulaParserVisitor:
+		return t.VisitNegationExpression(s)
 
 	default:
 		return t.VisitChildren(s)
@@ -1250,7 +1356,7 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 	var _alt int
 
 	p.EnterOuterAlt(localctx, 1)
-	p.SetState(67)
+	p.SetState(91)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1263,17 +1369,34 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 		_prevctx = localctx
 
 		{
-			p.SetState(57)
+			p.SetState(79)
 			p.Primary()
 		}
 
-	case FormulaParserABS, FormulaParserADDMONTHS, FormulaParserAND_FUNC, FormulaParserBEGINS, FormulaParserBLANKVALUE, FormulaParserBR, FormulaParserCASE, FormulaParserCASESAFEID, FormulaParserCEILING, FormulaParserCONTAINS, FormulaParserCURRENCYRATE, FormulaParserDATE, FormulaParserDATEVALUE, FormulaParserDATETIMEVALUE, FormulaParserDAY:
+	case FormulaParserABS, FormulaParserADDMONTHS, FormulaParserAND_FUNC, FormulaParserBEGINS, FormulaParserBLANKVALUE, FormulaParserBR, FormulaParserCASE, FormulaParserCASESAFEID, FormulaParserCEILING, FormulaParserCONTAINS, FormulaParserCURRENCYRATE, FormulaParserDATE, FormulaParserDATEVALUE, FormulaParserDATETIMEVALUE, FormulaParserDAY, FormulaParserDISTANCE, FormulaParserEXP, FormulaParserFIND, FormulaParserFLOOR, FormulaParserGEOLOCATION:
 		localctx = NewFunctionCallExpressionContext(p, localctx)
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(58)
+			p.SetState(80)
 			p.FunctionCall()
+		}
+
+	case FormulaParserSUB:
+		localctx = NewNegationExpressionContext(p, localctx)
+		p.SetParserRuleContext(localctx)
+		_prevctx = localctx
+		{
+			p.SetState(81)
+			p.Match(FormulaParserSUB)
+			if p.HasError() {
+				// Recognition error - abort rule
+				goto errorExit
+			}
+		}
+		{
+			p.SetState(82)
+			p.expression(8)
 		}
 
 	case FormulaParserIdentifier:
@@ -1281,14 +1404,14 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 		p.SetParserRuleContext(localctx)
 		_prevctx = localctx
 		{
-			p.SetState(59)
+			p.SetState(83)
 			p.Match(FormulaParserIdentifier)
 			if p.HasError() {
 				// Recognition error - abort rule
 				goto errorExit
 			}
 		}
-		p.SetState(64)
+		p.SetState(88)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -1300,7 +1423,7 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 		for _alt != 2 && _alt != antlr.ATNInvalidAltNumber {
 			if _alt == 1 {
 				{
-					p.SetState(60)
+					p.SetState(84)
 					p.Match(FormulaParserDOT)
 					if p.HasError() {
 						// Recognition error - abort rule
@@ -1308,7 +1431,7 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 					}
 				}
 				{
-					p.SetState(61)
+					p.SetState(85)
 					p.Match(FormulaParserIdentifier)
 					if p.HasError() {
 						// Recognition error - abort rule
@@ -1317,7 +1440,7 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 				}
 
 			}
-			p.SetState(66)
+			p.SetState(90)
 			p.GetErrorHandler().Sync(p)
 			if p.HasError() {
 				goto errorExit
@@ -1333,7 +1456,7 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 		goto errorExit
 	}
 	p.GetParserRuleContext().SetStop(p.GetTokenStream().LT(-1))
-	p.SetState(92)
+	p.SetState(116)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1348,7 +1471,7 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 				p.TriggerExitRuleEvent()
 			}
 			_prevctx = localctx
-			p.SetState(90)
+			p.SetState(114)
 			p.GetErrorHandler().Sync(p)
 			if p.HasError() {
 				goto errorExit
@@ -1358,14 +1481,14 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 			case 1:
 				localctx = NewExponentiationExpressionContext(p, NewExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, FormulaParserRULE_expression)
-				p.SetState(69)
+				p.SetState(93)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 6)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 6)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(70)
+					p.SetState(94)
 					p.Match(FormulaParserCARET)
 					if p.HasError() {
 						// Recognition error - abort rule
@@ -1373,21 +1496,21 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 					}
 				}
 				{
-					p.SetState(71)
+					p.SetState(95)
 					p.expression(7)
 				}
 
 			case 2:
 				localctx = NewConcatExpressionContext(p, NewExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, FormulaParserRULE_expression)
-				p.SetState(72)
+				p.SetState(96)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 5)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 5)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(73)
+					p.SetState(97)
 					p.Match(FormulaParserBITAND)
 					if p.HasError() {
 						// Recognition error - abort rule
@@ -1395,21 +1518,21 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 					}
 				}
 				{
-					p.SetState(74)
+					p.SetState(98)
 					p.expression(6)
 				}
 
 			case 3:
 				localctx = NewArithExpressionContext(p, NewExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, FormulaParserRULE_expression)
-				p.SetState(75)
+				p.SetState(99)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 4)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 4)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(76)
+					p.SetState(100)
 					_la = p.GetTokenStream().LA(1)
 
 					if !((int64((_la-98)) & ^0x3f) == 0 && ((int64(1)<<(_la-98))&15) != 0) {
@@ -1420,21 +1543,21 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 					}
 				}
 				{
-					p.SetState(77)
+					p.SetState(101)
 					p.expression(5)
 				}
 
 			case 4:
 				localctx = NewCompareExpressionContext(p, NewExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, FormulaParserRULE_expression)
-				p.SetState(78)
+				p.SetState(102)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 3)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 3)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(79)
+					p.SetState(103)
 					_la = p.GetTokenStream().LA(1)
 
 					if !(_la == FormulaParserLT || _la == FormulaParserGT) {
@@ -1444,7 +1567,7 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 						p.Consume()
 					}
 				}
-				p.SetState(81)
+				p.SetState(105)
 				p.GetErrorHandler().Sync(p)
 				if p.HasError() {
 					goto errorExit
@@ -1453,7 +1576,7 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 
 				if _la == FormulaParserASSIGN {
 					{
-						p.SetState(80)
+						p.SetState(104)
 						p.Match(FormulaParserASSIGN)
 						if p.HasError() {
 							// Recognition error - abort rule
@@ -1463,21 +1586,21 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 
 				}
 				{
-					p.SetState(83)
+					p.SetState(107)
 					p.expression(4)
 				}
 
 			case 5:
 				localctx = NewEqualityExpressionContext(p, NewExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, FormulaParserRULE_expression)
-				p.SetState(84)
+				p.SetState(108)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 2)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 2)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(85)
+					p.SetState(109)
 					_la = p.GetTokenStream().LA(1)
 
 					if !((int64((_la-105)) & ^0x3f) == 0 && ((int64(1)<<(_la-105))&7) != 0) {
@@ -1488,21 +1611,21 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 					}
 				}
 				{
-					p.SetState(86)
+					p.SetState(110)
 					p.expression(3)
 				}
 
 			case 6:
 				localctx = NewLogicExpressionContext(p, NewExpressionContext(p, _parentctx, _parentState))
 				p.PushNewRecursionContext(localctx, _startState, FormulaParserRULE_expression)
-				p.SetState(87)
+				p.SetState(111)
 
 				if !(p.Precpred(p.GetParserRuleContext(), 1)) {
 					p.SetError(antlr.NewFailedPredicateException(p, "p.Precpred(p.GetParserRuleContext(), 1)", ""))
 					goto errorExit
 				}
 				{
-					p.SetState(88)
+					p.SetState(112)
 					_la = p.GetTokenStream().LA(1)
 
 					if !(_la == FormulaParserAND || _la == FormulaParserOR) {
@@ -1513,7 +1636,7 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 					}
 				}
 				{
-					p.SetState(89)
+					p.SetState(113)
 					p.expression(2)
 				}
 
@@ -1522,7 +1645,7 @@ func (p *FormulaParser) expression(_p int) (localctx IExpressionContext) {
 			}
 
 		}
-		p.SetState(94)
+		p.SetState(118)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -1569,6 +1692,11 @@ type IFunctionCallContext interface {
 	Datevalue() IDatevalueContext
 	Datetimevalue() IDatetimevalueContext
 	Day() IDayContext
+	Distance() IDistanceContext
+	Exp() IExpContext
+	Find() IFindContext
+	Floor() IFloorContext
+	Geolocation() IGeolocationContext
 
 	// IsFunctionCallContext differentiates from other interfaces.
 	IsFunctionCallContext()
@@ -1846,6 +1974,86 @@ func (s *FunctionCallContext) Day() IDayContext {
 	return t.(IDayContext)
 }
 
+func (s *FunctionCallContext) Distance() IDistanceContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IDistanceContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IDistanceContext)
+}
+
+func (s *FunctionCallContext) Exp() IExpContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExpContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpContext)
+}
+
+func (s *FunctionCallContext) Find() IFindContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IFindContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IFindContext)
+}
+
+func (s *FunctionCallContext) Floor() IFloorContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IFloorContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IFloorContext)
+}
+
+func (s *FunctionCallContext) Geolocation() IGeolocationContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IGeolocationContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IGeolocationContext)
+}
+
 func (s *FunctionCallContext) GetRuleContext() antlr.RuleContext {
 	return s
 }
@@ -1879,7 +2087,7 @@ func (s *FunctionCallContext) Accept(visitor antlr.ParseTreeVisitor) interface{}
 func (p *FormulaParser) FunctionCall() (localctx IFunctionCallContext) {
 	localctx = NewFunctionCallContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 4, FormulaParserRULE_functionCall)
-	p.SetState(110)
+	p.SetState(139)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -1889,106 +2097,141 @@ func (p *FormulaParser) FunctionCall() (localctx IFunctionCallContext) {
 	case FormulaParserABS:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(95)
+			p.SetState(119)
 			p.Abs()
 		}
 
 	case FormulaParserADDMONTHS:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(96)
+			p.SetState(120)
 			p.AddMonths()
 		}
 
 	case FormulaParserAND_FUNC:
 		p.EnterOuterAlt(localctx, 3)
 		{
-			p.SetState(97)
+			p.SetState(121)
 			p.And()
 		}
 
 	case FormulaParserBEGINS:
 		p.EnterOuterAlt(localctx, 4)
 		{
-			p.SetState(98)
+			p.SetState(122)
 			p.Begins()
 		}
 
 	case FormulaParserBLANKVALUE:
 		p.EnterOuterAlt(localctx, 5)
 		{
-			p.SetState(99)
+			p.SetState(123)
 			p.Blankvalue()
 		}
 
 	case FormulaParserBR:
 		p.EnterOuterAlt(localctx, 6)
 		{
-			p.SetState(100)
+			p.SetState(124)
 			p.Br()
 		}
 
 	case FormulaParserCASE:
 		p.EnterOuterAlt(localctx, 7)
 		{
-			p.SetState(101)
+			p.SetState(125)
 			p.Case_()
 		}
 
 	case FormulaParserCASESAFEID:
 		p.EnterOuterAlt(localctx, 8)
 		{
-			p.SetState(102)
+			p.SetState(126)
 			p.Casesafeid()
 		}
 
 	case FormulaParserCEILING:
 		p.EnterOuterAlt(localctx, 9)
 		{
-			p.SetState(103)
+			p.SetState(127)
 			p.Ceiling()
 		}
 
 	case FormulaParserCONTAINS:
 		p.EnterOuterAlt(localctx, 10)
 		{
-			p.SetState(104)
+			p.SetState(128)
 			p.Contains()
 		}
 
 	case FormulaParserCURRENCYRATE:
 		p.EnterOuterAlt(localctx, 11)
 		{
-			p.SetState(105)
+			p.SetState(129)
 			p.Currencyrate()
 		}
 
 	case FormulaParserDATE:
 		p.EnterOuterAlt(localctx, 12)
 		{
-			p.SetState(106)
+			p.SetState(130)
 			p.Date()
 		}
 
 	case FormulaParserDATEVALUE:
 		p.EnterOuterAlt(localctx, 13)
 		{
-			p.SetState(107)
+			p.SetState(131)
 			p.Datevalue()
 		}
 
 	case FormulaParserDATETIMEVALUE:
 		p.EnterOuterAlt(localctx, 14)
 		{
-			p.SetState(108)
+			p.SetState(132)
 			p.Datetimevalue()
 		}
 
 	case FormulaParserDAY:
 		p.EnterOuterAlt(localctx, 15)
 		{
-			p.SetState(109)
+			p.SetState(133)
 			p.Day()
+		}
+
+	case FormulaParserDISTANCE:
+		p.EnterOuterAlt(localctx, 16)
+		{
+			p.SetState(134)
+			p.Distance()
+		}
+
+	case FormulaParserEXP:
+		p.EnterOuterAlt(localctx, 17)
+		{
+			p.SetState(135)
+			p.Exp()
+		}
+
+	case FormulaParserFIND:
+		p.EnterOuterAlt(localctx, 18)
+		{
+			p.SetState(136)
+			p.Find()
+		}
+
+	case FormulaParserFLOOR:
+		p.EnterOuterAlt(localctx, 19)
+		{
+			p.SetState(137)
+			p.Floor()
+		}
+
+	case FormulaParserGEOLOCATION:
+		p.EnterOuterAlt(localctx, 20)
+		{
+			p.SetState(138)
+			p.Geolocation()
 		}
 
 	default:
@@ -2121,7 +2364,7 @@ func (p *FormulaParser) Abs() (localctx IAbsContext) {
 	p.EnterRule(localctx, 6, FormulaParserRULE_abs)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(112)
+		p.SetState(141)
 		p.Match(FormulaParserABS)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2129,7 +2372,7 @@ func (p *FormulaParser) Abs() (localctx IAbsContext) {
 		}
 	}
 	{
-		p.SetState(113)
+		p.SetState(142)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2137,11 +2380,11 @@ func (p *FormulaParser) Abs() (localctx IAbsContext) {
 		}
 	}
 	{
-		p.SetState(114)
+		p.SetState(143)
 		p.expression(0)
 	}
 	{
-		p.SetState(115)
+		p.SetState(144)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2305,7 +2548,7 @@ func (p *FormulaParser) AddMonths() (localctx IAddMonthsContext) {
 	p.EnterRule(localctx, 8, FormulaParserRULE_addMonths)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(117)
+		p.SetState(146)
 		p.Match(FormulaParserADDMONTHS)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2313,7 +2556,7 @@ func (p *FormulaParser) AddMonths() (localctx IAddMonthsContext) {
 		}
 	}
 	{
-		p.SetState(118)
+		p.SetState(147)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2321,11 +2564,11 @@ func (p *FormulaParser) AddMonths() (localctx IAddMonthsContext) {
 		}
 	}
 	{
-		p.SetState(119)
+		p.SetState(148)
 		p.expression(0)
 	}
 	{
-		p.SetState(120)
+		p.SetState(149)
 		p.Match(FormulaParserCOMMA)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2333,11 +2576,11 @@ func (p *FormulaParser) AddMonths() (localctx IAddMonthsContext) {
 		}
 	}
 	{
-		p.SetState(121)
+		p.SetState(150)
 		p.expression(0)
 	}
 	{
-		p.SetState(122)
+		p.SetState(151)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2508,7 +2751,7 @@ func (p *FormulaParser) And() (localctx IAndContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(124)
+		p.SetState(153)
 		p.Match(FormulaParserAND_FUNC)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2516,7 +2759,7 @@ func (p *FormulaParser) And() (localctx IAndContext) {
 		}
 	}
 	{
-		p.SetState(125)
+		p.SetState(154)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2524,11 +2767,11 @@ func (p *FormulaParser) And() (localctx IAndContext) {
 		}
 	}
 	{
-		p.SetState(126)
+		p.SetState(155)
 		p.expression(0)
 	}
 	{
-		p.SetState(127)
+		p.SetState(156)
 		p.Match(FormulaParserCOMMA)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2536,10 +2779,10 @@ func (p *FormulaParser) And() (localctx IAndContext) {
 		}
 	}
 	{
-		p.SetState(128)
+		p.SetState(157)
 		p.expression(0)
 	}
-	p.SetState(133)
+	p.SetState(162)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -2548,7 +2791,7 @@ func (p *FormulaParser) And() (localctx IAndContext) {
 
 	for _la == FormulaParserCOMMA {
 		{
-			p.SetState(129)
+			p.SetState(158)
 			p.Match(FormulaParserCOMMA)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -2556,11 +2799,11 @@ func (p *FormulaParser) And() (localctx IAndContext) {
 			}
 		}
 		{
-			p.SetState(130)
+			p.SetState(159)
 			p.expression(0)
 		}
 
-		p.SetState(135)
+		p.SetState(164)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -2568,7 +2811,7 @@ func (p *FormulaParser) And() (localctx IAndContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(136)
+		p.SetState(165)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2732,7 +2975,7 @@ func (p *FormulaParser) Begins() (localctx IBeginsContext) {
 	p.EnterRule(localctx, 12, FormulaParserRULE_begins)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(138)
+		p.SetState(167)
 		p.Match(FormulaParserBEGINS)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2740,7 +2983,7 @@ func (p *FormulaParser) Begins() (localctx IBeginsContext) {
 		}
 	}
 	{
-		p.SetState(139)
+		p.SetState(168)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2748,11 +2991,11 @@ func (p *FormulaParser) Begins() (localctx IBeginsContext) {
 		}
 	}
 	{
-		p.SetState(140)
+		p.SetState(169)
 		p.expression(0)
 	}
 	{
-		p.SetState(141)
+		p.SetState(170)
 		p.Match(FormulaParserCOMMA)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2760,11 +3003,11 @@ func (p *FormulaParser) Begins() (localctx IBeginsContext) {
 		}
 	}
 	{
-		p.SetState(142)
+		p.SetState(171)
 		p.expression(0)
 	}
 	{
-		p.SetState(143)
+		p.SetState(172)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2928,7 +3171,7 @@ func (p *FormulaParser) Blankvalue() (localctx IBlankvalueContext) {
 	p.EnterRule(localctx, 14, FormulaParserRULE_blankvalue)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(145)
+		p.SetState(174)
 		p.Match(FormulaParserBLANKVALUE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2936,7 +3179,7 @@ func (p *FormulaParser) Blankvalue() (localctx IBlankvalueContext) {
 		}
 	}
 	{
-		p.SetState(146)
+		p.SetState(175)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2944,11 +3187,11 @@ func (p *FormulaParser) Blankvalue() (localctx IBlankvalueContext) {
 		}
 	}
 	{
-		p.SetState(147)
+		p.SetState(176)
 		p.expression(0)
 	}
 	{
-		p.SetState(148)
+		p.SetState(177)
 		p.Match(FormulaParserCOMMA)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -2956,11 +3199,11 @@ func (p *FormulaParser) Blankvalue() (localctx IBlankvalueContext) {
 		}
 	}
 	{
-		p.SetState(149)
+		p.SetState(178)
 		p.expression(0)
 	}
 	{
-		p.SetState(150)
+		p.SetState(179)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3076,7 +3319,7 @@ func (p *FormulaParser) Br() (localctx IBrContext) {
 	p.EnterRule(localctx, 16, FormulaParserRULE_br)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(152)
+		p.SetState(181)
 		p.Match(FormulaParserBR)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3084,7 +3327,7 @@ func (p *FormulaParser) Br() (localctx IBrContext) {
 		}
 	}
 	{
-		p.SetState(153)
+		p.SetState(182)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3092,7 +3335,7 @@ func (p *FormulaParser) Br() (localctx IBrContext) {
 		}
 	}
 	{
-		p.SetState(154)
+		p.SetState(183)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3340,7 +3583,7 @@ func (p *FormulaParser) Case_() (localctx ICaseContext) {
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(156)
+		p.SetState(185)
 		p.Match(FormulaParserCASE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3348,7 +3591,7 @@ func (p *FormulaParser) Case_() (localctx ICaseContext) {
 		}
 	}
 	{
-		p.SetState(157)
+		p.SetState(186)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3356,11 +3599,11 @@ func (p *FormulaParser) Case_() (localctx ICaseContext) {
 		}
 	}
 	{
-		p.SetState(158)
+		p.SetState(187)
 		p.expression(0)
 	}
 	{
-		p.SetState(159)
+		p.SetState(188)
 		p.Match(FormulaParserCOMMA)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3368,11 +3611,11 @@ func (p *FormulaParser) Case_() (localctx ICaseContext) {
 		}
 	}
 	{
-		p.SetState(160)
+		p.SetState(189)
 		p.ValueExpression()
 	}
 	{
-		p.SetState(161)
+		p.SetState(190)
 		p.Match(FormulaParserCOMMA)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3380,10 +3623,10 @@ func (p *FormulaParser) Case_() (localctx ICaseContext) {
 		}
 	}
 	{
-		p.SetState(162)
+		p.SetState(191)
 		p.ResultExpression()
 	}
-	p.SetState(170)
+	p.SetState(199)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -3392,7 +3635,7 @@ func (p *FormulaParser) Case_() (localctx ICaseContext) {
 
 	for _la == FormulaParserCOMMA {
 		{
-			p.SetState(163)
+			p.SetState(192)
 			p.Match(FormulaParserCOMMA)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -3400,11 +3643,11 @@ func (p *FormulaParser) Case_() (localctx ICaseContext) {
 			}
 		}
 		{
-			p.SetState(164)
+			p.SetState(193)
 			p.ValueExpression()
 		}
 		{
-			p.SetState(165)
+			p.SetState(194)
 			p.Match(FormulaParserCOMMA)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -3412,11 +3655,11 @@ func (p *FormulaParser) Case_() (localctx ICaseContext) {
 			}
 		}
 		{
-			p.SetState(166)
+			p.SetState(195)
 			p.ResultExpression()
 		}
 
-		p.SetState(172)
+		p.SetState(201)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -3424,11 +3667,11 @@ func (p *FormulaParser) Case_() (localctx ICaseContext) {
 		_la = p.GetTokenStream().LA(1)
 	}
 	{
-		p.SetState(173)
+		p.SetState(202)
 		p.DefaultExpression()
 	}
 	{
-		p.SetState(174)
+		p.SetState(203)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3561,7 +3804,7 @@ func (p *FormulaParser) Casesafeid() (localctx ICasesafeidContext) {
 	p.EnterRule(localctx, 20, FormulaParserRULE_casesafeid)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(176)
+		p.SetState(205)
 		p.Match(FormulaParserCASESAFEID)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3569,7 +3812,7 @@ func (p *FormulaParser) Casesafeid() (localctx ICasesafeidContext) {
 		}
 	}
 	{
-		p.SetState(177)
+		p.SetState(206)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3577,11 +3820,11 @@ func (p *FormulaParser) Casesafeid() (localctx ICasesafeidContext) {
 		}
 	}
 	{
-		p.SetState(178)
+		p.SetState(207)
 		p.expression(0)
 	}
 	{
-		p.SetState(179)
+		p.SetState(208)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3714,7 +3957,7 @@ func (p *FormulaParser) Ceiling() (localctx ICeilingContext) {
 	p.EnterRule(localctx, 22, FormulaParserRULE_ceiling)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(181)
+		p.SetState(210)
 		p.Match(FormulaParserCEILING)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3722,7 +3965,7 @@ func (p *FormulaParser) Ceiling() (localctx ICeilingContext) {
 		}
 	}
 	{
-		p.SetState(182)
+		p.SetState(211)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3730,11 +3973,11 @@ func (p *FormulaParser) Ceiling() (localctx ICeilingContext) {
 		}
 	}
 	{
-		p.SetState(183)
+		p.SetState(212)
 		p.expression(0)
 	}
 	{
-		p.SetState(184)
+		p.SetState(213)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3898,7 +4141,7 @@ func (p *FormulaParser) Contains() (localctx IContainsContext) {
 	p.EnterRule(localctx, 24, FormulaParserRULE_contains)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(186)
+		p.SetState(215)
 		p.Match(FormulaParserCONTAINS)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3906,7 +4149,7 @@ func (p *FormulaParser) Contains() (localctx IContainsContext) {
 		}
 	}
 	{
-		p.SetState(187)
+		p.SetState(216)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3914,11 +4157,11 @@ func (p *FormulaParser) Contains() (localctx IContainsContext) {
 		}
 	}
 	{
-		p.SetState(188)
+		p.SetState(217)
 		p.expression(0)
 	}
 	{
-		p.SetState(189)
+		p.SetState(218)
 		p.Match(FormulaParserCOMMA)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -3926,11 +4169,11 @@ func (p *FormulaParser) Contains() (localctx IContainsContext) {
 		}
 	}
 	{
-		p.SetState(190)
+		p.SetState(219)
 		p.expression(0)
 	}
 	{
-		p.SetState(191)
+		p.SetState(220)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4063,7 +4306,7 @@ func (p *FormulaParser) Currencyrate() (localctx ICurrencyrateContext) {
 	p.EnterRule(localctx, 26, FormulaParserRULE_currencyrate)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(193)
+		p.SetState(222)
 		p.Match(FormulaParserCURRENCYRATE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4071,7 +4314,7 @@ func (p *FormulaParser) Currencyrate() (localctx ICurrencyrateContext) {
 		}
 	}
 	{
-		p.SetState(194)
+		p.SetState(223)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4079,11 +4322,11 @@ func (p *FormulaParser) Currencyrate() (localctx ICurrencyrateContext) {
 		}
 	}
 	{
-		p.SetState(195)
+		p.SetState(224)
 		p.expression(0)
 	}
 	{
-		p.SetState(196)
+		p.SetState(225)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4260,7 +4503,7 @@ func (p *FormulaParser) Date() (localctx IDateContext) {
 	p.EnterRule(localctx, 28, FormulaParserRULE_date)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(198)
+		p.SetState(227)
 		p.Match(FormulaParserDATE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4268,7 +4511,7 @@ func (p *FormulaParser) Date() (localctx IDateContext) {
 		}
 	}
 	{
-		p.SetState(199)
+		p.SetState(228)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4276,11 +4519,11 @@ func (p *FormulaParser) Date() (localctx IDateContext) {
 		}
 	}
 	{
-		p.SetState(200)
+		p.SetState(229)
 		p.YearExpression()
 	}
 	{
-		p.SetState(201)
+		p.SetState(230)
 		p.Match(FormulaParserCOMMA)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4288,11 +4531,11 @@ func (p *FormulaParser) Date() (localctx IDateContext) {
 		}
 	}
 	{
-		p.SetState(202)
+		p.SetState(231)
 		p.MonthExpression()
 	}
 	{
-		p.SetState(203)
+		p.SetState(232)
 		p.Match(FormulaParserCOMMA)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4300,11 +4543,11 @@ func (p *FormulaParser) Date() (localctx IDateContext) {
 		}
 	}
 	{
-		p.SetState(204)
+		p.SetState(233)
 		p.DayExpression()
 	}
 	{
-		p.SetState(205)
+		p.SetState(234)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4437,7 +4680,7 @@ func (p *FormulaParser) Datevalue() (localctx IDatevalueContext) {
 	p.EnterRule(localctx, 30, FormulaParserRULE_datevalue)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(207)
+		p.SetState(236)
 		p.Match(FormulaParserDATEVALUE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4445,7 +4688,7 @@ func (p *FormulaParser) Datevalue() (localctx IDatevalueContext) {
 		}
 	}
 	{
-		p.SetState(208)
+		p.SetState(237)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4453,11 +4696,11 @@ func (p *FormulaParser) Datevalue() (localctx IDatevalueContext) {
 		}
 	}
 	{
-		p.SetState(209)
+		p.SetState(238)
 		p.expression(0)
 	}
 	{
-		p.SetState(210)
+		p.SetState(239)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4590,7 +4833,7 @@ func (p *FormulaParser) Datetimevalue() (localctx IDatetimevalueContext) {
 	p.EnterRule(localctx, 32, FormulaParserRULE_datetimevalue)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(212)
+		p.SetState(241)
 		p.Match(FormulaParserDATETIMEVALUE)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4598,7 +4841,7 @@ func (p *FormulaParser) Datetimevalue() (localctx IDatetimevalueContext) {
 		}
 	}
 	{
-		p.SetState(213)
+		p.SetState(242)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4606,11 +4849,11 @@ func (p *FormulaParser) Datetimevalue() (localctx IDatetimevalueContext) {
 		}
 	}
 	{
-		p.SetState(214)
+		p.SetState(243)
 		p.expression(0)
 	}
 	{
-		p.SetState(215)
+		p.SetState(244)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4743,7 +4986,7 @@ func (p *FormulaParser) Day() (localctx IDayContext) {
 	p.EnterRule(localctx, 34, FormulaParserRULE_day)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(217)
+		p.SetState(246)
 		p.Match(FormulaParserDAY)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4751,7 +4994,7 @@ func (p *FormulaParser) Day() (localctx IDayContext) {
 		}
 	}
 	{
-		p.SetState(218)
+		p.SetState(247)
 		p.Match(FormulaParserLPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4759,11 +5002,967 @@ func (p *FormulaParser) Day() (localctx IDayContext) {
 		}
 	}
 	{
-		p.SetState(219)
+		p.SetState(248)
 		p.expression(0)
 	}
 	{
-		p.SetState(220)
+		p.SetState(249)
+		p.Match(FormulaParserRPAREN)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// IDistanceContext is an interface to support dynamic dispatch.
+type IDistanceContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Getter signatures
+	DISTANCE() antlr.TerminalNode
+	LPAREN() antlr.TerminalNode
+	AllExpression() []IExpressionContext
+	Expression(i int) IExpressionContext
+	AllCOMMA() []antlr.TerminalNode
+	COMMA(i int) antlr.TerminalNode
+	UnitExpression() IUnitExpressionContext
+	RPAREN() antlr.TerminalNode
+
+	// IsDistanceContext differentiates from other interfaces.
+	IsDistanceContext()
+}
+
+type DistanceContext struct {
+	antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyDistanceContext() *DistanceContext {
+	var p = new(DistanceContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_distance
+	return p
+}
+
+func InitEmptyDistanceContext(p *DistanceContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_distance
+}
+
+func (*DistanceContext) IsDistanceContext() {}
+
+func NewDistanceContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *DistanceContext {
+	var p = new(DistanceContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = FormulaParserRULE_distance
+
+	return p
+}
+
+func (s *DistanceContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *DistanceContext) DISTANCE() antlr.TerminalNode {
+	return s.GetToken(FormulaParserDISTANCE, 0)
+}
+
+func (s *DistanceContext) LPAREN() antlr.TerminalNode {
+	return s.GetToken(FormulaParserLPAREN, 0)
+}
+
+func (s *DistanceContext) AllExpression() []IExpressionContext {
+	children := s.GetChildren()
+	len := 0
+	for _, ctx := range children {
+		if _, ok := ctx.(IExpressionContext); ok {
+			len++
+		}
+	}
+
+	tst := make([]IExpressionContext, len)
+	i := 0
+	for _, ctx := range children {
+		if t, ok := ctx.(IExpressionContext); ok {
+			tst[i] = t.(IExpressionContext)
+			i++
+		}
+	}
+
+	return tst
+}
+
+func (s *DistanceContext) Expression(i int) IExpressionContext {
+	var t antlr.RuleContext
+	j := 0
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExpressionContext); ok {
+			if j == i {
+				t = ctx.(antlr.RuleContext)
+				break
+			}
+			j++
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpressionContext)
+}
+
+func (s *DistanceContext) AllCOMMA() []antlr.TerminalNode {
+	return s.GetTokens(FormulaParserCOMMA)
+}
+
+func (s *DistanceContext) COMMA(i int) antlr.TerminalNode {
+	return s.GetToken(FormulaParserCOMMA, i)
+}
+
+func (s *DistanceContext) UnitExpression() IUnitExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IUnitExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IUnitExpressionContext)
+}
+
+func (s *DistanceContext) RPAREN() antlr.TerminalNode {
+	return s.GetToken(FormulaParserRPAREN, 0)
+}
+
+func (s *DistanceContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *DistanceContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *DistanceContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.EnterDistance(s)
+	}
+}
+
+func (s *DistanceContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.ExitDistance(s)
+	}
+}
+
+func (s *DistanceContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FormulaParserVisitor:
+		return t.VisitDistance(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *FormulaParser) Distance() (localctx IDistanceContext) {
+	localctx = NewDistanceContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 36, FormulaParserRULE_distance)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(251)
+		p.Match(FormulaParserDISTANCE)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(252)
+		p.Match(FormulaParserLPAREN)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(253)
+		p.expression(0)
+	}
+	{
+		p.SetState(254)
+		p.Match(FormulaParserCOMMA)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(255)
+		p.expression(0)
+	}
+	{
+		p.SetState(256)
+		p.Match(FormulaParserCOMMA)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(257)
+		p.UnitExpression()
+	}
+	{
+		p.SetState(258)
+		p.Match(FormulaParserRPAREN)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// IExpContext is an interface to support dynamic dispatch.
+type IExpContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Getter signatures
+	EXP() antlr.TerminalNode
+	LPAREN() antlr.TerminalNode
+	Expression() IExpressionContext
+	RPAREN() antlr.TerminalNode
+
+	// IsExpContext differentiates from other interfaces.
+	IsExpContext()
+}
+
+type ExpContext struct {
+	antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyExpContext() *ExpContext {
+	var p = new(ExpContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_exp
+	return p
+}
+
+func InitEmptyExpContext(p *ExpContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_exp
+}
+
+func (*ExpContext) IsExpContext() {}
+
+func NewExpContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *ExpContext {
+	var p = new(ExpContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = FormulaParserRULE_exp
+
+	return p
+}
+
+func (s *ExpContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *ExpContext) EXP() antlr.TerminalNode {
+	return s.GetToken(FormulaParserEXP, 0)
+}
+
+func (s *ExpContext) LPAREN() antlr.TerminalNode {
+	return s.GetToken(FormulaParserLPAREN, 0)
+}
+
+func (s *ExpContext) Expression() IExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpressionContext)
+}
+
+func (s *ExpContext) RPAREN() antlr.TerminalNode {
+	return s.GetToken(FormulaParserRPAREN, 0)
+}
+
+func (s *ExpContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *ExpContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *ExpContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.EnterExp(s)
+	}
+}
+
+func (s *ExpContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.ExitExp(s)
+	}
+}
+
+func (s *ExpContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FormulaParserVisitor:
+		return t.VisitExp(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *FormulaParser) Exp() (localctx IExpContext) {
+	localctx = NewExpContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 38, FormulaParserRULE_exp)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(260)
+		p.Match(FormulaParserEXP)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(261)
+		p.Match(FormulaParserLPAREN)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(262)
+		p.expression(0)
+	}
+	{
+		p.SetState(263)
+		p.Match(FormulaParserRPAREN)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// IFindContext is an interface to support dynamic dispatch.
+type IFindContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Getter signatures
+	FIND() antlr.TerminalNode
+	LPAREN() antlr.TerminalNode
+	SearchExpression() ISearchExpressionContext
+	AllCOMMA() []antlr.TerminalNode
+	COMMA(i int) antlr.TerminalNode
+	TextExpression() ITextExpressionContext
+	RPAREN() antlr.TerminalNode
+	StartExpression() IStartExpressionContext
+
+	// IsFindContext differentiates from other interfaces.
+	IsFindContext()
+}
+
+type FindContext struct {
+	antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyFindContext() *FindContext {
+	var p = new(FindContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_find
+	return p
+}
+
+func InitEmptyFindContext(p *FindContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_find
+}
+
+func (*FindContext) IsFindContext() {}
+
+func NewFindContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *FindContext {
+	var p = new(FindContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = FormulaParserRULE_find
+
+	return p
+}
+
+func (s *FindContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *FindContext) FIND() antlr.TerminalNode {
+	return s.GetToken(FormulaParserFIND, 0)
+}
+
+func (s *FindContext) LPAREN() antlr.TerminalNode {
+	return s.GetToken(FormulaParserLPAREN, 0)
+}
+
+func (s *FindContext) SearchExpression() ISearchExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ISearchExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ISearchExpressionContext)
+}
+
+func (s *FindContext) AllCOMMA() []antlr.TerminalNode {
+	return s.GetTokens(FormulaParserCOMMA)
+}
+
+func (s *FindContext) COMMA(i int) antlr.TerminalNode {
+	return s.GetToken(FormulaParserCOMMA, i)
+}
+
+func (s *FindContext) TextExpression() ITextExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ITextExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ITextExpressionContext)
+}
+
+func (s *FindContext) RPAREN() antlr.TerminalNode {
+	return s.GetToken(FormulaParserRPAREN, 0)
+}
+
+func (s *FindContext) StartExpression() IStartExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IStartExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IStartExpressionContext)
+}
+
+func (s *FindContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FindContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *FindContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.EnterFind(s)
+	}
+}
+
+func (s *FindContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.ExitFind(s)
+	}
+}
+
+func (s *FindContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FormulaParserVisitor:
+		return t.VisitFind(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *FormulaParser) Find() (localctx IFindContext) {
+	localctx = NewFindContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 40, FormulaParserRULE_find)
+	var _la int
+
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(265)
+		p.Match(FormulaParserFIND)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(266)
+		p.Match(FormulaParserLPAREN)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(267)
+		p.SearchExpression()
+	}
+	{
+		p.SetState(268)
+		p.Match(FormulaParserCOMMA)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(269)
+		p.TextExpression()
+	}
+	p.SetState(272)
+	p.GetErrorHandler().Sync(p)
+	if p.HasError() {
+		goto errorExit
+	}
+	_la = p.GetTokenStream().LA(1)
+
+	if _la == FormulaParserCOMMA {
+		{
+			p.SetState(270)
+			p.Match(FormulaParserCOMMA)
+			if p.HasError() {
+				// Recognition error - abort rule
+				goto errorExit
+			}
+		}
+		{
+			p.SetState(271)
+			p.StartExpression()
+		}
+
+	}
+	{
+		p.SetState(274)
+		p.Match(FormulaParserRPAREN)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// IFloorContext is an interface to support dynamic dispatch.
+type IFloorContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Getter signatures
+	FLOOR() antlr.TerminalNode
+	LPAREN() antlr.TerminalNode
+	Expression() IExpressionContext
+	RPAREN() antlr.TerminalNode
+
+	// IsFloorContext differentiates from other interfaces.
+	IsFloorContext()
+}
+
+type FloorContext struct {
+	antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyFloorContext() *FloorContext {
+	var p = new(FloorContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_floor
+	return p
+}
+
+func InitEmptyFloorContext(p *FloorContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_floor
+}
+
+func (*FloorContext) IsFloorContext() {}
+
+func NewFloorContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *FloorContext {
+	var p = new(FloorContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = FormulaParserRULE_floor
+
+	return p
+}
+
+func (s *FloorContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *FloorContext) FLOOR() antlr.TerminalNode {
+	return s.GetToken(FormulaParserFLOOR, 0)
+}
+
+func (s *FloorContext) LPAREN() antlr.TerminalNode {
+	return s.GetToken(FormulaParserLPAREN, 0)
+}
+
+func (s *FloorContext) Expression() IExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpressionContext)
+}
+
+func (s *FloorContext) RPAREN() antlr.TerminalNode {
+	return s.GetToken(FormulaParserRPAREN, 0)
+}
+
+func (s *FloorContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *FloorContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *FloorContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.EnterFloor(s)
+	}
+}
+
+func (s *FloorContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.ExitFloor(s)
+	}
+}
+
+func (s *FloorContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FormulaParserVisitor:
+		return t.VisitFloor(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *FormulaParser) Floor() (localctx IFloorContext) {
+	localctx = NewFloorContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 42, FormulaParserRULE_floor)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(276)
+		p.Match(FormulaParserFLOOR)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(277)
+		p.Match(FormulaParserLPAREN)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(278)
+		p.expression(0)
+	}
+	{
+		p.SetState(279)
+		p.Match(FormulaParserRPAREN)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// IGeolocationContext is an interface to support dynamic dispatch.
+type IGeolocationContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Getter signatures
+	GEOLOCATION() antlr.TerminalNode
+	LPAREN() antlr.TerminalNode
+	LatitudeExpression() ILatitudeExpressionContext
+	COMMA() antlr.TerminalNode
+	LongitudeExpression() ILongitudeExpressionContext
+	RPAREN() antlr.TerminalNode
+
+	// IsGeolocationContext differentiates from other interfaces.
+	IsGeolocationContext()
+}
+
+type GeolocationContext struct {
+	antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyGeolocationContext() *GeolocationContext {
+	var p = new(GeolocationContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_geolocation
+	return p
+}
+
+func InitEmptyGeolocationContext(p *GeolocationContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_geolocation
+}
+
+func (*GeolocationContext) IsGeolocationContext() {}
+
+func NewGeolocationContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *GeolocationContext {
+	var p = new(GeolocationContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = FormulaParserRULE_geolocation
+
+	return p
+}
+
+func (s *GeolocationContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *GeolocationContext) GEOLOCATION() antlr.TerminalNode {
+	return s.GetToken(FormulaParserGEOLOCATION, 0)
+}
+
+func (s *GeolocationContext) LPAREN() antlr.TerminalNode {
+	return s.GetToken(FormulaParserLPAREN, 0)
+}
+
+func (s *GeolocationContext) LatitudeExpression() ILatitudeExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ILatitudeExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ILatitudeExpressionContext)
+}
+
+func (s *GeolocationContext) COMMA() antlr.TerminalNode {
+	return s.GetToken(FormulaParserCOMMA, 0)
+}
+
+func (s *GeolocationContext) LongitudeExpression() ILongitudeExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(ILongitudeExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(ILongitudeExpressionContext)
+}
+
+func (s *GeolocationContext) RPAREN() antlr.TerminalNode {
+	return s.GetToken(FormulaParserRPAREN, 0)
+}
+
+func (s *GeolocationContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *GeolocationContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *GeolocationContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.EnterGeolocation(s)
+	}
+}
+
+func (s *GeolocationContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.ExitGeolocation(s)
+	}
+}
+
+func (s *GeolocationContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FormulaParserVisitor:
+		return t.VisitGeolocation(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *FormulaParser) Geolocation() (localctx IGeolocationContext) {
+	localctx = NewGeolocationContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 44, FormulaParserRULE_geolocation)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(281)
+		p.Match(FormulaParserGEOLOCATION)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(282)
+		p.Match(FormulaParserLPAREN)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(283)
+		p.LatitudeExpression()
+	}
+	{
+		p.SetState(284)
+		p.Match(FormulaParserCOMMA)
+		if p.HasError() {
+			// Recognition error - abort rule
+			goto errorExit
+		}
+	}
+	{
+		p.SetState(285)
+		p.LongitudeExpression()
+	}
+	{
+		p.SetState(286)
 		p.Match(FormulaParserRPAREN)
 		if p.HasError() {
 			// Recognition error - abort rule
@@ -4878,10 +6077,10 @@ func (s *ValueExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interfac
 
 func (p *FormulaParser) ValueExpression() (localctx IValueExpressionContext) {
 	localctx = NewValueExpressionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 36, FormulaParserRULE_valueExpression)
+	p.EnterRule(localctx, 46, FormulaParserRULE_valueExpression)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(222)
+		p.SetState(288)
 		p.expression(0)
 	}
 
@@ -4992,10 +6191,10 @@ func (s *ResultExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interfa
 
 func (p *FormulaParser) ResultExpression() (localctx IResultExpressionContext) {
 	localctx = NewResultExpressionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 38, FormulaParserRULE_resultExpression)
+	p.EnterRule(localctx, 48, FormulaParserRULE_resultExpression)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(224)
+		p.SetState(290)
 		p.expression(0)
 	}
 
@@ -5106,10 +6305,10 @@ func (s *DefaultExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interf
 
 func (p *FormulaParser) DefaultExpression() (localctx IDefaultExpressionContext) {
 	localctx = NewDefaultExpressionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 40, FormulaParserRULE_defaultExpression)
+	p.EnterRule(localctx, 50, FormulaParserRULE_defaultExpression)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(226)
+		p.SetState(292)
 		p.expression(0)
 	}
 
@@ -5220,10 +6419,10 @@ func (s *YearExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface
 
 func (p *FormulaParser) YearExpression() (localctx IYearExpressionContext) {
 	localctx = NewYearExpressionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 42, FormulaParserRULE_yearExpression)
+	p.EnterRule(localctx, 52, FormulaParserRULE_yearExpression)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(228)
+		p.SetState(294)
 		p.expression(0)
 	}
 
@@ -5334,10 +6533,10 @@ func (s *MonthExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interfac
 
 func (p *FormulaParser) MonthExpression() (localctx IMonthExpressionContext) {
 	localctx = NewMonthExpressionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 44, FormulaParserRULE_monthExpression)
+	p.EnterRule(localctx, 54, FormulaParserRULE_monthExpression)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(230)
+		p.SetState(296)
 		p.expression(0)
 	}
 
@@ -5448,10 +6647,694 @@ func (s *DayExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{
 
 func (p *FormulaParser) DayExpression() (localctx IDayExpressionContext) {
 	localctx = NewDayExpressionContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 46, FormulaParserRULE_dayExpression)
+	p.EnterRule(localctx, 56, FormulaParserRULE_dayExpression)
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(232)
+		p.SetState(298)
+		p.expression(0)
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// IUnitExpressionContext is an interface to support dynamic dispatch.
+type IUnitExpressionContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Getter signatures
+	Expression() IExpressionContext
+
+	// IsUnitExpressionContext differentiates from other interfaces.
+	IsUnitExpressionContext()
+}
+
+type UnitExpressionContext struct {
+	antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyUnitExpressionContext() *UnitExpressionContext {
+	var p = new(UnitExpressionContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_unitExpression
+	return p
+}
+
+func InitEmptyUnitExpressionContext(p *UnitExpressionContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_unitExpression
+}
+
+func (*UnitExpressionContext) IsUnitExpressionContext() {}
+
+func NewUnitExpressionContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *UnitExpressionContext {
+	var p = new(UnitExpressionContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = FormulaParserRULE_unitExpression
+
+	return p
+}
+
+func (s *UnitExpressionContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *UnitExpressionContext) Expression() IExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpressionContext)
+}
+
+func (s *UnitExpressionContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *UnitExpressionContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *UnitExpressionContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.EnterUnitExpression(s)
+	}
+}
+
+func (s *UnitExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.ExitUnitExpression(s)
+	}
+}
+
+func (s *UnitExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FormulaParserVisitor:
+		return t.VisitUnitExpression(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *FormulaParser) UnitExpression() (localctx IUnitExpressionContext) {
+	localctx = NewUnitExpressionContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 58, FormulaParserRULE_unitExpression)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(300)
+		p.expression(0)
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// ISearchExpressionContext is an interface to support dynamic dispatch.
+type ISearchExpressionContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Getter signatures
+	Expression() IExpressionContext
+
+	// IsSearchExpressionContext differentiates from other interfaces.
+	IsSearchExpressionContext()
+}
+
+type SearchExpressionContext struct {
+	antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptySearchExpressionContext() *SearchExpressionContext {
+	var p = new(SearchExpressionContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_searchExpression
+	return p
+}
+
+func InitEmptySearchExpressionContext(p *SearchExpressionContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_searchExpression
+}
+
+func (*SearchExpressionContext) IsSearchExpressionContext() {}
+
+func NewSearchExpressionContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *SearchExpressionContext {
+	var p = new(SearchExpressionContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = FormulaParserRULE_searchExpression
+
+	return p
+}
+
+func (s *SearchExpressionContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *SearchExpressionContext) Expression() IExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpressionContext)
+}
+
+func (s *SearchExpressionContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *SearchExpressionContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *SearchExpressionContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.EnterSearchExpression(s)
+	}
+}
+
+func (s *SearchExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.ExitSearchExpression(s)
+	}
+}
+
+func (s *SearchExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FormulaParserVisitor:
+		return t.VisitSearchExpression(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *FormulaParser) SearchExpression() (localctx ISearchExpressionContext) {
+	localctx = NewSearchExpressionContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 60, FormulaParserRULE_searchExpression)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(302)
+		p.expression(0)
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// ITextExpressionContext is an interface to support dynamic dispatch.
+type ITextExpressionContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Getter signatures
+	Expression() IExpressionContext
+
+	// IsTextExpressionContext differentiates from other interfaces.
+	IsTextExpressionContext()
+}
+
+type TextExpressionContext struct {
+	antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyTextExpressionContext() *TextExpressionContext {
+	var p = new(TextExpressionContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_textExpression
+	return p
+}
+
+func InitEmptyTextExpressionContext(p *TextExpressionContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_textExpression
+}
+
+func (*TextExpressionContext) IsTextExpressionContext() {}
+
+func NewTextExpressionContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *TextExpressionContext {
+	var p = new(TextExpressionContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = FormulaParserRULE_textExpression
+
+	return p
+}
+
+func (s *TextExpressionContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *TextExpressionContext) Expression() IExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpressionContext)
+}
+
+func (s *TextExpressionContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *TextExpressionContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *TextExpressionContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.EnterTextExpression(s)
+	}
+}
+
+func (s *TextExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.ExitTextExpression(s)
+	}
+}
+
+func (s *TextExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FormulaParserVisitor:
+		return t.VisitTextExpression(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *FormulaParser) TextExpression() (localctx ITextExpressionContext) {
+	localctx = NewTextExpressionContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 62, FormulaParserRULE_textExpression)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(304)
+		p.expression(0)
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// IStartExpressionContext is an interface to support dynamic dispatch.
+type IStartExpressionContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Getter signatures
+	Expression() IExpressionContext
+
+	// IsStartExpressionContext differentiates from other interfaces.
+	IsStartExpressionContext()
+}
+
+type StartExpressionContext struct {
+	antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyStartExpressionContext() *StartExpressionContext {
+	var p = new(StartExpressionContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_startExpression
+	return p
+}
+
+func InitEmptyStartExpressionContext(p *StartExpressionContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_startExpression
+}
+
+func (*StartExpressionContext) IsStartExpressionContext() {}
+
+func NewStartExpressionContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *StartExpressionContext {
+	var p = new(StartExpressionContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = FormulaParserRULE_startExpression
+
+	return p
+}
+
+func (s *StartExpressionContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *StartExpressionContext) Expression() IExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpressionContext)
+}
+
+func (s *StartExpressionContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *StartExpressionContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *StartExpressionContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.EnterStartExpression(s)
+	}
+}
+
+func (s *StartExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.ExitStartExpression(s)
+	}
+}
+
+func (s *StartExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FormulaParserVisitor:
+		return t.VisitStartExpression(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *FormulaParser) StartExpression() (localctx IStartExpressionContext) {
+	localctx = NewStartExpressionContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 64, FormulaParserRULE_startExpression)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(306)
+		p.expression(0)
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// ILatitudeExpressionContext is an interface to support dynamic dispatch.
+type ILatitudeExpressionContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Getter signatures
+	Expression() IExpressionContext
+
+	// IsLatitudeExpressionContext differentiates from other interfaces.
+	IsLatitudeExpressionContext()
+}
+
+type LatitudeExpressionContext struct {
+	antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyLatitudeExpressionContext() *LatitudeExpressionContext {
+	var p = new(LatitudeExpressionContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_latitudeExpression
+	return p
+}
+
+func InitEmptyLatitudeExpressionContext(p *LatitudeExpressionContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_latitudeExpression
+}
+
+func (*LatitudeExpressionContext) IsLatitudeExpressionContext() {}
+
+func NewLatitudeExpressionContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *LatitudeExpressionContext {
+	var p = new(LatitudeExpressionContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = FormulaParserRULE_latitudeExpression
+
+	return p
+}
+
+func (s *LatitudeExpressionContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *LatitudeExpressionContext) Expression() IExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpressionContext)
+}
+
+func (s *LatitudeExpressionContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *LatitudeExpressionContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *LatitudeExpressionContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.EnterLatitudeExpression(s)
+	}
+}
+
+func (s *LatitudeExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.ExitLatitudeExpression(s)
+	}
+}
+
+func (s *LatitudeExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FormulaParserVisitor:
+		return t.VisitLatitudeExpression(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *FormulaParser) LatitudeExpression() (localctx ILatitudeExpressionContext) {
+	localctx = NewLatitudeExpressionContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 66, FormulaParserRULE_latitudeExpression)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(308)
+		p.expression(0)
+	}
+
+errorExit:
+	if p.HasError() {
+		v := p.GetError()
+		localctx.SetException(v)
+		p.GetErrorHandler().ReportError(p, v)
+		p.GetErrorHandler().Recover(p, v)
+		p.SetError(nil)
+	}
+	p.ExitRule()
+	return localctx
+	goto errorExit // Trick to prevent compiler error if the label is not used
+}
+
+// ILongitudeExpressionContext is an interface to support dynamic dispatch.
+type ILongitudeExpressionContext interface {
+	antlr.ParserRuleContext
+
+	// GetParser returns the parser.
+	GetParser() antlr.Parser
+
+	// Getter signatures
+	Expression() IExpressionContext
+
+	// IsLongitudeExpressionContext differentiates from other interfaces.
+	IsLongitudeExpressionContext()
+}
+
+type LongitudeExpressionContext struct {
+	antlr.BaseParserRuleContext
+	parser antlr.Parser
+}
+
+func NewEmptyLongitudeExpressionContext() *LongitudeExpressionContext {
+	var p = new(LongitudeExpressionContext)
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_longitudeExpression
+	return p
+}
+
+func InitEmptyLongitudeExpressionContext(p *LongitudeExpressionContext) {
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, nil, -1)
+	p.RuleIndex = FormulaParserRULE_longitudeExpression
+}
+
+func (*LongitudeExpressionContext) IsLongitudeExpressionContext() {}
+
+func NewLongitudeExpressionContext(parser antlr.Parser, parent antlr.ParserRuleContext, invokingState int) *LongitudeExpressionContext {
+	var p = new(LongitudeExpressionContext)
+
+	antlr.InitBaseParserRuleContext(&p.BaseParserRuleContext, parent, invokingState)
+
+	p.parser = parser
+	p.RuleIndex = FormulaParserRULE_longitudeExpression
+
+	return p
+}
+
+func (s *LongitudeExpressionContext) GetParser() antlr.Parser { return s.parser }
+
+func (s *LongitudeExpressionContext) Expression() IExpressionContext {
+	var t antlr.RuleContext
+	for _, ctx := range s.GetChildren() {
+		if _, ok := ctx.(IExpressionContext); ok {
+			t = ctx.(antlr.RuleContext)
+			break
+		}
+	}
+
+	if t == nil {
+		return nil
+	}
+
+	return t.(IExpressionContext)
+}
+
+func (s *LongitudeExpressionContext) GetRuleContext() antlr.RuleContext {
+	return s
+}
+
+func (s *LongitudeExpressionContext) ToStringTree(ruleNames []string, recog antlr.Recognizer) string {
+	return antlr.TreesStringTree(s, ruleNames, recog)
+}
+
+func (s *LongitudeExpressionContext) EnterRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.EnterLongitudeExpression(s)
+	}
+}
+
+func (s *LongitudeExpressionContext) ExitRule(listener antlr.ParseTreeListener) {
+	if listenerT, ok := listener.(FormulaParserListener); ok {
+		listenerT.ExitLongitudeExpression(s)
+	}
+}
+
+func (s *LongitudeExpressionContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case FormulaParserVisitor:
+		return t.VisitLongitudeExpression(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
+func (p *FormulaParser) LongitudeExpression() (localctx ILongitudeExpressionContext) {
+	localctx = NewLongitudeExpressionContext(p, p.GetParserRuleContext(), p.GetState())
+	p.EnterRule(localctx, 68, FormulaParserRULE_longitudeExpression)
+	p.EnterOuterAlt(localctx, 1)
+	{
+		p.SetState(310)
 		p.expression(0)
 	}
 
@@ -5589,8 +7472,8 @@ func (s *PrimaryContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *FormulaParser) Primary() (localctx IPrimaryContext) {
 	localctx = NewPrimaryContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 48, FormulaParserRULE_primary)
-	p.SetState(239)
+	p.EnterRule(localctx, 70, FormulaParserRULE_primary)
+	p.SetState(317)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -5600,14 +7483,14 @@ func (p *FormulaParser) Primary() (localctx IPrimaryContext) {
 	case FormulaParserStringLiteral, FormulaParserIntegerLiteral, FormulaParserFloatingPointLiteral, FormulaParserBooleanLiteral, FormulaParserNullLiteral:
 		p.EnterOuterAlt(localctx, 1)
 		{
-			p.SetState(234)
+			p.SetState(312)
 			p.Literal()
 		}
 
 	case FormulaParserLPAREN:
 		p.EnterOuterAlt(localctx, 2)
 		{
-			p.SetState(235)
+			p.SetState(313)
 			p.Match(FormulaParserLPAREN)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -5615,11 +7498,11 @@ func (p *FormulaParser) Primary() (localctx IPrimaryContext) {
 			}
 		}
 		{
-			p.SetState(236)
+			p.SetState(314)
 			p.expression(0)
 		}
 		{
-			p.SetState(237)
+			p.SetState(315)
 			p.Match(FormulaParserRPAREN)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -5775,15 +7658,15 @@ func (s *ArgumentsContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *FormulaParser) Arguments() (localctx IArgumentsContext) {
 	localctx = NewArgumentsContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 50, FormulaParserRULE_arguments)
+	p.EnterRule(localctx, 72, FormulaParserRULE_arguments)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(241)
+		p.SetState(319)
 		p.expression(0)
 	}
-	p.SetState(246)
+	p.SetState(324)
 	p.GetErrorHandler().Sync(p)
 	if p.HasError() {
 		goto errorExit
@@ -5792,7 +7675,7 @@ func (p *FormulaParser) Arguments() (localctx IArgumentsContext) {
 
 	for _la == FormulaParserCOMMA {
 		{
-			p.SetState(242)
+			p.SetState(320)
 			p.Match(FormulaParserCOMMA)
 			if p.HasError() {
 				// Recognition error - abort rule
@@ -5800,11 +7683,11 @@ func (p *FormulaParser) Arguments() (localctx IArgumentsContext) {
 			}
 		}
 		{
-			p.SetState(243)
+			p.SetState(321)
 			p.expression(0)
 		}
 
-		p.SetState(248)
+		p.SetState(326)
 		p.GetErrorHandler().Sync(p)
 		if p.HasError() {
 			goto errorExit
@@ -5927,12 +7810,12 @@ func (s *LiteralContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
 
 func (p *FormulaParser) Literal() (localctx ILiteralContext) {
 	localctx = NewLiteralContext(p, p.GetParserRuleContext(), p.GetState())
-	p.EnterRule(localctx, 52, FormulaParserRULE_literal)
+	p.EnterRule(localctx, 74, FormulaParserRULE_literal)
 	var _la int
 
 	p.EnterOuterAlt(localctx, 1)
 	{
-		p.SetState(249)
+		p.SetState(327)
 		_la = p.GetTokenStream().LA(1)
 
 		if !((int64((_la-86)) & ^0x3f) == 0 && ((int64(1)<<(_la-86))&31) != 0) {
