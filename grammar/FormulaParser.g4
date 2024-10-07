@@ -74,7 +74,7 @@ functionCall
 
 abs : ABS LPAREN expression RPAREN ;
 addMonths : ADDMONTHS LPAREN expression COMMA expression RPAREN ;
-and : AND_FUNC LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
+and : AND_FUNC LPAREN expression (COMMA expression)* RPAREN ;
 begins : BEGINS LPAREN textExpression COMMA compareText RPAREN ;
 blankvalue : BLANKVALUE LPAREN expression COMMA substituteValue RPAREN ;
 // TODO: only allow BR() without without whitespace within parentheses and

@@ -25,6 +25,11 @@ func TestCompilationUnit(t *testing.T) {
 			output string
 		}{
 			{
+				// Single arguments are allowed to AND
+				`IF(AND(true), true, false)`,
+				`IF(AND(true), true, false)`,
+			},
+			{
 				`AND(true,false)`,
 				`AND(true, false)`,
 			},

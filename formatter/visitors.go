@@ -328,6 +328,16 @@ func (v *FormatVisitor) VisitDatevalue(ctx *parser.DatevalueContext) interface{}
 	return fmt.Sprintf("DATEVALUE(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
+func (v *FormatVisitor) VisitDatetimevalue(ctx *parser.DatetimevalueContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("DATETIMVALUE(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("DATETIMVALUE(%s)", v.visitRule(ctx.Expression()).(string))
+}
+
 func (v *FormatVisitor) VisitText(ctx *parser.TextContext) interface{} {
 	if len(ctx.GetText()) < 60 {
 		defer restoreWrap(unwrap(v))
