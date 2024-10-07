@@ -94,6 +94,76 @@ func (v *FormatVisitor) VisitHyperlink(ctx *parser.HyperlinkContext) interface{}
 	return fmt.Sprintf("HYPERLINK(%s)", strings.Join(args, ", "))
 }
 
+func (v *FormatVisitor) VisitIf(ctx *parser.IfContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("IF(%s,\n%s,\n%s\n)", v.visitRule(ctx.LogicalExpression()),
+			v.indent(v.visitRule(ctx.IfTrueExpression()).(string)),
+			v.indent(v.visitRule(ctx.IfFalseExpression()).(string)),
+		)
+	}
+	return fmt.Sprintf("IF(%s, %s, %s)", v.visitRule(ctx.LogicalExpression()), v.visitRule(ctx.IfTrueExpression()), v.visitRule(ctx.IfFalseExpression()))
+}
+
+func (v *FormatVisitor) VisitMid(ctx *parser.MidContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("MID(\n%s,\n%s,\n%s\n)", v.indent(v.visitRule(ctx.TextExpression()).(string)),
+			v.indent(v.visitRule(ctx.StartNum()).(string)),
+			v.indent(v.visitRule(ctx.NumChars()).(string)),
+		)
+	}
+	return fmt.Sprintf("MID(%s, %s, %s)", v.visitRule(ctx.TextExpression()), v.visitRule(ctx.StartNum()), v.visitRule(ctx.NumChars()))
+}
+
+func (v *FormatVisitor) VisitIncludes(ctx *parser.IncludesContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("INCLUDES(%s,\n%s\n)", v.visitRule(ctx.FieldExpression()), v.indent(v.visitRule(ctx.ValueExpression()).(string)))
+	}
+	return fmt.Sprintf("INCLUDES(%s, %s)", v.visitRule(ctx.FieldExpression()), v.visitRule(ctx.ValueExpression()))
+}
+
+func (v *FormatVisitor) VisitDatevalue(ctx *parser.DatevalueContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("DATEVALUE(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("DATEVALUE(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+}
+
+func (v *FormatVisitor) VisitText(ctx *parser.TextContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("TEXT(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("TEXT(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+}
+
+func (v *FormatVisitor) VisitValue(ctx *parser.ValueContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("VALUE(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("VALUE(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+}
+
+func (v *FormatVisitor) VisitBr(ctx *parser.BrContext) interface{} {
+	return "BR()"
+}
+
 func (v *FormatVisitor) VisitImage(ctx *parser.ImageContext) interface{} {
 	if len(ctx.GetText()) < 80 {
 		defer restoreWrap(unwrap(v))
@@ -129,6 +199,26 @@ func (v *FormatVisitor) VisitLongitudeExpression(ctx *parser.LongitudeExpression
 	return v.visitRule(ctx.Expression())
 }
 
+func (v *FormatVisitor) VisitLogicalExpression(ctx *parser.LogicalExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitIfTrueExpression(ctx *parser.IfTrueExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitIfFalseExpression(ctx *parser.IfFalseExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitStartNum(ctx *parser.StartNumContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitNumChars(ctx *parser.NumCharsContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
 func (v *FormatVisitor) VisitFieldReference(ctx *parser.FieldReferenceContext) interface{} {
 	return ctx.GetText()
 }
@@ -145,8 +235,24 @@ func (v *FormatVisitor) VisitTextExpression(ctx *parser.TextExpressionContext) i
 	return v.visitRule(ctx.Expression())
 }
 
+func (v *FormatVisitor) VisitFieldExpression(ctx *parser.FieldExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitValueExpression(ctx *parser.ValueExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
 func (v *FormatVisitor) VisitNameExpression(ctx *parser.NameExpressionContext) interface{} {
 	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitCompareExpression(ctx *parser.CompareExpressionContext) interface{} {
+	cmpToken := ctx.GetChild(1).(antlr.TerminalNode).GetText()
+	if ctx.ASSIGN() != nil {
+		cmpToken += "="
+	}
+	return fmt.Sprintf("%s %s %s", v.visitRule(ctx.Expression(0)), cmpToken, v.visitRule(ctx.Expression(1)))
 }
 
 func (v *FormatVisitor) VisitConcatExpression(ctx *parser.ConcatExpressionContext) interface{} {
@@ -154,6 +260,10 @@ func (v *FormatVisitor) VisitConcatExpression(ctx *parser.ConcatExpressionContex
 }
 
 func (v *FormatVisitor) VisitArithExpression(ctx *parser.ArithExpressionContext) interface{} {
+	return fmt.Sprintf("%s %s %s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression(1)))
+}
+
+func (v *FormatVisitor) VisitLogicExpression(ctx *parser.LogicExpressionContext) interface{} {
 	return fmt.Sprintf("%s %s %s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression(1)))
 }
 

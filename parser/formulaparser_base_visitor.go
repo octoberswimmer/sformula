@@ -163,6 +163,30 @@ func (v *BaseFormulaParserVisitor) VisitImage(ctx *ImageContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitImageproxyurl(ctx *ImageproxyurlContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitMid(ctx *MidContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitIncludes(ctx *IncludesContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitText(ctx *TextContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitValue(ctx *ValueContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitFieldExpression(ctx *FieldExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitValueExpression(ctx *ValueExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -199,7 +223,7 @@ func (v *BaseFormulaParserVisitor) VisitTextExpression(ctx *TextExpressionContex
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseFormulaParserVisitor) VisitStartExpression(ctx *StartExpressionContext) interface{} {
+func (v *BaseFormulaParserVisitor) VisitStartNum(ctx *StartNumContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -240,6 +264,14 @@ func (v *BaseFormulaParserVisitor) VisitHeightExpression(ctx *HeightExpressionCo
 }
 
 func (v *BaseFormulaParserVisitor) VisitWidthExpression(ctx *WidthExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitStart(ctx *StartContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitNumChars(ctx *NumCharsContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

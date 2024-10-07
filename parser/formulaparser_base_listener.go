@@ -256,6 +256,42 @@ func (s *BaseFormulaParserListener) EnterImage(ctx *ImageContext) {}
 // ExitImage is called when production image is exited.
 func (s *BaseFormulaParserListener) ExitImage(ctx *ImageContext) {}
 
+// EnterImageproxyurl is called when production imageproxyurl is entered.
+func (s *BaseFormulaParserListener) EnterImageproxyurl(ctx *ImageproxyurlContext) {}
+
+// ExitImageproxyurl is called when production imageproxyurl is exited.
+func (s *BaseFormulaParserListener) ExitImageproxyurl(ctx *ImageproxyurlContext) {}
+
+// EnterMid is called when production mid is entered.
+func (s *BaseFormulaParserListener) EnterMid(ctx *MidContext) {}
+
+// ExitMid is called when production mid is exited.
+func (s *BaseFormulaParserListener) ExitMid(ctx *MidContext) {}
+
+// EnterIncludes is called when production includes is entered.
+func (s *BaseFormulaParserListener) EnterIncludes(ctx *IncludesContext) {}
+
+// ExitIncludes is called when production includes is exited.
+func (s *BaseFormulaParserListener) ExitIncludes(ctx *IncludesContext) {}
+
+// EnterText is called when production text is entered.
+func (s *BaseFormulaParserListener) EnterText(ctx *TextContext) {}
+
+// ExitText is called when production text is exited.
+func (s *BaseFormulaParserListener) ExitText(ctx *TextContext) {}
+
+// EnterValue is called when production value is entered.
+func (s *BaseFormulaParserListener) EnterValue(ctx *ValueContext) {}
+
+// ExitValue is called when production value is exited.
+func (s *BaseFormulaParserListener) ExitValue(ctx *ValueContext) {}
+
+// EnterFieldExpression is called when production fieldExpression is entered.
+func (s *BaseFormulaParserListener) EnterFieldExpression(ctx *FieldExpressionContext) {}
+
+// ExitFieldExpression is called when production fieldExpression is exited.
+func (s *BaseFormulaParserListener) ExitFieldExpression(ctx *FieldExpressionContext) {}
+
 // EnterValueExpression is called when production valueExpression is entered.
 func (s *BaseFormulaParserListener) EnterValueExpression(ctx *ValueExpressionContext) {}
 
@@ -310,11 +346,11 @@ func (s *BaseFormulaParserListener) EnterTextExpression(ctx *TextExpressionConte
 // ExitTextExpression is called when production textExpression is exited.
 func (s *BaseFormulaParserListener) ExitTextExpression(ctx *TextExpressionContext) {}
 
-// EnterStartExpression is called when production startExpression is entered.
-func (s *BaseFormulaParserListener) EnterStartExpression(ctx *StartExpressionContext) {}
+// EnterStartNum is called when production startNum is entered.
+func (s *BaseFormulaParserListener) EnterStartNum(ctx *StartNumContext) {}
 
-// ExitStartExpression is called when production startExpression is exited.
-func (s *BaseFormulaParserListener) ExitStartExpression(ctx *StartExpressionContext) {}
+// ExitStartNum is called when production startNum is exited.
+func (s *BaseFormulaParserListener) ExitStartNum(ctx *StartNumContext) {}
 
 // EnterLatitudeExpression is called when production latitudeExpression is entered.
 func (s *BaseFormulaParserListener) EnterLatitudeExpression(ctx *LatitudeExpressionContext) {}
@@ -375,6 +411,18 @@ func (s *BaseFormulaParserListener) EnterWidthExpression(ctx *WidthExpressionCon
 
 // ExitWidthExpression is called when production widthExpression is exited.
 func (s *BaseFormulaParserListener) ExitWidthExpression(ctx *WidthExpressionContext) {}
+
+// EnterStart is called when production start is entered.
+func (s *BaseFormulaParserListener) EnterStart(ctx *StartContext) {}
+
+// ExitStart is called when production start is exited.
+func (s *BaseFormulaParserListener) ExitStart(ctx *StartContext) {}
+
+// EnterNumChars is called when production numChars is entered.
+func (s *BaseFormulaParserListener) EnterNumChars(ctx *NumCharsContext) {}
+
+// ExitNumChars is called when production numChars is exited.
+func (s *BaseFormulaParserListener) ExitNumChars(ctx *NumCharsContext) {}
 
 // EnterPrimary is called when production primary is entered.
 func (s *BaseFormulaParserListener) EnterPrimary(ctx *PrimaryContext) {}

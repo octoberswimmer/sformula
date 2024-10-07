@@ -124,6 +124,24 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#image.
 	VisitImage(ctx *ImageContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#imageproxyurl.
+	VisitImageproxyurl(ctx *ImageproxyurlContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#mid.
+	VisitMid(ctx *MidContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#includes.
+	VisitIncludes(ctx *IncludesContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#text.
+	VisitText(ctx *TextContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#value.
+	VisitValue(ctx *ValueContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#fieldExpression.
+	VisitFieldExpression(ctx *FieldExpressionContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#valueExpression.
 	VisitValueExpression(ctx *ValueExpressionContext) interface{}
 
@@ -151,8 +169,8 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#textExpression.
 	VisitTextExpression(ctx *TextExpressionContext) interface{}
 
-	// Visit a parse tree produced by FormulaParser#startExpression.
-	VisitStartExpression(ctx *StartExpressionContext) interface{}
+	// Visit a parse tree produced by FormulaParser#startNum.
+	VisitStartNum(ctx *StartNumContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#latitudeExpression.
 	VisitLatitudeExpression(ctx *LatitudeExpressionContext) interface{}
@@ -183,6 +201,12 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#widthExpression.
 	VisitWidthExpression(ctx *WidthExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#start.
+	VisitStart(ctx *StartContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#numChars.
+	VisitNumChars(ctx *NumCharsContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#primary.
 	VisitPrimary(ctx *PrimaryContext) interface{}

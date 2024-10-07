@@ -124,6 +124,24 @@ type FormulaParserListener interface {
 	// EnterImage is called when entering the image production.
 	EnterImage(c *ImageContext)
 
+	// EnterImageproxyurl is called when entering the imageproxyurl production.
+	EnterImageproxyurl(c *ImageproxyurlContext)
+
+	// EnterMid is called when entering the mid production.
+	EnterMid(c *MidContext)
+
+	// EnterIncludes is called when entering the includes production.
+	EnterIncludes(c *IncludesContext)
+
+	// EnterText is called when entering the text production.
+	EnterText(c *TextContext)
+
+	// EnterValue is called when entering the value production.
+	EnterValue(c *ValueContext)
+
+	// EnterFieldExpression is called when entering the fieldExpression production.
+	EnterFieldExpression(c *FieldExpressionContext)
+
 	// EnterValueExpression is called when entering the valueExpression production.
 	EnterValueExpression(c *ValueExpressionContext)
 
@@ -151,8 +169,8 @@ type FormulaParserListener interface {
 	// EnterTextExpression is called when entering the textExpression production.
 	EnterTextExpression(c *TextExpressionContext)
 
-	// EnterStartExpression is called when entering the startExpression production.
-	EnterStartExpression(c *StartExpressionContext)
+	// EnterStartNum is called when entering the startNum production.
+	EnterStartNum(c *StartNumContext)
 
 	// EnterLatitudeExpression is called when entering the latitudeExpression production.
 	EnterLatitudeExpression(c *LatitudeExpressionContext)
@@ -183,6 +201,12 @@ type FormulaParserListener interface {
 
 	// EnterWidthExpression is called when entering the widthExpression production.
 	EnterWidthExpression(c *WidthExpressionContext)
+
+	// EnterStart is called when entering the start production.
+	EnterStart(c *StartContext)
+
+	// EnterNumChars is called when entering the numChars production.
+	EnterNumChars(c *NumCharsContext)
 
 	// EnterPrimary is called when entering the primary production.
 	EnterPrimary(c *PrimaryContext)
@@ -310,6 +334,24 @@ type FormulaParserListener interface {
 	// ExitImage is called when exiting the image production.
 	ExitImage(c *ImageContext)
 
+	// ExitImageproxyurl is called when exiting the imageproxyurl production.
+	ExitImageproxyurl(c *ImageproxyurlContext)
+
+	// ExitMid is called when exiting the mid production.
+	ExitMid(c *MidContext)
+
+	// ExitIncludes is called when exiting the includes production.
+	ExitIncludes(c *IncludesContext)
+
+	// ExitText is called when exiting the text production.
+	ExitText(c *TextContext)
+
+	// ExitValue is called when exiting the value production.
+	ExitValue(c *ValueContext)
+
+	// ExitFieldExpression is called when exiting the fieldExpression production.
+	ExitFieldExpression(c *FieldExpressionContext)
+
 	// ExitValueExpression is called when exiting the valueExpression production.
 	ExitValueExpression(c *ValueExpressionContext)
 
@@ -337,8 +379,8 @@ type FormulaParserListener interface {
 	// ExitTextExpression is called when exiting the textExpression production.
 	ExitTextExpression(c *TextExpressionContext)
 
-	// ExitStartExpression is called when exiting the startExpression production.
-	ExitStartExpression(c *StartExpressionContext)
+	// ExitStartNum is called when exiting the startNum production.
+	ExitStartNum(c *StartNumContext)
 
 	// ExitLatitudeExpression is called when exiting the latitudeExpression production.
 	ExitLatitudeExpression(c *LatitudeExpressionContext)
@@ -369,6 +411,12 @@ type FormulaParserListener interface {
 
 	// ExitWidthExpression is called when exiting the widthExpression production.
 	ExitWidthExpression(c *WidthExpressionContext)
+
+	// ExitStart is called when exiting the start production.
+	ExitStart(c *StartContext)
+
+	// ExitNumChars is called when exiting the numChars production.
+	ExitNumChars(c *NumCharsContext)
 
 	// ExitPrimary is called when exiting the primary production.
 	ExitPrimary(c *PrimaryContext)

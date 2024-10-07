@@ -47,6 +47,11 @@ functionCall
     | hyperlink
     | if
     | image
+    | imageproxyurl
+    | includes
+    | mid
+    | text
+    | value
 
     ;
 
@@ -69,7 +74,7 @@ datetimevalue : DATETIMEVALUE LPAREN expression RPAREN ;
 day : DAY LPAREN expression RPAREN ;
 distance : DISTANCE LPAREN expression COMMA expression COMMA unitExpression RPAREN ;
 exp : EXP LPAREN expression RPAREN ;
-find : FIND LPAREN searchExpression COMMA textExpression (COMMA startExpression)? RPAREN ;
+find : FIND LPAREN searchExpression COMMA textExpression (COMMA startNum)? RPAREN ;
 floor : FLOOR LPAREN expression RPAREN ;
 geolocation : GEOLOCATION LPAREN latitudeExpression COMMA longitudeExpression RPAREN ;
 // TOOD: Only allow literals, $SObjectType.<object>?
@@ -80,7 +85,14 @@ htmlencode : HTMLENCODE LPAREN expression RPAREN ;
 hyperlink : HYPERLINK LPAREN urlExpression COMMA nameExpression (COMMA targetExpression)? RPAREN ;
 if : IF LPAREN logicalExpression COMMA ifTrueExpression COMMA ifFalseExpression RPAREN ;
 image : IMAGE LPAREN urlExpression COMMA textExpression (COMMA heightExpression COMMA widthExpression)? RPAREN ;
+imageproxyurl : IMAGEPROXYURL LPAREN urlExpression RPAREN ;
+mid : MID LPAREN textExpression COMMA startNum COMMA numChars RPAREN ;
+includes: INCLUDES LPAREN fieldExpression COMMA valueExpression RPAREN ;
+text : TEXT LPAREN expression RPAREN ;
+value : VALUE LPAREN expression RPAREN ;
 
+
+fieldExpression : expression ;
 
 valueExpression : expression ;
 resultExpression : expression ;
@@ -94,7 +106,7 @@ unitExpression : expression ;
 
 searchExpression : expression ;
 textExpression : expression ;
-startExpression : expression ;
+startNum : expression ;
 
 latitudeExpression : expression ;
 longitudeExpression : expression ;
@@ -109,6 +121,9 @@ ifFalseExpression : expression ;
 
 heightExpression : expression ;
 widthExpression : expression ;
+
+start : expression ;
+numChars : expression ;
 
 primary
     :   literal
