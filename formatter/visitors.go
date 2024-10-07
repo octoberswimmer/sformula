@@ -216,6 +216,9 @@ func (v *FormatVisitor) VisitMid(ctx *parser.MidContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitLeft(ctx *parser.LeftContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
 	}
@@ -226,6 +229,9 @@ func (v *FormatVisitor) VisitLeft(ctx *parser.LeftContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitRight(ctx *parser.RightContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
 	}
@@ -452,6 +458,9 @@ func (v *FormatVisitor) VisitYear(ctx *parser.YearContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitIsnull(ctx *parser.IsnullContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
 	}
