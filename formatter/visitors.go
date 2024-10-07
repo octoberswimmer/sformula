@@ -80,7 +80,7 @@ func (v *FormatVisitor) VisitCase(ctx *parser.CaseContext) interface{} {
 	valueExpressions := ctx.AllValueExpression()
 	resultExpressions := ctx.AllResultExpression()
 	for i, e := range valueExpressions {
-		cases = append(cases, v.indent(fmt.Sprintf("%s,%s", v.visitRule(e), v.visitRule(resultExpressions[i]))))
+		cases = append(cases, v.indent(fmt.Sprintf("%s, %s", v.visitRule(e), v.visitRule(resultExpressions[i]))))
 	}
 	return fmt.Sprintf("CASE(\n%s,\n%s,\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)),
 		v.indent(strings.Join(cases, ",\n")),
@@ -172,7 +172,7 @@ func (v *FormatVisitor) VisitIf(ctx *parser.IfContext) interface{} {
 		defer restoreWrap(wrap(v))
 	}
 	if v.wrap {
-		return fmt.Sprintf("IF(%s,\n%s,\n%s\n)", v.visitRule(ctx.LogicalExpression()),
+		return fmt.Sprintf("IF(\n%s,\n%s,\n%s\n)", v.indent(v.visitRule(ctx.LogicalExpression()).(string)),
 			v.indent(v.visitRule(ctx.IfTrueExpression()).(string)),
 			v.indent(v.visitRule(ctx.IfFalseExpression()).(string)),
 		)
@@ -200,6 +200,9 @@ func (v *FormatVisitor) VisitSubstitute(ctx *parser.SubstituteContext) interface
 }
 
 func (v *FormatVisitor) VisitMid(ctx *parser.MidContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
 	}
@@ -233,6 +236,9 @@ func (v *FormatVisitor) VisitRight(ctx *parser.RightContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitIncludes(ctx *parser.IncludesContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
 	}
@@ -247,7 +253,7 @@ func (v *FormatVisitor) VisitIspickval(ctx *parser.IspickvalContext) interface{}
 		defer restoreWrap(wrap(v))
 	}
 	if v.wrap {
-		return fmt.Sprintf("ISPICKVAL(%s,\n%s\n)", v.visitRule(ctx.FieldExpression()), v.indent(v.visitRule(ctx.ValueExpression()).(string)))
+		return fmt.Sprintf("ISPICKVAL(\n%s,\n%s\n)", v.visitRule(ctx.FieldExpression()), v.indent(v.visitRule(ctx.ValueExpression()).(string)))
 	}
 	return fmt.Sprintf("ISPICKVAL(%s, %s)", v.visitRule(ctx.FieldExpression()), v.visitRule(ctx.ValueExpression()))
 }
@@ -283,7 +289,9 @@ func (v *FormatVisitor) VisitBegins(ctx *parser.BeginsContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitContains(ctx *parser.ContainsContext) interface{} {
-	if len(ctx.GetText()) > 60 {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	} else if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
 	}
 	if v.wrap {
@@ -321,13 +329,13 @@ func (v *FormatVisitor) VisitDatevalue(ctx *parser.DatevalueContext) interface{}
 }
 
 func (v *FormatVisitor) VisitText(ctx *parser.TextContext) interface{} {
-	if len(ctx.GetText()) > 60 {
-		defer restoreWrap(wrap(v))
+	if len(ctx.GetText()) < 60 {
+		defer restoreWrap(unwrap(v))
 	}
 	if v.wrap {
 		return fmt.Sprintf("TEXT(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("TEXT(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("TEXT(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitFloor(ctx *parser.FloorContext) interface{} {
@@ -337,7 +345,7 @@ func (v *FormatVisitor) VisitFloor(ctx *parser.FloorContext) interface{} {
 	if v.wrap {
 		return fmt.Sprintf("FLOOR(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("FLOOR(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("FLOOR(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitCasesafeid(ctx *parser.CasesafeidContext) interface{} {
@@ -347,7 +355,7 @@ func (v *FormatVisitor) VisitCasesafeid(ctx *parser.CasesafeidContext) interface
 	if v.wrap {
 		return fmt.Sprintf("CASESAFEID(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("CASESAFEID(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("CASESAFEID(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitLen(ctx *parser.LenContext) interface{} {
@@ -357,7 +365,7 @@ func (v *FormatVisitor) VisitLen(ctx *parser.LenContext) interface{} {
 	if v.wrap {
 		return fmt.Sprintf("LEN(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("LEN(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("LEN(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitAbs(ctx *parser.AbsContext) interface{} {
@@ -367,7 +375,7 @@ func (v *FormatVisitor) VisitAbs(ctx *parser.AbsContext) interface{} {
 	if v.wrap {
 		return fmt.Sprintf("ABS(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("ABS(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("ABS(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitCeiling(ctx *parser.CeilingContext) interface{} {
@@ -377,17 +385,20 @@ func (v *FormatVisitor) VisitCeiling(ctx *parser.CeilingContext) interface{} {
 	if v.wrap {
 		return fmt.Sprintf("CEILING(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("CEILING(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("CEILING(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitNot(ctx *parser.NotContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
 	}
 	if v.wrap {
 		return fmt.Sprintf("NOT(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("NOT(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("NOT(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitValue(ctx *parser.ValueContext) interface{} {
@@ -397,7 +408,7 @@ func (v *FormatVisitor) VisitValue(ctx *parser.ValueContext) interface{} {
 	if v.wrap {
 		return fmt.Sprintf("VALUE(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("VALUE(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("VALUE(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitDay(ctx *parser.DayContext) interface{} {
@@ -407,7 +418,7 @@ func (v *FormatVisitor) VisitDay(ctx *parser.DayContext) interface{} {
 	if v.wrap {
 		return fmt.Sprintf("DAY(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("DAY(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("DAY(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitMonth(ctx *parser.MonthContext) interface{} {
@@ -417,7 +428,7 @@ func (v *FormatVisitor) VisitMonth(ctx *parser.MonthContext) interface{} {
 	if v.wrap {
 		return fmt.Sprintf("MONTH(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("MONTH(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("MONTH(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitYear(ctx *parser.YearContext) interface{} {
@@ -425,9 +436,9 @@ func (v *FormatVisitor) VisitYear(ctx *parser.YearContext) interface{} {
 		defer restoreWrap(wrap(v))
 	}
 	if v.wrap {
-		return fmt.Sprintf("MONTH(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+		return fmt.Sprintf("YEAR(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("MONTH(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("YEAR(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitIsnull(ctx *parser.IsnullContext) interface{} {
@@ -437,17 +448,20 @@ func (v *FormatVisitor) VisitIsnull(ctx *parser.IsnullContext) interface{} {
 	if v.wrap {
 		return fmt.Sprintf("ISNULL(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("ISNULL(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("ISNULL(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitTrim(ctx *parser.TrimContext) interface{} {
+	if len(ctx.GetText()) > 40 {
+		defer restoreWrap(unwrap(v))
+	}
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
 	}
 	if v.wrap {
 		return fmt.Sprintf("TRIM(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("TRIM(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("TRIM(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitIsblank(ctx *parser.IsblankContext) interface{} {
@@ -457,7 +471,7 @@ func (v *FormatVisitor) VisitIsblank(ctx *parser.IsblankContext) interface{} {
 	if v.wrap {
 		return fmt.Sprintf("ISBLANK(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("ISBLANK(\n%s\n)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("ISBLANK(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitBlankvalue(ctx *parser.BlankvalueContext) interface{} {
