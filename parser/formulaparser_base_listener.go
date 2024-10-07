@@ -262,17 +262,107 @@ func (s *BaseFormulaParserListener) EnterImageproxyurl(ctx *ImageproxyurlContext
 // ExitImageproxyurl is called when production imageproxyurl is exited.
 func (s *BaseFormulaParserListener) ExitImageproxyurl(ctx *ImageproxyurlContext) {}
 
+// EnterIncludes is called when production includes is entered.
+func (s *BaseFormulaParserListener) EnterIncludes(ctx *IncludesContext) {}
+
+// ExitIncludes is called when production includes is exited.
+func (s *BaseFormulaParserListener) ExitIncludes(ctx *IncludesContext) {}
+
+// EnterIsblank is called when production isblank is entered.
+func (s *BaseFormulaParserListener) EnterIsblank(ctx *IsblankContext) {}
+
+// ExitIsblank is called when production isblank is exited.
+func (s *BaseFormulaParserListener) ExitIsblank(ctx *IsblankContext) {}
+
+// EnterIsnull is called when production isnull is entered.
+func (s *BaseFormulaParserListener) EnterIsnull(ctx *IsnullContext) {}
+
+// ExitIsnull is called when production isnull is exited.
+func (s *BaseFormulaParserListener) ExitIsnull(ctx *IsnullContext) {}
+
+// EnterIspickval is called when production ispickval is entered.
+func (s *BaseFormulaParserListener) EnterIspickval(ctx *IspickvalContext) {}
+
+// ExitIspickval is called when production ispickval is exited.
+func (s *BaseFormulaParserListener) ExitIspickval(ctx *IspickvalContext) {}
+
+// EnterLeft is called when production left is entered.
+func (s *BaseFormulaParserListener) EnterLeft(ctx *LeftContext) {}
+
+// ExitLeft is called when production left is exited.
+func (s *BaseFormulaParserListener) ExitLeft(ctx *LeftContext) {}
+
+// EnterLen is called when production len is entered.
+func (s *BaseFormulaParserListener) EnterLen(ctx *LenContext) {}
+
+// ExitLen is called when production len is exited.
+func (s *BaseFormulaParserListener) ExitLen(ctx *LenContext) {}
+
 // EnterMid is called when production mid is entered.
 func (s *BaseFormulaParserListener) EnterMid(ctx *MidContext) {}
 
 // ExitMid is called when production mid is exited.
 func (s *BaseFormulaParserListener) ExitMid(ctx *MidContext) {}
 
-// EnterIncludes is called when production includes is entered.
-func (s *BaseFormulaParserListener) EnterIncludes(ctx *IncludesContext) {}
+// EnterMin is called when production min is entered.
+func (s *BaseFormulaParserListener) EnterMin(ctx *MinContext) {}
 
-// ExitIncludes is called when production includes is exited.
-func (s *BaseFormulaParserListener) ExitIncludes(ctx *IncludesContext) {}
+// ExitMin is called when production min is exited.
+func (s *BaseFormulaParserListener) ExitMin(ctx *MinContext) {}
+
+// EnterMod is called when production mod is entered.
+func (s *BaseFormulaParserListener) EnterMod(ctx *ModContext) {}
+
+// ExitMod is called when production mod is exited.
+func (s *BaseFormulaParserListener) ExitMod(ctx *ModContext) {}
+
+// EnterMonth is called when production month is entered.
+func (s *BaseFormulaParserListener) EnterMonth(ctx *MonthContext) {}
+
+// ExitMonth is called when production month is exited.
+func (s *BaseFormulaParserListener) ExitMonth(ctx *MonthContext) {}
+
+// EnterNot is called when production not is entered.
+func (s *BaseFormulaParserListener) EnterNot(ctx *NotContext) {}
+
+// ExitNot is called when production not is exited.
+func (s *BaseFormulaParserListener) ExitNot(ctx *NotContext) {}
+
+// EnterNow is called when production now is entered.
+func (s *BaseFormulaParserListener) EnterNow(ctx *NowContext) {}
+
+// ExitNow is called when production now is exited.
+func (s *BaseFormulaParserListener) ExitNow(ctx *NowContext) {}
+
+// EnterOr is called when production or is entered.
+func (s *BaseFormulaParserListener) EnterOr(ctx *OrContext) {}
+
+// ExitOr is called when production or is exited.
+func (s *BaseFormulaParserListener) ExitOr(ctx *OrContext) {}
+
+// EnterRight is called when production right is entered.
+func (s *BaseFormulaParserListener) EnterRight(ctx *RightContext) {}
+
+// ExitRight is called when production right is exited.
+func (s *BaseFormulaParserListener) ExitRight(ctx *RightContext) {}
+
+// EnterRound is called when production round is entered.
+func (s *BaseFormulaParserListener) EnterRound(ctx *RoundContext) {}
+
+// ExitRound is called when production round is exited.
+func (s *BaseFormulaParserListener) ExitRound(ctx *RoundContext) {}
+
+// EnterSubstitute is called when production substitute is entered.
+func (s *BaseFormulaParserListener) EnterSubstitute(ctx *SubstituteContext) {}
+
+// ExitSubstitute is called when production substitute is exited.
+func (s *BaseFormulaParserListener) ExitSubstitute(ctx *SubstituteContext) {}
+
+// EnterTrim is called when production trim is entered.
+func (s *BaseFormulaParserListener) EnterTrim(ctx *TrimContext) {}
+
+// ExitTrim is called when production trim is exited.
+func (s *BaseFormulaParserListener) ExitTrim(ctx *TrimContext) {}
 
 // EnterText is called when production text is entered.
 func (s *BaseFormulaParserListener) EnterText(ctx *TextContext) {}
@@ -280,11 +370,23 @@ func (s *BaseFormulaParserListener) EnterText(ctx *TextContext) {}
 // ExitText is called when production text is exited.
 func (s *BaseFormulaParserListener) ExitText(ctx *TextContext) {}
 
+// EnterToday is called when production today is entered.
+func (s *BaseFormulaParserListener) EnterToday(ctx *TodayContext) {}
+
+// ExitToday is called when production today is exited.
+func (s *BaseFormulaParserListener) ExitToday(ctx *TodayContext) {}
+
 // EnterValue is called when production value is entered.
 func (s *BaseFormulaParserListener) EnterValue(ctx *ValueContext) {}
 
 // ExitValue is called when production value is exited.
 func (s *BaseFormulaParserListener) ExitValue(ctx *ValueContext) {}
+
+// EnterYear is called when production year is entered.
+func (s *BaseFormulaParserListener) EnterYear(ctx *YearContext) {}
+
+// ExitYear is called when production year is exited.
+func (s *BaseFormulaParserListener) ExitYear(ctx *YearContext) {}
 
 // EnterFieldExpression is called when production fieldExpression is entered.
 func (s *BaseFormulaParserListener) EnterFieldExpression(ctx *FieldExpressionContext) {}
@@ -303,6 +405,12 @@ func (s *BaseFormulaParserListener) EnterResultExpression(ctx *ResultExpressionC
 
 // ExitResultExpression is called when production resultExpression is exited.
 func (s *BaseFormulaParserListener) ExitResultExpression(ctx *ResultExpressionContext) {}
+
+// EnterSubstituteValue is called when production substituteValue is entered.
+func (s *BaseFormulaParserListener) EnterSubstituteValue(ctx *SubstituteValueContext) {}
+
+// ExitSubstituteValue is called when production substituteValue is exited.
+func (s *BaseFormulaParserListener) ExitSubstituteValue(ctx *SubstituteValueContext) {}
 
 // EnterDefaultExpression is called when production defaultExpression is entered.
 func (s *BaseFormulaParserListener) EnterDefaultExpression(ctx *DefaultExpressionContext) {}
@@ -346,11 +454,47 @@ func (s *BaseFormulaParserListener) EnterTextExpression(ctx *TextExpressionConte
 // ExitTextExpression is called when production textExpression is exited.
 func (s *BaseFormulaParserListener) ExitTextExpression(ctx *TextExpressionContext) {}
 
+// EnterOldText is called when production oldText is entered.
+func (s *BaseFormulaParserListener) EnterOldText(ctx *OldTextContext) {}
+
+// ExitOldText is called when production oldText is exited.
+func (s *BaseFormulaParserListener) ExitOldText(ctx *OldTextContext) {}
+
+// EnterReplacement is called when production replacement is entered.
+func (s *BaseFormulaParserListener) EnterReplacement(ctx *ReplacementContext) {}
+
+// ExitReplacement is called when production replacement is exited.
+func (s *BaseFormulaParserListener) ExitReplacement(ctx *ReplacementContext) {}
+
 // EnterStartNum is called when production startNum is entered.
 func (s *BaseFormulaParserListener) EnterStartNum(ctx *StartNumContext) {}
 
 // ExitStartNum is called when production startNum is exited.
 func (s *BaseFormulaParserListener) ExitStartNum(ctx *StartNumContext) {}
+
+// EnterCompareText is called when production compareText is entered.
+func (s *BaseFormulaParserListener) EnterCompareText(ctx *CompareTextContext) {}
+
+// ExitCompareText is called when production compareText is exited.
+func (s *BaseFormulaParserListener) ExitCompareText(ctx *CompareTextContext) {}
+
+// EnterNum is called when production num is entered.
+func (s *BaseFormulaParserListener) EnterNum(ctx *NumContext) {}
+
+// ExitNum is called when production num is exited.
+func (s *BaseFormulaParserListener) ExitNum(ctx *NumContext) {}
+
+// EnterDivisor is called when production divisor is entered.
+func (s *BaseFormulaParserListener) EnterDivisor(ctx *DivisorContext) {}
+
+// ExitDivisor is called when production divisor is exited.
+func (s *BaseFormulaParserListener) ExitDivisor(ctx *DivisorContext) {}
+
+// EnterDigits is called when production digits is entered.
+func (s *BaseFormulaParserListener) EnterDigits(ctx *DigitsContext) {}
+
+// ExitDigits is called when production digits is exited.
+func (s *BaseFormulaParserListener) ExitDigits(ctx *DigitsContext) {}
 
 // EnterLatitudeExpression is called when production latitudeExpression is entered.
 func (s *BaseFormulaParserListener) EnterLatitudeExpression(ctx *LatitudeExpressionContext) {}
@@ -364,23 +508,23 @@ func (s *BaseFormulaParserListener) EnterLongitudeExpression(ctx *LongitudeExpre
 // ExitLongitudeExpression is called when production longitudeExpression is exited.
 func (s *BaseFormulaParserListener) ExitLongitudeExpression(ctx *LongitudeExpressionContext) {}
 
-// EnterUrlExpression is called when production urlExpression is entered.
-func (s *BaseFormulaParserListener) EnterUrlExpression(ctx *UrlExpressionContext) {}
+// EnterUrl is called when production url is entered.
+func (s *BaseFormulaParserListener) EnterUrl(ctx *UrlContext) {}
 
-// ExitUrlExpression is called when production urlExpression is exited.
-func (s *BaseFormulaParserListener) ExitUrlExpression(ctx *UrlExpressionContext) {}
+// ExitUrl is called when production url is exited.
+func (s *BaseFormulaParserListener) ExitUrl(ctx *UrlContext) {}
 
-// EnterNameExpression is called when production nameExpression is entered.
-func (s *BaseFormulaParserListener) EnterNameExpression(ctx *NameExpressionContext) {}
+// EnterName is called when production name is entered.
+func (s *BaseFormulaParserListener) EnterName(ctx *NameContext) {}
 
-// ExitNameExpression is called when production nameExpression is exited.
-func (s *BaseFormulaParserListener) ExitNameExpression(ctx *NameExpressionContext) {}
+// ExitName is called when production name is exited.
+func (s *BaseFormulaParserListener) ExitName(ctx *NameContext) {}
 
-// EnterTargetExpression is called when production targetExpression is entered.
-func (s *BaseFormulaParserListener) EnterTargetExpression(ctx *TargetExpressionContext) {}
+// EnterTarget is called when production target is entered.
+func (s *BaseFormulaParserListener) EnterTarget(ctx *TargetContext) {}
 
-// ExitTargetExpression is called when production targetExpression is exited.
-func (s *BaseFormulaParserListener) ExitTargetExpression(ctx *TargetExpressionContext) {}
+// ExitTarget is called when production target is exited.
+func (s *BaseFormulaParserListener) ExitTarget(ctx *TargetContext) {}
 
 // EnterLogicalExpression is called when production logicalExpression is entered.
 func (s *BaseFormulaParserListener) EnterLogicalExpression(ctx *LogicalExpressionContext) {}

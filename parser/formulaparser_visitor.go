@@ -127,17 +127,68 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#imageproxyurl.
 	VisitImageproxyurl(ctx *ImageproxyurlContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#includes.
+	VisitIncludes(ctx *IncludesContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#isblank.
+	VisitIsblank(ctx *IsblankContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#isnull.
+	VisitIsnull(ctx *IsnullContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#ispickval.
+	VisitIspickval(ctx *IspickvalContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#left.
+	VisitLeft(ctx *LeftContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#len.
+	VisitLen(ctx *LenContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#mid.
 	VisitMid(ctx *MidContext) interface{}
 
-	// Visit a parse tree produced by FormulaParser#includes.
-	VisitIncludes(ctx *IncludesContext) interface{}
+	// Visit a parse tree produced by FormulaParser#min.
+	VisitMin(ctx *MinContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#mod.
+	VisitMod(ctx *ModContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#month.
+	VisitMonth(ctx *MonthContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#not.
+	VisitNot(ctx *NotContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#now.
+	VisitNow(ctx *NowContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#or.
+	VisitOr(ctx *OrContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#right.
+	VisitRight(ctx *RightContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#round.
+	VisitRound(ctx *RoundContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#substitute.
+	VisitSubstitute(ctx *SubstituteContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#trim.
+	VisitTrim(ctx *TrimContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#text.
 	VisitText(ctx *TextContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#today.
+	VisitToday(ctx *TodayContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#value.
 	VisitValue(ctx *ValueContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#year.
+	VisitYear(ctx *YearContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#fieldExpression.
 	VisitFieldExpression(ctx *FieldExpressionContext) interface{}
@@ -147,6 +198,9 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#resultExpression.
 	VisitResultExpression(ctx *ResultExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#substituteValue.
+	VisitSubstituteValue(ctx *SubstituteValueContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#defaultExpression.
 	VisitDefaultExpression(ctx *DefaultExpressionContext) interface{}
@@ -169,8 +223,26 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#textExpression.
 	VisitTextExpression(ctx *TextExpressionContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#oldText.
+	VisitOldText(ctx *OldTextContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#replacement.
+	VisitReplacement(ctx *ReplacementContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#startNum.
 	VisitStartNum(ctx *StartNumContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#compareText.
+	VisitCompareText(ctx *CompareTextContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#num.
+	VisitNum(ctx *NumContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#divisor.
+	VisitDivisor(ctx *DivisorContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#digits.
+	VisitDigits(ctx *DigitsContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#latitudeExpression.
 	VisitLatitudeExpression(ctx *LatitudeExpressionContext) interface{}
@@ -178,14 +250,14 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#longitudeExpression.
 	VisitLongitudeExpression(ctx *LongitudeExpressionContext) interface{}
 
-	// Visit a parse tree produced by FormulaParser#urlExpression.
-	VisitUrlExpression(ctx *UrlExpressionContext) interface{}
+	// Visit a parse tree produced by FormulaParser#url.
+	VisitUrl(ctx *UrlContext) interface{}
 
-	// Visit a parse tree produced by FormulaParser#nameExpression.
-	VisitNameExpression(ctx *NameExpressionContext) interface{}
+	// Visit a parse tree produced by FormulaParser#name.
+	VisitName(ctx *NameContext) interface{}
 
-	// Visit a parse tree produced by FormulaParser#targetExpression.
-	VisitTargetExpression(ctx *TargetExpressionContext) interface{}
+	// Visit a parse tree produced by FormulaParser#target.
+	VisitTarget(ctx *TargetContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#logicalExpression.
 	VisitLogicalExpression(ctx *LogicalExpressionContext) interface{}

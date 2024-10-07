@@ -6,16 +6,16 @@ compilationUnit
     ;
 
 expression
-    :   primary                                                   # primaryExpression
-    |   functionCall                                              # functionCallExpression
-    |   SUB expression                                            # negationExpression
-    |   Identifier (DOT Identifier)*                              # fieldReference
-    |   expression CARET expression                               # exponentiationExpression
-    |   expression BITAND expression                              # concatExpression
-    |   expression (ADD|SUB|DIV|MUL) expression                   # arithExpression
-    |   expression (GT | LT) ASSIGN? expression                   # compareExpression
-    |   expression (EQUAL | NOTEQUAL | LESSANDGREATER) expression # equalityExpression
-    |   expression (AND | OR) expression                          # logicExpression
+    :   primary                                                            # primaryExpression
+    |   functionCall                                                       # functionCallExpression
+    |   SUB expression                                                     # negationExpression
+    |   Identifier (DOT Identifier)*                                       # fieldReference
+    |   expression CARET expression                                        # exponentiationExpression
+    |   expression BITAND expression                                       # concatExpression
+    |   expression (ADD | SUB | DIV | MUL) expression                      # arithExpression
+    |   expression (GT | LT) ASSIGN? expression                            # compareExpression
+    |   expression (ASSIGN | EQUAL | NOTEQUAL | LESSANDGREATER) expression # equalityExpression
+    |   expression (AND | OR) expression                                   # logicExpression
     ;
 
 
@@ -48,25 +48,42 @@ functionCall
     | if
     | image
     | imageproxyurl
+    | ispickval
     | includes
+    | isblank
+    | isnull
+    | left
+    | len
     | mid
+    | min
+    | mod
+    | month
+    | not
+    | now
+    | or
+    | right
+    | round
+    | substitute
+    | trim
     | text
+    | today
     | value
+    | year
 
     ;
 
 abs : ABS LPAREN expression RPAREN ;
 addMonths : ADDMONTHS LPAREN expression COMMA expression RPAREN ;
 and : AND_FUNC LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
-begins : BEGINS LPAREN expression COMMA expression RPAREN ;
-blankvalue : BLANKVALUE LPAREN expression COMMA expression RPAREN ;
+begins : BEGINS LPAREN textExpression COMMA compareText RPAREN ;
+blankvalue : BLANKVALUE LPAREN expression COMMA substituteValue RPAREN ;
 // TODO: only allow BR() without without whitespace within parentheses and
 // surrounded by concatenation operators?
 br : BR LPAREN RPAREN ;
-case : CASE LPAREN expression COMMA valueExpression COMMA resultExpression (COMMA valueExpression COMMA resultExpression)* defaultExpression RPAREN ;
+case : CASE LPAREN expression (COMMA valueExpression COMMA resultExpression)+ COMMA defaultExpression RPAREN ;
 casesafeid : CASESAFEID LPAREN expression RPAREN ;
 ceiling : CEILING LPAREN expression RPAREN ;
-contains : CONTAINS LPAREN expression COMMA expression RPAREN ;
+contains : CONTAINS LPAREN textExpression COMMA compareText RPAREN ;
 currencyrate : CURRENCYRATE LPAREN expression RPAREN ;
 date : DATE LPAREN yearExpression COMMA monthExpression COMMA dayExpression RPAREN ;
 datevalue : DATEVALUE LPAREN expression RPAREN ;
@@ -82,20 +99,38 @@ getrecordids : GETRECORDIDS LPAREN expression RPAREN ;
 getsessionid : GETSESSIONID LPAREN RPAREN ;
 hour : HOUR LPAREN expression RPAREN ;
 htmlencode : HTMLENCODE LPAREN expression RPAREN ;
-hyperlink : HYPERLINK LPAREN urlExpression COMMA nameExpression (COMMA targetExpression)? RPAREN ;
+hyperlink : HYPERLINK LPAREN url COMMA name (COMMA target)? RPAREN ;
 if : IF LPAREN logicalExpression COMMA ifTrueExpression COMMA ifFalseExpression RPAREN ;
-image : IMAGE LPAREN urlExpression COMMA textExpression (COMMA heightExpression COMMA widthExpression)? RPAREN ;
-imageproxyurl : IMAGEPROXYURL LPAREN urlExpression RPAREN ;
-mid : MID LPAREN textExpression COMMA startNum COMMA numChars RPAREN ;
+image : IMAGE LPAREN url COMMA textExpression (COMMA heightExpression COMMA widthExpression)? RPAREN ;
+imageproxyurl : IMAGEPROXYURL LPAREN url RPAREN ;
 includes: INCLUDES LPAREN fieldExpression COMMA valueExpression RPAREN ;
+isblank : ISBLANK LPAREN expression RPAREN ;
+isnull : ISNULL LPAREN expression RPAREN ;
+ispickval: ISPICKVAL LPAREN fieldExpression COMMA valueExpression RPAREN ;
+left : LEFT LPAREN textExpression COMMA numChars RPAREN ;
+len : LEN LPAREN expression RPAREN ;
+mid : MID LPAREN textExpression COMMA startNum COMMA numChars RPAREN ;
+min : MIN LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
+mod : MOD LPAREN num COMMA divisor RPAREN ;
+month : MONTH LPAREN expression RPAREN ;
+not : NOT LPAREN expression RPAREN ;
+now : NOW LPAREN RPAREN ;
+or : OR_FUNC LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
+right : RIGHT LPAREN textExpression COMMA numChars RPAREN ;
+round : ROUND LPAREN num COMMA digits RPAREN ;
+substitute : SUBSTITUTE LPAREN textExpression COMMA oldText COMMA replacement RPAREN ;
+trim : TRIM LPAREN expression RPAREN ;
 text : TEXT LPAREN expression RPAREN ;
+today : TODAY LPAREN RPAREN ;
 value : VALUE LPAREN expression RPAREN ;
+year : YEAR LPAREN expression RPAREN ;
 
 
 fieldExpression : expression ;
 
 valueExpression : expression ;
 resultExpression : expression ;
+substituteValue : expression ;
 defaultExpression : expression ;
 
 yearExpression : expression ;
@@ -106,14 +141,24 @@ unitExpression : expression ;
 
 searchExpression : expression ;
 textExpression : expression ;
+
+oldText : expression ;
+replacement : expression ;
+
 startNum : expression ;
+
+compareText: expression ;
+
+num : expression ;
+divisor : expression ;
+digits : expression ;
 
 latitudeExpression : expression ;
 longitudeExpression : expression ;
 
-urlExpression : expression ;
-nameExpression : expression ;
-targetExpression : expression ;
+url : expression ;
+name : expression ;
+target : expression ;
 
 logicalExpression : expression ;
 ifTrueExpression : expression ;

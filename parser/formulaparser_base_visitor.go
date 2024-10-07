@@ -167,11 +167,71 @@ func (v *BaseFormulaParserVisitor) VisitImageproxyurl(ctx *ImageproxyurlContext)
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitIncludes(ctx *IncludesContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitIsblank(ctx *IsblankContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitIsnull(ctx *IsnullContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitIspickval(ctx *IspickvalContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitLeft(ctx *LeftContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitLen(ctx *LenContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitMid(ctx *MidContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseFormulaParserVisitor) VisitIncludes(ctx *IncludesContext) interface{} {
+func (v *BaseFormulaParserVisitor) VisitMin(ctx *MinContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitMod(ctx *ModContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitMonth(ctx *MonthContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitNot(ctx *NotContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitNow(ctx *NowContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitOr(ctx *OrContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitRight(ctx *RightContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitRound(ctx *RoundContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitSubstitute(ctx *SubstituteContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitTrim(ctx *TrimContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -179,7 +239,15 @@ func (v *BaseFormulaParserVisitor) VisitText(ctx *TextContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitToday(ctx *TodayContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitValue(ctx *ValueContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitYear(ctx *YearContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -192,6 +260,10 @@ func (v *BaseFormulaParserVisitor) VisitValueExpression(ctx *ValueExpressionCont
 }
 
 func (v *BaseFormulaParserVisitor) VisitResultExpression(ctx *ResultExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitSubstituteValue(ctx *SubstituteValueContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -223,7 +295,31 @@ func (v *BaseFormulaParserVisitor) VisitTextExpression(ctx *TextExpressionContex
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitOldText(ctx *OldTextContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitReplacement(ctx *ReplacementContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitStartNum(ctx *StartNumContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitCompareText(ctx *CompareTextContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitNum(ctx *NumContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitDivisor(ctx *DivisorContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitDigits(ctx *DigitsContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -235,15 +331,15 @@ func (v *BaseFormulaParserVisitor) VisitLongitudeExpression(ctx *LongitudeExpres
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseFormulaParserVisitor) VisitUrlExpression(ctx *UrlExpressionContext) interface{} {
+func (v *BaseFormulaParserVisitor) VisitUrl(ctx *UrlContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseFormulaParserVisitor) VisitNameExpression(ctx *NameExpressionContext) interface{} {
+func (v *BaseFormulaParserVisitor) VisitName(ctx *NameContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseFormulaParserVisitor) VisitTargetExpression(ctx *TargetExpressionContext) interface{} {
+func (v *BaseFormulaParserVisitor) VisitTarget(ctx *TargetContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

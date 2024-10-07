@@ -127,17 +127,68 @@ type FormulaParserListener interface {
 	// EnterImageproxyurl is called when entering the imageproxyurl production.
 	EnterImageproxyurl(c *ImageproxyurlContext)
 
+	// EnterIncludes is called when entering the includes production.
+	EnterIncludes(c *IncludesContext)
+
+	// EnterIsblank is called when entering the isblank production.
+	EnterIsblank(c *IsblankContext)
+
+	// EnterIsnull is called when entering the isnull production.
+	EnterIsnull(c *IsnullContext)
+
+	// EnterIspickval is called when entering the ispickval production.
+	EnterIspickval(c *IspickvalContext)
+
+	// EnterLeft is called when entering the left production.
+	EnterLeft(c *LeftContext)
+
+	// EnterLen is called when entering the len production.
+	EnterLen(c *LenContext)
+
 	// EnterMid is called when entering the mid production.
 	EnterMid(c *MidContext)
 
-	// EnterIncludes is called when entering the includes production.
-	EnterIncludes(c *IncludesContext)
+	// EnterMin is called when entering the min production.
+	EnterMin(c *MinContext)
+
+	// EnterMod is called when entering the mod production.
+	EnterMod(c *ModContext)
+
+	// EnterMonth is called when entering the month production.
+	EnterMonth(c *MonthContext)
+
+	// EnterNot is called when entering the not production.
+	EnterNot(c *NotContext)
+
+	// EnterNow is called when entering the now production.
+	EnterNow(c *NowContext)
+
+	// EnterOr is called when entering the or production.
+	EnterOr(c *OrContext)
+
+	// EnterRight is called when entering the right production.
+	EnterRight(c *RightContext)
+
+	// EnterRound is called when entering the round production.
+	EnterRound(c *RoundContext)
+
+	// EnterSubstitute is called when entering the substitute production.
+	EnterSubstitute(c *SubstituteContext)
+
+	// EnterTrim is called when entering the trim production.
+	EnterTrim(c *TrimContext)
 
 	// EnterText is called when entering the text production.
 	EnterText(c *TextContext)
 
+	// EnterToday is called when entering the today production.
+	EnterToday(c *TodayContext)
+
 	// EnterValue is called when entering the value production.
 	EnterValue(c *ValueContext)
+
+	// EnterYear is called when entering the year production.
+	EnterYear(c *YearContext)
 
 	// EnterFieldExpression is called when entering the fieldExpression production.
 	EnterFieldExpression(c *FieldExpressionContext)
@@ -147,6 +198,9 @@ type FormulaParserListener interface {
 
 	// EnterResultExpression is called when entering the resultExpression production.
 	EnterResultExpression(c *ResultExpressionContext)
+
+	// EnterSubstituteValue is called when entering the substituteValue production.
+	EnterSubstituteValue(c *SubstituteValueContext)
 
 	// EnterDefaultExpression is called when entering the defaultExpression production.
 	EnterDefaultExpression(c *DefaultExpressionContext)
@@ -169,8 +223,26 @@ type FormulaParserListener interface {
 	// EnterTextExpression is called when entering the textExpression production.
 	EnterTextExpression(c *TextExpressionContext)
 
+	// EnterOldText is called when entering the oldText production.
+	EnterOldText(c *OldTextContext)
+
+	// EnterReplacement is called when entering the replacement production.
+	EnterReplacement(c *ReplacementContext)
+
 	// EnterStartNum is called when entering the startNum production.
 	EnterStartNum(c *StartNumContext)
+
+	// EnterCompareText is called when entering the compareText production.
+	EnterCompareText(c *CompareTextContext)
+
+	// EnterNum is called when entering the num production.
+	EnterNum(c *NumContext)
+
+	// EnterDivisor is called when entering the divisor production.
+	EnterDivisor(c *DivisorContext)
+
+	// EnterDigits is called when entering the digits production.
+	EnterDigits(c *DigitsContext)
 
 	// EnterLatitudeExpression is called when entering the latitudeExpression production.
 	EnterLatitudeExpression(c *LatitudeExpressionContext)
@@ -178,14 +250,14 @@ type FormulaParserListener interface {
 	// EnterLongitudeExpression is called when entering the longitudeExpression production.
 	EnterLongitudeExpression(c *LongitudeExpressionContext)
 
-	// EnterUrlExpression is called when entering the urlExpression production.
-	EnterUrlExpression(c *UrlExpressionContext)
+	// EnterUrl is called when entering the url production.
+	EnterUrl(c *UrlContext)
 
-	// EnterNameExpression is called when entering the nameExpression production.
-	EnterNameExpression(c *NameExpressionContext)
+	// EnterName is called when entering the name production.
+	EnterName(c *NameContext)
 
-	// EnterTargetExpression is called when entering the targetExpression production.
-	EnterTargetExpression(c *TargetExpressionContext)
+	// EnterTarget is called when entering the target production.
+	EnterTarget(c *TargetContext)
 
 	// EnterLogicalExpression is called when entering the logicalExpression production.
 	EnterLogicalExpression(c *LogicalExpressionContext)
@@ -337,17 +409,68 @@ type FormulaParserListener interface {
 	// ExitImageproxyurl is called when exiting the imageproxyurl production.
 	ExitImageproxyurl(c *ImageproxyurlContext)
 
+	// ExitIncludes is called when exiting the includes production.
+	ExitIncludes(c *IncludesContext)
+
+	// ExitIsblank is called when exiting the isblank production.
+	ExitIsblank(c *IsblankContext)
+
+	// ExitIsnull is called when exiting the isnull production.
+	ExitIsnull(c *IsnullContext)
+
+	// ExitIspickval is called when exiting the ispickval production.
+	ExitIspickval(c *IspickvalContext)
+
+	// ExitLeft is called when exiting the left production.
+	ExitLeft(c *LeftContext)
+
+	// ExitLen is called when exiting the len production.
+	ExitLen(c *LenContext)
+
 	// ExitMid is called when exiting the mid production.
 	ExitMid(c *MidContext)
 
-	// ExitIncludes is called when exiting the includes production.
-	ExitIncludes(c *IncludesContext)
+	// ExitMin is called when exiting the min production.
+	ExitMin(c *MinContext)
+
+	// ExitMod is called when exiting the mod production.
+	ExitMod(c *ModContext)
+
+	// ExitMonth is called when exiting the month production.
+	ExitMonth(c *MonthContext)
+
+	// ExitNot is called when exiting the not production.
+	ExitNot(c *NotContext)
+
+	// ExitNow is called when exiting the now production.
+	ExitNow(c *NowContext)
+
+	// ExitOr is called when exiting the or production.
+	ExitOr(c *OrContext)
+
+	// ExitRight is called when exiting the right production.
+	ExitRight(c *RightContext)
+
+	// ExitRound is called when exiting the round production.
+	ExitRound(c *RoundContext)
+
+	// ExitSubstitute is called when exiting the substitute production.
+	ExitSubstitute(c *SubstituteContext)
+
+	// ExitTrim is called when exiting the trim production.
+	ExitTrim(c *TrimContext)
 
 	// ExitText is called when exiting the text production.
 	ExitText(c *TextContext)
 
+	// ExitToday is called when exiting the today production.
+	ExitToday(c *TodayContext)
+
 	// ExitValue is called when exiting the value production.
 	ExitValue(c *ValueContext)
+
+	// ExitYear is called when exiting the year production.
+	ExitYear(c *YearContext)
 
 	// ExitFieldExpression is called when exiting the fieldExpression production.
 	ExitFieldExpression(c *FieldExpressionContext)
@@ -357,6 +480,9 @@ type FormulaParserListener interface {
 
 	// ExitResultExpression is called when exiting the resultExpression production.
 	ExitResultExpression(c *ResultExpressionContext)
+
+	// ExitSubstituteValue is called when exiting the substituteValue production.
+	ExitSubstituteValue(c *SubstituteValueContext)
 
 	// ExitDefaultExpression is called when exiting the defaultExpression production.
 	ExitDefaultExpression(c *DefaultExpressionContext)
@@ -379,8 +505,26 @@ type FormulaParserListener interface {
 	// ExitTextExpression is called when exiting the textExpression production.
 	ExitTextExpression(c *TextExpressionContext)
 
+	// ExitOldText is called when exiting the oldText production.
+	ExitOldText(c *OldTextContext)
+
+	// ExitReplacement is called when exiting the replacement production.
+	ExitReplacement(c *ReplacementContext)
+
 	// ExitStartNum is called when exiting the startNum production.
 	ExitStartNum(c *StartNumContext)
+
+	// ExitCompareText is called when exiting the compareText production.
+	ExitCompareText(c *CompareTextContext)
+
+	// ExitNum is called when exiting the num production.
+	ExitNum(c *NumContext)
+
+	// ExitDivisor is called when exiting the divisor production.
+	ExitDivisor(c *DivisorContext)
+
+	// ExitDigits is called when exiting the digits production.
+	ExitDigits(c *DigitsContext)
 
 	// ExitLatitudeExpression is called when exiting the latitudeExpression production.
 	ExitLatitudeExpression(c *LatitudeExpressionContext)
@@ -388,14 +532,14 @@ type FormulaParserListener interface {
 	// ExitLongitudeExpression is called when exiting the longitudeExpression production.
 	ExitLongitudeExpression(c *LongitudeExpressionContext)
 
-	// ExitUrlExpression is called when exiting the urlExpression production.
-	ExitUrlExpression(c *UrlExpressionContext)
+	// ExitUrl is called when exiting the url production.
+	ExitUrl(c *UrlContext)
 
-	// ExitNameExpression is called when exiting the nameExpression production.
-	ExitNameExpression(c *NameExpressionContext)
+	// ExitName is called when exiting the name production.
+	ExitName(c *NameContext)
 
-	// ExitTargetExpression is called when exiting the targetExpression production.
-	ExitTargetExpression(c *TargetExpressionContext)
+	// ExitTarget is called when exiting the target production.
+	ExitTarget(c *TargetContext)
 
 	// ExitLogicalExpression is called when exiting the logicalExpression production.
 	ExitLogicalExpression(c *LogicalExpressionContext)
