@@ -14,8 +14,9 @@ func (v *FormatVisitor) VisitCompilationUnit(ctx *parser.CompilationUnitContext)
 
 func (v *FormatVisitor) VisitPrimary(ctx *parser.PrimaryContext) interface{} {
 	if e := ctx.Expression(); e != nil {
-		return v.visitRule(e)
+		return fmt.Sprintf("(%s)", v.visitRule(e))
 	}
+	// Literal
 	return ctx.GetText()
 }
 
