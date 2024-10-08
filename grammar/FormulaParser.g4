@@ -115,7 +115,7 @@ mod : MOD LPAREN num COMMA divisor RPAREN ;
 month : MONTH LPAREN expression RPAREN ;
 not : NOT LPAREN expression RPAREN ;
 now : NOW LPAREN RPAREN ;
-or : OR_FUNC LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
+or : OR_FUNC LPAREN expression (COMMA expression)* RPAREN ;
 right : RIGHT LPAREN textExpression COMMA numChars RPAREN ;
 round : ROUND LPAREN num COMMA digits RPAREN ;
 substitute : SUBSTITUTE LPAREN textExpression COMMA oldText COMMA replacement RPAREN ;

@@ -30,6 +30,10 @@ func TestCompilationUnit(t *testing.T) {
 				`IF(AND(true), true, false)`,
 			},
 			{
+				`IF(OR(true), true, false)`,
+				`IF(OR(true), true, false)`,
+			},
+			{
 				`AND(true,false)`,
 				`AND(true, false)`,
 			},
