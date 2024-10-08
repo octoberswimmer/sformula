@@ -671,11 +671,24 @@ func (v *FormatVisitor) VisitConcatExpression(ctx *parser.ConcatExpressionContex
 }
 
 func (v *FormatVisitor) VisitArithExpression(ctx *parser.ArithExpressionContext) interface{} {
+	i := NewChainVisitor()
+	if i.visitRule(ctx.Expression(0)).(int)+i.visitRule(ctx.Expression(1)).(int) > 4 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("%s %s\n%s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.indent(v.visitRule(ctx.Expression(1)).(string)))
+	}
 	return fmt.Sprintf("%s %s %s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression(1)))
 }
 
 func (v *FormatVisitor) VisitLogicExpression(ctx *parser.LogicExpressionContext) interface{} {
-	// TODO: Use ChainVisitor to wrap
+	i := NewChainVisitor()
+	if i.visitRule(ctx.Expression(0)).(int)+i.visitRule(ctx.Expression(1)).(int) > 4 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("%s %s\n%s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.indent(v.visitRule(ctx.Expression(1)).(string)))
+	}
 	return fmt.Sprintf("%s %s %s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression(1)))
 }
 
