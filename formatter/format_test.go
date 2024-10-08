@@ -83,6 +83,10 @@ func TestCompilationUnit(t *testing.T) {
 	IMAGE("http://opi.yahoo.com/online?u=" & Yahoo_Name__c & "&m;=g&t;=0", "Yahoo")
 )`,
 			},
+			{
+				`Owner:User.Id = $User.Id`,
+				`Owner:User.Id = $User.Id`,
+			},
 		}
 	for _, tt := range tests {
 		input := antlr.NewInputStream(tt.input)
