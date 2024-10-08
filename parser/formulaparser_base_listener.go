@@ -280,6 +280,12 @@ func (s *BaseFormulaParserListener) EnterIsnull(ctx *IsnullContext) {}
 // ExitIsnull is called when production isnull is exited.
 func (s *BaseFormulaParserListener) ExitIsnull(ctx *IsnullContext) {}
 
+// EnterIsnumber is called when production isnumber is entered.
+func (s *BaseFormulaParserListener) EnterIsnumber(ctx *IsnumberContext) {}
+
+// ExitIsnumber is called when production isnumber is exited.
+func (s *BaseFormulaParserListener) ExitIsnumber(ctx *IsnumberContext) {}
+
 // EnterIspickval is called when production ispickval is entered.
 func (s *BaseFormulaParserListener) EnterIspickval(ctx *IspickvalContext) {}
 
@@ -297,6 +303,12 @@ func (s *BaseFormulaParserListener) EnterLen(ctx *LenContext) {}
 
 // ExitLen is called when production len is exited.
 func (s *BaseFormulaParserListener) ExitLen(ctx *LenContext) {}
+
+// EnterLpad is called when production lpad is entered.
+func (s *BaseFormulaParserListener) EnterLpad(ctx *LpadContext) {}
+
+// ExitLpad is called when production lpad is exited.
+func (s *BaseFormulaParserListener) ExitLpad(ctx *LpadContext) {}
 
 // EnterMid is called when production mid is entered.
 func (s *BaseFormulaParserListener) EnterMid(ctx *MidContext) {}
@@ -375,6 +387,12 @@ func (s *BaseFormulaParserListener) EnterToday(ctx *TodayContext) {}
 
 // ExitToday is called when production today is exited.
 func (s *BaseFormulaParserListener) ExitToday(ctx *TodayContext) {}
+
+// EnterUpper is called when production upper is entered.
+func (s *BaseFormulaParserListener) EnterUpper(ctx *UpperContext) {}
+
+// ExitUpper is called when production upper is exited.
+func (s *BaseFormulaParserListener) ExitUpper(ctx *UpperContext) {}
 
 // EnterValue is called when production value is entered.
 func (s *BaseFormulaParserListener) EnterValue(ctx *ValueContext) {}
@@ -543,6 +561,18 @@ func (s *BaseFormulaParserListener) EnterIfFalseExpression(ctx *IfFalseExpressio
 
 // ExitIfFalseExpression is called when production ifFalseExpression is exited.
 func (s *BaseFormulaParserListener) ExitIfFalseExpression(ctx *IfFalseExpressionContext) {}
+
+// EnterLength is called when production length is entered.
+func (s *BaseFormulaParserListener) EnterLength(ctx *LengthContext) {}
+
+// ExitLength is called when production length is exited.
+func (s *BaseFormulaParserListener) ExitLength(ctx *LengthContext) {}
+
+// EnterPadString is called when production padString is entered.
+func (s *BaseFormulaParserListener) EnterPadString(ctx *PadStringContext) {}
+
+// ExitPadString is called when production padString is exited.
+func (s *BaseFormulaParserListener) ExitPadString(ctx *PadStringContext) {}
 
 // EnterHeightExpression is called when production heightExpression is entered.
 func (s *BaseFormulaParserListener) EnterHeightExpression(ctx *HeightExpressionContext) {}

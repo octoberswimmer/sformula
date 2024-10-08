@@ -168,6 +168,30 @@ func (v *FormatVisitor) VisitFind(ctx *parser.FindContext) interface{} {
 	return fmt.Sprintf("FIND(%s)", strings.Join(args, ", "))
 }
 
+func (v *FormatVisitor) VisitLpad(ctx *parser.LpadContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		args := []string{
+			v.indent(v.visitRule(ctx.TextExpression()).(string)),
+			v.indent(v.visitRule(ctx.Length()).(string)),
+		}
+		if s := ctx.PadString(); s != nil {
+			args = append(args, v.indent(v.visitRule(s).(string)))
+		}
+		return fmt.Sprintf("LPAD(\n%s\n)", strings.Join(args, ",\n"))
+	}
+	args := []string{
+		v.visitRule(ctx.TextExpression()).(string),
+		v.visitRule(ctx.Length()).(string),
+	}
+	if s := ctx.PadString(); s != nil {
+		args = append(args, v.visitRule(s).(string))
+	}
+	return fmt.Sprintf("LPAD(%s)", strings.Join(args, ", "))
+}
+
 func (v *FormatVisitor) VisitIf(ctx *parser.IfContext) interface{} {
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
@@ -399,6 +423,9 @@ func (v *FormatVisitor) VisitAbs(ctx *parser.AbsContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitCeiling(ctx *parser.CeilingContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
 	}
@@ -442,6 +469,9 @@ func (v *FormatVisitor) VisitDay(ctx *parser.DayContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitMonth(ctx *parser.MonthContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
 	}
@@ -474,8 +504,34 @@ func (v *FormatVisitor) VisitIsnull(ctx *parser.IsnullContext) interface{} {
 	return fmt.Sprintf("ISNULL(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
+func (v *FormatVisitor) VisitIsnumber(ctx *parser.IsnumberContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("ISNUMBER(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("ISNUMBER(%s)", v.visitRule(ctx.Expression()).(string))
+}
+
+func (v *FormatVisitor) VisitUpper(ctx *parser.UpperContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("UPPER(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("UPPER(%s)", v.visitRule(ctx.Expression()).(string))
+}
+
 func (v *FormatVisitor) VisitTrim(ctx *parser.TrimContext) interface{} {
-	if len(ctx.GetText()) > 40 {
+	if len(ctx.GetText()) < 40 {
 		defer restoreWrap(unwrap(v))
 	}
 	if len(ctx.GetText()) > 60 {
@@ -488,6 +544,9 @@ func (v *FormatVisitor) VisitTrim(ctx *parser.TrimContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitIsblank(ctx *parser.IsblankContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
 	}
@@ -630,6 +689,14 @@ func (v *FormatVisitor) VisitTarget(ctx *parser.TargetContext) interface{} {
 	return v.visitRule(ctx.Expression())
 }
 
+func (v *FormatVisitor) VisitLength(ctx *parser.LengthContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitPadString(ctx *parser.PadStringContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
 func (v *FormatVisitor) VisitResultExpression(ctx *parser.ResultExpressionContext) interface{} {
 	return v.visitRule(ctx.Expression())
 }
@@ -672,6 +739,9 @@ func (v *FormatVisitor) VisitConcatExpression(ctx *parser.ConcatExpressionContex
 
 func (v *FormatVisitor) VisitArithExpression(ctx *parser.ArithExpressionContext) interface{} {
 	i := NewChainVisitor()
+	if len(ctx.Expression(0).GetText())+len(ctx.Expression(1).GetText()) < 60 {
+		defer restoreWrap(unwrap(v))
+	}
 	if i.visitRule(ctx.Expression(0)).(int)+i.visitRule(ctx.Expression(1)).(int) > 4 {
 		defer restoreWrap(wrap(v))
 	}

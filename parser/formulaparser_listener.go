@@ -136,6 +136,9 @@ type FormulaParserListener interface {
 	// EnterIsnull is called when entering the isnull production.
 	EnterIsnull(c *IsnullContext)
 
+	// EnterIsnumber is called when entering the isnumber production.
+	EnterIsnumber(c *IsnumberContext)
+
 	// EnterIspickval is called when entering the ispickval production.
 	EnterIspickval(c *IspickvalContext)
 
@@ -144,6 +147,9 @@ type FormulaParserListener interface {
 
 	// EnterLen is called when entering the len production.
 	EnterLen(c *LenContext)
+
+	// EnterLpad is called when entering the lpad production.
+	EnterLpad(c *LpadContext)
 
 	// EnterMid is called when entering the mid production.
 	EnterMid(c *MidContext)
@@ -183,6 +189,9 @@ type FormulaParserListener interface {
 
 	// EnterToday is called when entering the today production.
 	EnterToday(c *TodayContext)
+
+	// EnterUpper is called when entering the upper production.
+	EnterUpper(c *UpperContext)
 
 	// EnterValue is called when entering the value production.
 	EnterValue(c *ValueContext)
@@ -267,6 +276,12 @@ type FormulaParserListener interface {
 
 	// EnterIfFalseExpression is called when entering the ifFalseExpression production.
 	EnterIfFalseExpression(c *IfFalseExpressionContext)
+
+	// EnterLength is called when entering the length production.
+	EnterLength(c *LengthContext)
+
+	// EnterPadString is called when entering the padString production.
+	EnterPadString(c *PadStringContext)
 
 	// EnterHeightExpression is called when entering the heightExpression production.
 	EnterHeightExpression(c *HeightExpressionContext)
@@ -418,6 +433,9 @@ type FormulaParserListener interface {
 	// ExitIsnull is called when exiting the isnull production.
 	ExitIsnull(c *IsnullContext)
 
+	// ExitIsnumber is called when exiting the isnumber production.
+	ExitIsnumber(c *IsnumberContext)
+
 	// ExitIspickval is called when exiting the ispickval production.
 	ExitIspickval(c *IspickvalContext)
 
@@ -426,6 +444,9 @@ type FormulaParserListener interface {
 
 	// ExitLen is called when exiting the len production.
 	ExitLen(c *LenContext)
+
+	// ExitLpad is called when exiting the lpad production.
+	ExitLpad(c *LpadContext)
 
 	// ExitMid is called when exiting the mid production.
 	ExitMid(c *MidContext)
@@ -465,6 +486,9 @@ type FormulaParserListener interface {
 
 	// ExitToday is called when exiting the today production.
 	ExitToday(c *TodayContext)
+
+	// ExitUpper is called when exiting the upper production.
+	ExitUpper(c *UpperContext)
 
 	// ExitValue is called when exiting the value production.
 	ExitValue(c *ValueContext)
@@ -549,6 +573,12 @@ type FormulaParserListener interface {
 
 	// ExitIfFalseExpression is called when exiting the ifFalseExpression production.
 	ExitIfFalseExpression(c *IfFalseExpressionContext)
+
+	// ExitLength is called when exiting the length production.
+	ExitLength(c *LengthContext)
+
+	// ExitPadString is called when exiting the padString production.
+	ExitPadString(c *PadStringContext)
 
 	// ExitHeightExpression is called when exiting the heightExpression production.
 	ExitHeightExpression(c *HeightExpressionContext)

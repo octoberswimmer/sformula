@@ -136,6 +136,9 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#isnull.
 	VisitIsnull(ctx *IsnullContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#isnumber.
+	VisitIsnumber(ctx *IsnumberContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#ispickval.
 	VisitIspickval(ctx *IspickvalContext) interface{}
 
@@ -144,6 +147,9 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#len.
 	VisitLen(ctx *LenContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#lpad.
+	VisitLpad(ctx *LpadContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#mid.
 	VisitMid(ctx *MidContext) interface{}
@@ -183,6 +189,9 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#today.
 	VisitToday(ctx *TodayContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#upper.
+	VisitUpper(ctx *UpperContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#value.
 	VisitValue(ctx *ValueContext) interface{}
@@ -267,6 +276,12 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#ifFalseExpression.
 	VisitIfFalseExpression(ctx *IfFalseExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#length.
+	VisitLength(ctx *LengthContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#padString.
+	VisitPadString(ctx *PadStringContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#heightExpression.
 	VisitHeightExpression(ctx *HeightExpressionContext) interface{}

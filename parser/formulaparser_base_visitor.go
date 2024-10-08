@@ -179,6 +179,10 @@ func (v *BaseFormulaParserVisitor) VisitIsnull(ctx *IsnullContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitIsnumber(ctx *IsnumberContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitIspickval(ctx *IspickvalContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -188,6 +192,10 @@ func (v *BaseFormulaParserVisitor) VisitLeft(ctx *LeftContext) interface{} {
 }
 
 func (v *BaseFormulaParserVisitor) VisitLen(ctx *LenContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitLpad(ctx *LpadContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -240,6 +248,10 @@ func (v *BaseFormulaParserVisitor) VisitText(ctx *TextContext) interface{} {
 }
 
 func (v *BaseFormulaParserVisitor) VisitToday(ctx *TodayContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitUpper(ctx *UpperContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -352,6 +364,14 @@ func (v *BaseFormulaParserVisitor) VisitIfTrueExpression(ctx *IfTrueExpressionCo
 }
 
 func (v *BaseFormulaParserVisitor) VisitIfFalseExpression(ctx *IfFalseExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitLength(ctx *LengthContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitPadString(ctx *PadStringContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

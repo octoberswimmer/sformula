@@ -52,8 +52,10 @@ functionCall
     | includes
     | isblank
     | isnull
+    | isnumber
     | left
     | len
+    | lpad
     | mid
     | min
     | mod
@@ -67,6 +69,7 @@ functionCall
     | trim
     | text
     | today
+    | upper
     | value
     | year
 
@@ -106,9 +109,11 @@ imageproxyurl : IMAGEPROXYURL LPAREN url RPAREN ;
 includes: INCLUDES LPAREN fieldExpression COMMA valueExpression RPAREN ;
 isblank : ISBLANK LPAREN expression RPAREN ;
 isnull : ISNULL LPAREN expression RPAREN ;
+isnumber : ISNUMBER LPAREN expression RPAREN ;
 ispickval: ISPICKVAL LPAREN fieldExpression COMMA valueExpression RPAREN ;
 left : LEFT LPAREN textExpression COMMA numChars RPAREN ;
 len : LEN LPAREN expression RPAREN ;
+lpad : LPAD LPAREN textExpression COMMA length (COMMA padString)? RPAREN ;
 mid : MID LPAREN textExpression COMMA startNum COMMA numChars RPAREN ;
 min : MIN LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
 mod : MOD LPAREN num COMMA divisor RPAREN ;
@@ -122,6 +127,7 @@ substitute : SUBSTITUTE LPAREN textExpression COMMA oldText COMMA replacement RP
 trim : TRIM LPAREN expression RPAREN ;
 text : TEXT LPAREN expression RPAREN ;
 today : TODAY LPAREN RPAREN ;
+upper : UPPER LPAREN expression RPAREN ;
 value : VALUE LPAREN expression RPAREN ;
 year : YEAR LPAREN expression RPAREN ;
 
@@ -163,6 +169,9 @@ target : expression ;
 logicalExpression : expression ;
 ifTrueExpression : expression ;
 ifFalseExpression : expression ;
+
+length : expression ;
+padString : expression ;
 
 heightExpression : expression ;
 widthExpression : expression ;
