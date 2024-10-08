@@ -256,11 +256,14 @@ func (v *FormatVisitor) VisitIncludes(ctx *parser.IncludesContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitIspickval(ctx *parser.IspickvalContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
 	}
 	if v.wrap {
-		return fmt.Sprintf("ISPICKVAL(\n%s,\n%s\n)", v.visitRule(ctx.FieldExpression()), v.indent(v.visitRule(ctx.ValueExpression()).(string)))
+		return fmt.Sprintf("ISPICKVAL(\n%s,\n%s\n)", v.indent(v.visitRule(ctx.FieldExpression()).(string)), v.indent(v.visitRule(ctx.ValueExpression()).(string)))
 	}
 	return fmt.Sprintf("ISPICKVAL(%s, %s)", v.visitRule(ctx.FieldExpression()), v.visitRule(ctx.ValueExpression()))
 }
