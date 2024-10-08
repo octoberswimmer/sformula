@@ -133,6 +133,12 @@ type FormulaParserListener interface {
 	// EnterIsblank is called when entering the isblank production.
 	EnterIsblank(c *IsblankContext)
 
+	// EnterIschanged is called when entering the ischanged production.
+	EnterIschanged(c *IschangedContext)
+
+	// EnterIsnew is called when entering the isnew production.
+	EnterIsnew(c *IsnewContext)
+
 	// EnterIsnull is called when entering the isnull production.
 	EnterIsnull(c *IsnullContext)
 
@@ -174,6 +180,12 @@ type FormulaParserListener interface {
 
 	// EnterOr is called when entering the or production.
 	EnterOr(c *OrContext)
+
+	// EnterPriorvalue is called when entering the priorvalue production.
+	EnterPriorvalue(c *PriorvalueContext)
+
+	// EnterRegex is called when entering the regex production.
+	EnterRegex(c *RegexContext)
 
 	// EnterRight is called when entering the right production.
 	EnterRight(c *RightContext)
@@ -228,6 +240,9 @@ type FormulaParserListener interface {
 
 	// EnterDayExpression is called when entering the dayExpression production.
 	EnterDayExpression(c *DayExpressionContext)
+
+	// EnterRegexExpression is called when entering the regexExpression production.
+	EnterRegexExpression(c *RegexExpressionContext)
 
 	// EnterUnitExpression is called when entering the unitExpression production.
 	EnterUnitExpression(c *UnitExpressionContext)
@@ -303,9 +318,6 @@ type FormulaParserListener interface {
 
 	// EnterPrimary is called when entering the primary production.
 	EnterPrimary(c *PrimaryContext)
-
-	// EnterArguments is called when entering the arguments production.
-	EnterArguments(c *ArgumentsContext)
 
 	// EnterLiteral is called when entering the literal production.
 	EnterLiteral(c *LiteralContext)
@@ -436,6 +448,12 @@ type FormulaParserListener interface {
 	// ExitIsblank is called when exiting the isblank production.
 	ExitIsblank(c *IsblankContext)
 
+	// ExitIschanged is called when exiting the ischanged production.
+	ExitIschanged(c *IschangedContext)
+
+	// ExitIsnew is called when exiting the isnew production.
+	ExitIsnew(c *IsnewContext)
+
 	// ExitIsnull is called when exiting the isnull production.
 	ExitIsnull(c *IsnullContext)
 
@@ -477,6 +495,12 @@ type FormulaParserListener interface {
 
 	// ExitOr is called when exiting the or production.
 	ExitOr(c *OrContext)
+
+	// ExitPriorvalue is called when exiting the priorvalue production.
+	ExitPriorvalue(c *PriorvalueContext)
+
+	// ExitRegex is called when exiting the regex production.
+	ExitRegex(c *RegexContext)
 
 	// ExitRight is called when exiting the right production.
 	ExitRight(c *RightContext)
@@ -531,6 +555,9 @@ type FormulaParserListener interface {
 
 	// ExitDayExpression is called when exiting the dayExpression production.
 	ExitDayExpression(c *DayExpressionContext)
+
+	// ExitRegexExpression is called when exiting the regexExpression production.
+	ExitRegexExpression(c *RegexExpressionContext)
 
 	// ExitUnitExpression is called when exiting the unitExpression production.
 	ExitUnitExpression(c *UnitExpressionContext)
@@ -606,9 +633,6 @@ type FormulaParserListener interface {
 
 	// ExitPrimary is called when exiting the primary production.
 	ExitPrimary(c *PrimaryContext)
-
-	// ExitArguments is called when exiting the arguments production.
-	ExitArguments(c *ArgumentsContext)
 
 	// ExitLiteral is called when exiting the literal production.
 	ExitLiteral(c *LiteralContext)

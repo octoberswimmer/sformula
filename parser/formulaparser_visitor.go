@@ -133,6 +133,12 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#isblank.
 	VisitIsblank(ctx *IsblankContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#ischanged.
+	VisitIschanged(ctx *IschangedContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#isnew.
+	VisitIsnew(ctx *IsnewContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#isnull.
 	VisitIsnull(ctx *IsnullContext) interface{}
 
@@ -174,6 +180,12 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#or.
 	VisitOr(ctx *OrContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#priorvalue.
+	VisitPriorvalue(ctx *PriorvalueContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#regex.
+	VisitRegex(ctx *RegexContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#right.
 	VisitRight(ctx *RightContext) interface{}
@@ -228,6 +240,9 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#dayExpression.
 	VisitDayExpression(ctx *DayExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#regexExpression.
+	VisitRegexExpression(ctx *RegexExpressionContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#unitExpression.
 	VisitUnitExpression(ctx *UnitExpressionContext) interface{}
@@ -303,9 +318,6 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#primary.
 	VisitPrimary(ctx *PrimaryContext) interface{}
-
-	// Visit a parse tree produced by FormulaParser#arguments.
-	VisitArguments(ctx *ArgumentsContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#literal.
 	VisitLiteral(ctx *LiteralContext) interface{}

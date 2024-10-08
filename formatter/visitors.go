@@ -266,6 +266,19 @@ func (v *FormatVisitor) VisitRight(ctx *parser.RightContext) interface{} {
 	return fmt.Sprintf("RIGHT(%s, %s)", v.visitRule(ctx.TextExpression()), v.visitRule(ctx.NumChars()))
 }
 
+func (v *FormatVisitor) VisitRegex(ctx *parser.RegexContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("REGEX(%s,\n%s\n)", v.visitRule(ctx.TextExpression()), v.indent(v.visitRule(ctx.RegexExpression()).(string)))
+	}
+	return fmt.Sprintf("REGEX(%s, %s)", v.visitRule(ctx.TextExpression()), v.visitRule(ctx.RegexExpression()))
+}
+
 func (v *FormatVisitor) VisitIncludes(ctx *parser.IncludesContext) interface{} {
 	if len(ctx.GetText()) < 40 {
 		defer restoreWrap(unwrap(v))
@@ -579,6 +592,32 @@ func (v *FormatVisitor) VisitIsblank(ctx *parser.IsblankContext) interface{} {
 	return fmt.Sprintf("ISBLANK(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
+func (v *FormatVisitor) VisitIschanged(ctx *parser.IschangedContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("ISCHANGED(\n%s\n)", v.indent(v.visitRule(ctx.FieldExpression()).(string)))
+	}
+	return fmt.Sprintf("ISCHANGED(%s)", v.visitRule(ctx.FieldExpression()).(string))
+}
+
+func (v *FormatVisitor) VisitPriorvalue(ctx *parser.PriorvalueContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("PRIORVALUE(\n%s\n)", v.indent(v.visitRule(ctx.FieldExpression()).(string)))
+	}
+	return fmt.Sprintf("PRIORVALUE(%s)", v.visitRule(ctx.FieldExpression()).(string))
+}
+
 func (v *FormatVisitor) VisitBlankvalue(ctx *parser.BlankvalueContext) interface{} {
 	if len(ctx.GetText()) < 60 {
 		defer restoreWrap(unwrap(v))
@@ -595,6 +634,10 @@ func (v *FormatVisitor) VisitToday(ctx *parser.TodayContext) interface{} {
 
 func (v *FormatVisitor) VisitNow(ctx *parser.NowContext) interface{} {
 	return "NOW()"
+}
+
+func (v *FormatVisitor) VisitIsnew(ctx *parser.IsnewContext) interface{} {
+	return "ISNEW()"
 }
 
 func (v *FormatVisitor) VisitBr(ctx *parser.BrContext) interface{} {
@@ -649,6 +692,10 @@ func (v *FormatVisitor) VisitDigits(ctx *parser.DigitsContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitLogicalExpression(ctx *parser.LogicalExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitRegexExpression(ctx *parser.RegexExpressionContext) interface{} {
 	return v.visitRule(ctx.Expression())
 }
 

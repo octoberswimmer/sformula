@@ -175,6 +175,14 @@ func (v *BaseFormulaParserVisitor) VisitIsblank(ctx *IsblankContext) interface{}
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitIschanged(ctx *IschangedContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitIsnew(ctx *IsnewContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitIsnull(ctx *IsnullContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -228,6 +236,14 @@ func (v *BaseFormulaParserVisitor) VisitNow(ctx *NowContext) interface{} {
 }
 
 func (v *BaseFormulaParserVisitor) VisitOr(ctx *OrContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitPriorvalue(ctx *PriorvalueContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitRegex(ctx *RegexContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -300,6 +316,10 @@ func (v *BaseFormulaParserVisitor) VisitMonthExpression(ctx *MonthExpressionCont
 }
 
 func (v *BaseFormulaParserVisitor) VisitDayExpression(ctx *DayExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitRegexExpression(ctx *RegexExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -400,10 +420,6 @@ func (v *BaseFormulaParserVisitor) VisitNumChars(ctx *NumCharsContext) interface
 }
 
 func (v *BaseFormulaParserVisitor) VisitPrimary(ctx *PrimaryContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseFormulaParserVisitor) VisitArguments(ctx *ArgumentsContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

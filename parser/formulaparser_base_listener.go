@@ -274,6 +274,18 @@ func (s *BaseFormulaParserListener) EnterIsblank(ctx *IsblankContext) {}
 // ExitIsblank is called when production isblank is exited.
 func (s *BaseFormulaParserListener) ExitIsblank(ctx *IsblankContext) {}
 
+// EnterIschanged is called when production ischanged is entered.
+func (s *BaseFormulaParserListener) EnterIschanged(ctx *IschangedContext) {}
+
+// ExitIschanged is called when production ischanged is exited.
+func (s *BaseFormulaParserListener) ExitIschanged(ctx *IschangedContext) {}
+
+// EnterIsnew is called when production isnew is entered.
+func (s *BaseFormulaParserListener) EnterIsnew(ctx *IsnewContext) {}
+
+// ExitIsnew is called when production isnew is exited.
+func (s *BaseFormulaParserListener) ExitIsnew(ctx *IsnewContext) {}
+
 // EnterIsnull is called when production isnull is entered.
 func (s *BaseFormulaParserListener) EnterIsnull(ctx *IsnullContext) {}
 
@@ -357,6 +369,18 @@ func (s *BaseFormulaParserListener) EnterOr(ctx *OrContext) {}
 
 // ExitOr is called when production or is exited.
 func (s *BaseFormulaParserListener) ExitOr(ctx *OrContext) {}
+
+// EnterPriorvalue is called when production priorvalue is entered.
+func (s *BaseFormulaParserListener) EnterPriorvalue(ctx *PriorvalueContext) {}
+
+// ExitPriorvalue is called when production priorvalue is exited.
+func (s *BaseFormulaParserListener) ExitPriorvalue(ctx *PriorvalueContext) {}
+
+// EnterRegex is called when production regex is entered.
+func (s *BaseFormulaParserListener) EnterRegex(ctx *RegexContext) {}
+
+// ExitRegex is called when production regex is exited.
+func (s *BaseFormulaParserListener) ExitRegex(ctx *RegexContext) {}
 
 // EnterRight is called when production right is entered.
 func (s *BaseFormulaParserListener) EnterRight(ctx *RightContext) {}
@@ -465,6 +489,12 @@ func (s *BaseFormulaParserListener) EnterDayExpression(ctx *DayExpressionContext
 
 // ExitDayExpression is called when production dayExpression is exited.
 func (s *BaseFormulaParserListener) ExitDayExpression(ctx *DayExpressionContext) {}
+
+// EnterRegexExpression is called when production regexExpression is entered.
+func (s *BaseFormulaParserListener) EnterRegexExpression(ctx *RegexExpressionContext) {}
+
+// ExitRegexExpression is called when production regexExpression is exited.
+func (s *BaseFormulaParserListener) ExitRegexExpression(ctx *RegexExpressionContext) {}
 
 // EnterUnitExpression is called when production unitExpression is entered.
 func (s *BaseFormulaParserListener) EnterUnitExpression(ctx *UnitExpressionContext) {}
@@ -615,12 +645,6 @@ func (s *BaseFormulaParserListener) EnterPrimary(ctx *PrimaryContext) {}
 
 // ExitPrimary is called when production primary is exited.
 func (s *BaseFormulaParserListener) ExitPrimary(ctx *PrimaryContext) {}
-
-// EnterArguments is called when production arguments is entered.
-func (s *BaseFormulaParserListener) EnterArguments(ctx *ArgumentsContext) {}
-
-// ExitArguments is called when production arguments is exited.
-func (s *BaseFormulaParserListener) ExitArguments(ctx *ArgumentsContext) {}
 
 // EnterLiteral is called when production literal is entered.
 func (s *BaseFormulaParserListener) EnterLiteral(ctx *LiteralContext) {}

@@ -48,6 +48,8 @@ functionCall
     | if
     | image
     | imageproxyurl
+    | ischanged
+    | isnew
     | ispickval
     | includes
     | isblank
@@ -64,6 +66,8 @@ functionCall
     | not
     | now
     | or
+    | priorvalue
+    | regex
     | right
     | round
     | substitute
@@ -109,6 +113,8 @@ image : IMAGE LPAREN url COMMA textExpression (COMMA heightExpression COMMA widt
 imageproxyurl : IMAGEPROXYURL LPAREN url RPAREN ;
 includes: INCLUDES LPAREN fieldExpression COMMA valueExpression RPAREN ;
 isblank : ISBLANK LPAREN expression RPAREN ;
+ischanged : ISCHANGED LPAREN fieldExpression RPAREN ;
+isnew : ISNEW LPAREN RPAREN ;
 isnull : ISNULL LPAREN expression RPAREN ;
 isnumber : ISNUMBER LPAREN expression RPAREN ;
 ispickval: ISPICKVAL LPAREN fieldExpression COMMA valueExpression RPAREN ;
@@ -123,6 +129,8 @@ month : MONTH LPAREN expression RPAREN ;
 not : NOT LPAREN expression RPAREN ;
 now : NOW LPAREN RPAREN ;
 or : OR_FUNC LPAREN expression (COMMA expression)* RPAREN ;
+priorvalue : PRIORVALUE LPAREN fieldExpression RPAREN ;
+regex : REGEX LPAREN textExpression COMMA regexExpression RPAREN ;
 right : RIGHT LPAREN textExpression COMMA numChars RPAREN ;
 round : ROUND LPAREN num COMMA digits RPAREN ;
 substitute : SUBSTITUTE LPAREN textExpression COMMA oldText COMMA replacement RPAREN ;
@@ -146,6 +154,8 @@ defaultExpression : expression ;
 yearExpression : expression ;
 monthExpression : expression ;
 dayExpression : expression ;
+
+regexExpression : expression ;
 
 unitExpression : expression ;
 
@@ -186,10 +196,6 @@ numChars : expression ;
 primary
     :   literal
     |   LPAREN expression RPAREN
-    ;
-
-arguments
-    :   expression (COMMA expression)*
     ;
 
 literal
