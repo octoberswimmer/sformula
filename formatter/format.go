@@ -1,9 +1,9 @@
 package formatter
 
 import (
+	"bytes"
 	"fmt"
 	"io"
-	"os"
 	"regexp"
 	"strconv"
 	"strings"
@@ -18,23 +18,32 @@ type errorListener struct {
 }
 
 func (e *errorListener) SyntaxError(_ antlr.Recognizer, _ interface{}, line, column int, msg string, _ antlr.RecognitionException) {
-	_, _ = fmt.Fprintln(os.Stderr, "line "+strconv.Itoa(line)+":"+strconv.Itoa(column)+" "+msg)
+	_, _ = fmt.Fprintln(e.logger, "line "+strconv.Itoa(line)+":"+strconv.Itoa(column)+" "+msg)
 }
 
 func Format(f string) (string, error) {
 	input := antlr.NewInputStream(f)
 	lexer := parser.NewFormulaLexer(input)
+	lexer.RemoveErrorListeners()
+
+	var buf bytes.Buffer
+	errors := &errorListener{logger: &buf}
+	lexer.AddErrorListener(errors)
+
 	stream := antlr.NewCommonTokenStream(lexer, antlr.TokenDefaultChannel)
 
 	p := parser.NewFormulaParser(stream)
 	p.RemoveErrorListeners()
-	// p.AddErrorListener(&errorListener{logger: nil})
-	p.AddErrorListener(antlr.NewDiagnosticErrorListener(false))
+	p.AddErrorListener(errors)
+	// p.AddErrorListener(antlr.NewDiagnosticErrorListener(false))
 
 	v := NewFormatVisitor(stream)
 	out, ok := v.visitRule(p.CompilationUnit()).(string)
 	if !ok {
 		return f, fmt.Errorf("Unexpected result parsing formula")
+	}
+	if buf.Len() != 0 {
+		return f, fmt.Errorf("syntax error: %s", string(buf.Bytes()))
 	}
 	out = removeExtraCommentIndentation(out)
 	return out, nil
