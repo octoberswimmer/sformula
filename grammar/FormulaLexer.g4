@@ -152,6 +152,7 @@ DOT             : '.';
 COMMA           : ',';
 
 CARET           : '^';
+BANG            : '!';
 BITAND          : '&';
 ADD             : '+';
 SUB             : '-';

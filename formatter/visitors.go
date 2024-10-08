@@ -312,6 +312,16 @@ func (v *FormatVisitor) VisitRound(ctx *parser.RoundContext) interface{} {
 	return fmt.Sprintf("ROUND(%s, %s)", v.visitRule(ctx.Num()), v.visitRule(ctx.Digits()))
 }
 
+func (v *FormatVisitor) VisitAddMonths(ctx *parser.AddMonthsContext) interface{} {
+	if len(ctx.GetText()) < 60 {
+		defer restoreWrap(unwrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("ADDMONTHS(\n%s,\n%s\n)", v.indent(v.visitRule(ctx.DateExpression()).(string)), v.indent(v.visitRule(ctx.Num()).(string)))
+	}
+	return fmt.Sprintf("ADDMONTHS(%s, %s)", v.visitRule(ctx.DateExpression()), v.visitRule(ctx.Num()))
+}
+
 func (v *FormatVisitor) VisitBegins(ctx *parser.BeginsContext) interface{} {
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
@@ -367,9 +377,9 @@ func (v *FormatVisitor) VisitDatetimevalue(ctx *parser.DatetimevalueContext) int
 		defer restoreWrap(wrap(v))
 	}
 	if v.wrap {
-		return fmt.Sprintf("DATETIMVALUE(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+		return fmt.Sprintf("DATETIMEVALUE(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
-	return fmt.Sprintf("DATETIMVALUE(%s)", v.visitRule(ctx.Expression()).(string))
+	return fmt.Sprintf("DATETIMEVALUE(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitText(ctx *parser.TextContext) interface{} {
@@ -530,6 +540,19 @@ func (v *FormatVisitor) VisitUpper(ctx *parser.UpperContext) interface{} {
 	return fmt.Sprintf("UPPER(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
+func (v *FormatVisitor) VisitLower(ctx *parser.LowerContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("LOWER(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("LOWER(%s)", v.visitRule(ctx.Expression()).(string))
+}
+
 func (v *FormatVisitor) VisitTrim(ctx *parser.TrimContext) interface{} {
 	if len(ctx.GetText()) < 40 {
 		defer restoreWrap(unwrap(v))
@@ -661,6 +684,14 @@ func (v *FormatVisitor) VisitUrl(ctx *parser.UrlContext) interface{} {
 	return v.visitRule(ctx.Expression())
 }
 
+func (v *FormatVisitor) VisitHeightExpression(ctx *parser.HeightExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitWidthExpression(ctx *parser.WidthExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
 func (v *FormatVisitor) VisitTextExpression(ctx *parser.TextExpressionContext) interface{} {
 	return v.visitRule(ctx.Expression())
 }
@@ -686,6 +717,10 @@ func (v *FormatVisitor) VisitValueExpression(ctx *parser.ValueExpressionContext)
 }
 
 func (v *FormatVisitor) VisitTarget(ctx *parser.TargetContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitDateExpression(ctx *parser.DateExpressionContext) interface{} {
 	return v.visitRule(ctx.Expression())
 }
 

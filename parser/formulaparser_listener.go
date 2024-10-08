@@ -148,6 +148,9 @@ type FormulaParserListener interface {
 	// EnterLen is called when entering the len production.
 	EnterLen(c *LenContext)
 
+	// EnterLower is called when entering the lower production.
+	EnterLower(c *LowerContext)
+
 	// EnterLpad is called when entering the lpad production.
 	EnterLpad(c *LpadContext)
 
@@ -201,6 +204,9 @@ type FormulaParserListener interface {
 
 	// EnterFieldExpression is called when entering the fieldExpression production.
 	EnterFieldExpression(c *FieldExpressionContext)
+
+	// EnterDateExpression is called when entering the dateExpression production.
+	EnterDateExpression(c *DateExpressionContext)
 
 	// EnterValueExpression is called when entering the valueExpression production.
 	EnterValueExpression(c *ValueExpressionContext)
@@ -445,6 +451,9 @@ type FormulaParserListener interface {
 	// ExitLen is called when exiting the len production.
 	ExitLen(c *LenContext)
 
+	// ExitLower is called when exiting the lower production.
+	ExitLower(c *LowerContext)
+
 	// ExitLpad is called when exiting the lpad production.
 	ExitLpad(c *LpadContext)
 
@@ -498,6 +507,9 @@ type FormulaParserListener interface {
 
 	// ExitFieldExpression is called when exiting the fieldExpression production.
 	ExitFieldExpression(c *FieldExpressionContext)
+
+	// ExitDateExpression is called when exiting the dateExpression production.
+	ExitDateExpression(c *DateExpressionContext)
 
 	// ExitValueExpression is called when exiting the valueExpression production.
 	ExitValueExpression(c *ValueExpressionContext)

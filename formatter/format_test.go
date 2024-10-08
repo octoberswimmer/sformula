@@ -38,6 +38,10 @@ func TestCompilationUnit(t *testing.T) {
 				`AND(true, false)`,
 			},
 			{
+				`AND(!true,false)`,
+				`AND(!true, false)`,
+			},
+			{
 				`AND(true,true,false)`,
 				`AND(true, true, false)`,
 			},

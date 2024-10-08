@@ -195,6 +195,10 @@ func (v *BaseFormulaParserVisitor) VisitLen(ctx *LenContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitLower(ctx *LowerContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitLpad(ctx *LpadContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -264,6 +268,10 @@ func (v *BaseFormulaParserVisitor) VisitYear(ctx *YearContext) interface{} {
 }
 
 func (v *BaseFormulaParserVisitor) VisitFieldExpression(ctx *FieldExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitDateExpression(ctx *DateExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

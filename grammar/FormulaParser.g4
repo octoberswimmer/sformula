@@ -8,7 +8,7 @@ compilationUnit
 expression
     :   primary                                                            # primaryExpression
     |   functionCall                                                       # functionCallExpression
-    |   SUB expression                                                     # negationExpression
+    |   (BANG | SUB) expression                                            # negationExpression
     |   Identifier (DOT Identifier)*                                       # fieldReference
     |   expression CARET expression                                        # exponentiationExpression
     |   expression BITAND expression                                       # concatExpression
@@ -56,6 +56,7 @@ functionCall
     | left
     | len
     | lpad
+    | lower
     | mid
     | min
     | mod
@@ -76,7 +77,7 @@ functionCall
     ;
 
 abs : ABS LPAREN expression RPAREN ;
-addMonths : ADDMONTHS LPAREN expression COMMA expression RPAREN ;
+addMonths : ADDMONTHS LPAREN dateExpression COMMA num RPAREN ;
 and : AND_FUNC LPAREN expression (COMMA expression)* RPAREN ;
 begins : BEGINS LPAREN textExpression COMMA compareText RPAREN ;
 blankvalue : BLANKVALUE LPAREN expression COMMA substituteValue RPAREN ;
@@ -113,6 +114,7 @@ isnumber : ISNUMBER LPAREN expression RPAREN ;
 ispickval: ISPICKVAL LPAREN fieldExpression COMMA valueExpression RPAREN ;
 left : LEFT LPAREN textExpression COMMA numChars RPAREN ;
 len : LEN LPAREN expression RPAREN ;
+lower : LOWER LPAREN expression RPAREN ;
 lpad : LPAD LPAREN textExpression COMMA length (COMMA padString)? RPAREN ;
 mid : MID LPAREN textExpression COMMA startNum COMMA numChars RPAREN ;
 min : MIN LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
@@ -133,6 +135,8 @@ year : YEAR LPAREN expression RPAREN ;
 
 
 fieldExpression : expression ;
+
+dateExpression : expression ;
 
 valueExpression : expression ;
 resultExpression : expression ;

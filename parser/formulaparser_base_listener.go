@@ -304,6 +304,12 @@ func (s *BaseFormulaParserListener) EnterLen(ctx *LenContext) {}
 // ExitLen is called when production len is exited.
 func (s *BaseFormulaParserListener) ExitLen(ctx *LenContext) {}
 
+// EnterLower is called when production lower is entered.
+func (s *BaseFormulaParserListener) EnterLower(ctx *LowerContext) {}
+
+// ExitLower is called when production lower is exited.
+func (s *BaseFormulaParserListener) ExitLower(ctx *LowerContext) {}
+
 // EnterLpad is called when production lpad is entered.
 func (s *BaseFormulaParserListener) EnterLpad(ctx *LpadContext) {}
 
@@ -411,6 +417,12 @@ func (s *BaseFormulaParserListener) EnterFieldExpression(ctx *FieldExpressionCon
 
 // ExitFieldExpression is called when production fieldExpression is exited.
 func (s *BaseFormulaParserListener) ExitFieldExpression(ctx *FieldExpressionContext) {}
+
+// EnterDateExpression is called when production dateExpression is entered.
+func (s *BaseFormulaParserListener) EnterDateExpression(ctx *DateExpressionContext) {}
+
+// ExitDateExpression is called when production dateExpression is exited.
+func (s *BaseFormulaParserListener) ExitDateExpression(ctx *DateExpressionContext) {}
 
 // EnterValueExpression is called when production valueExpression is entered.
 func (s *BaseFormulaParserListener) EnterValueExpression(ctx *ValueExpressionContext) {}

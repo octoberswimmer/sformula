@@ -148,6 +148,9 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#len.
 	VisitLen(ctx *LenContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#lower.
+	VisitLower(ctx *LowerContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#lpad.
 	VisitLpad(ctx *LpadContext) interface{}
 
@@ -201,6 +204,9 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#fieldExpression.
 	VisitFieldExpression(ctx *FieldExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#dateExpression.
+	VisitDateExpression(ctx *DateExpressionContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#valueExpression.
 	VisitValueExpression(ctx *ValueExpressionContext) interface{}
