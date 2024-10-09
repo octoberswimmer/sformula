@@ -160,6 +160,9 @@ type FormulaParserListener interface {
 	// EnterLpad is called when entering the lpad production.
 	EnterLpad(c *LpadContext)
 
+	// EnterMax is called when entering the max production.
+	EnterMax(c *MaxContext)
+
 	// EnterMid is called when entering the mid production.
 	EnterMid(c *MidContext)
 
@@ -474,6 +477,9 @@ type FormulaParserListener interface {
 
 	// ExitLpad is called when exiting the lpad production.
 	ExitLpad(c *LpadContext)
+
+	// ExitMax is called when exiting the max production.
+	ExitMax(c *MaxContext)
 
 	// ExitMid is called when exiting the mid production.
 	ExitMid(c *MidContext)

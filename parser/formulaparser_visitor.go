@@ -160,6 +160,9 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#lpad.
 	VisitLpad(ctx *LpadContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#max.
+	VisitMax(ctx *MaxContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#mid.
 	VisitMid(ctx *MidContext) interface{}
 

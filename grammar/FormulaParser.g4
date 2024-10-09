@@ -59,6 +59,7 @@ functionCall
     | len
     | lpad
     | lower
+    | max
     | mid
     | min
     | mod
@@ -122,6 +123,7 @@ left : LEFT LPAREN textExpression COMMA numChars RPAREN ;
 len : LEN LPAREN expression RPAREN ;
 lower : LOWER LPAREN expression RPAREN ;
 lpad : LPAD LPAREN textExpression COMMA length (COMMA padString)? RPAREN ;
+max : MAX LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
 mid : MID LPAREN textExpression COMMA startNum COMMA numChars RPAREN ;
 min : MIN LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
 mod : MOD LPAREN num COMMA divisor RPAREN ;

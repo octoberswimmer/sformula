@@ -43,7 +43,7 @@ func (v *FormatVisitor) visitRule(node antlr.RuleNode) interface{} {
 	}
 	result := node.Accept(v)
 	if result == nil {
-		panic(fmt.Sprintf("MISSING VISIT FUNCTION FOR %T", node))
+		panic(fmt.Sprintf("MISSING VISIT FUNCTION FOR %T: %s", node, node.GetText()))
 	}
 	if beforeComments != nil {
 		comments := []string{}

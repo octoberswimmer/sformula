@@ -328,6 +328,12 @@ func (s *BaseFormulaParserListener) EnterLpad(ctx *LpadContext) {}
 // ExitLpad is called when production lpad is exited.
 func (s *BaseFormulaParserListener) ExitLpad(ctx *LpadContext) {}
 
+// EnterMax is called when production max is entered.
+func (s *BaseFormulaParserListener) EnterMax(ctx *MaxContext) {}
+
+// ExitMax is called when production max is exited.
+func (s *BaseFormulaParserListener) ExitMax(ctx *MaxContext) {}
+
 // EnterMid is called when production mid is entered.
 func (s *BaseFormulaParserListener) EnterMid(ctx *MidContext) {}
 

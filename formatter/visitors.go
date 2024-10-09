@@ -75,6 +75,20 @@ func (v *FormatVisitor) VisitMin(ctx *parser.MinContext) interface{} {
 	return fmt.Sprintf("MIN(%s)", strings.Join(expressions, ", "))
 }
 
+func (v *FormatVisitor) VisitMax(ctx *parser.MaxContext) interface{} {
+	if (len(ctx.GetText()) > 40 && len(ctx.AllExpression()) > 3) || len(ctx.GetText()) > 150 {
+		defer restoreWrap(wrap(v))
+	}
+	expressions := []string{}
+	for _, e := range ctx.AllExpression() {
+		expressions = append(expressions, v.visitRule(e).(string))
+	}
+	if v.wrap {
+		return fmt.Sprintf("MAX(\n%s\n)", v.indent(strings.Join(expressions, ",\n")))
+	}
+	return fmt.Sprintf("MAX(%s)", strings.Join(expressions, ", "))
+}
+
 func (v *FormatVisitor) VisitCase(ctx *parser.CaseContext) interface{} {
 	defer restoreWrap(wrap(v))
 	cases := []string{}

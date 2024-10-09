@@ -211,6 +211,10 @@ func (v *BaseFormulaParserVisitor) VisitLpad(ctx *LpadContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitMax(ctx *MaxContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitMid(ctx *MidContext) interface{} {
 	return v.VisitChildren(ctx)
 }
