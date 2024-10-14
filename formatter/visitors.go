@@ -34,7 +34,7 @@ func (v *FormatVisitor) VisitFunctionCall(ctx *parser.FunctionCallContext) inter
 }
 
 func (v *FormatVisitor) VisitAnd(ctx *parser.AndContext) interface{} {
-	if (len(ctx.GetText()) > 40 && len(ctx.AllExpression()) > 3) || len(ctx.GetText()) > 150 {
+	if (len(ctx.GetText()) > 40 && len(ctx.AllExpression()) > 3) || len(ctx.GetText()) > 80 {
 		defer restoreWrap(wrap(v))
 	}
 	expressions := []string{}
@@ -48,7 +48,7 @@ func (v *FormatVisitor) VisitAnd(ctx *parser.AndContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitOr(ctx *parser.OrContext) interface{} {
-	if (len(ctx.GetText()) > 40 && len(ctx.AllExpression()) > 3) || len(ctx.GetText()) > 150 {
+	if (len(ctx.GetText()) > 40 && len(ctx.AllExpression()) > 3) || len(ctx.GetText()) > 80 {
 		defer restoreWrap(wrap(v))
 	}
 	expressions := []string{}
@@ -62,7 +62,7 @@ func (v *FormatVisitor) VisitOr(ctx *parser.OrContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitMin(ctx *parser.MinContext) interface{} {
-	if (len(ctx.GetText()) > 40 && len(ctx.AllExpression()) > 3) || len(ctx.GetText()) > 150 {
+	if (len(ctx.GetText()) > 40 && len(ctx.AllExpression()) > 3) || len(ctx.GetText()) > 80 {
 		defer restoreWrap(wrap(v))
 	}
 	expressions := []string{}
@@ -76,7 +76,7 @@ func (v *FormatVisitor) VisitMin(ctx *parser.MinContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitMax(ctx *parser.MaxContext) interface{} {
-	if (len(ctx.GetText()) > 40 && len(ctx.AllExpression()) > 3) || len(ctx.GetText()) > 150 {
+	if (len(ctx.GetText()) > 40 && len(ctx.AllExpression()) > 3) || len(ctx.GetText()) > 80 {
 		defer restoreWrap(wrap(v))
 	}
 	expressions := []string{}

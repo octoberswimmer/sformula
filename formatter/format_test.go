@@ -91,6 +91,19 @@ func TestCompilationUnit(t *testing.T) {
 				`Owner:User.Id = $User.Id`,
 				`Owner:User.Id = $User.Id`,
 			},
+			{
+				`OR((AND(NOT(ISBLANK(Next_Step_Start__c)), ISBLANK(Next_Step__c))), (AND(NOT(ISBLANK(Next_Step_End__c)), ISBLANK(Next_Step__c))))`,
+				`OR(
+	(AND(
+		NOT(ISBLANK(Next_Step_Start__c)),
+		ISBLANK(Next_Step__c)
+	)),
+	(AND(
+		NOT(ISBLANK(Next_Step_End__c)),
+		ISBLANK(Next_Step__c)
+	))
+)`,
+			},
 		}
 	for _, tt := range tests {
 		input := antlr.NewInputStream(tt.input)
