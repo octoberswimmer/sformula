@@ -14,6 +14,9 @@ func (v *FormatVisitor) VisitCompilationUnit(ctx *parser.CompilationUnitContext)
 
 func (v *FormatVisitor) VisitPrimary(ctx *parser.PrimaryContext) interface{} {
 	if e := ctx.Expression(); e != nil {
+		// TODO: If Expression is a FuncionCallExpression, PrimaryExpression,
+		// NegationExpression, or FieldReference, we can remove the extra
+		// parentheses
 		return fmt.Sprintf("(%s)", v.visitRule(e))
 	}
 	// Literal
