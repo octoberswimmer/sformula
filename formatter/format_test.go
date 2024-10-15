@@ -104,6 +104,10 @@ func TestCompilationUnit(t *testing.T) {
 	))
 )`,
 			},
+			{
+				`1++++3--------5-+-+-++--2`,
+				`1 + +++3 - -------5 - +-+-++--2`,
+			},
 		}
 	for _, tt := range tests {
 		input := antlr.NewInputStream(tt.input)

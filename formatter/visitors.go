@@ -870,3 +870,7 @@ func (v *FormatVisitor) VisitEqualityExpression(ctx *parser.EqualityExpressionCo
 func (v *FormatVisitor) VisitNegationExpression(ctx *parser.NegationExpressionContext) interface{} {
 	return fmt.Sprintf("%s%s", ctx.GetChild(0).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression()))
 }
+
+func (v *FormatVisitor) VisitPositiveExpression(ctx *parser.PositiveExpressionContext) interface{} {
+	return fmt.Sprintf("%s%s", ctx.GetChild(0).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression()))
+}

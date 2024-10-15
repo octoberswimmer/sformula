@@ -23,6 +23,10 @@ func (v *BaseFormulaParserVisitor) VisitCompareExpression(ctx *CompareExpression
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitPositiveExpression(ctx *PositiveExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitEqualityExpression(ctx *EqualityExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }

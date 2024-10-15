@@ -9,6 +9,7 @@ expression
     :   primary                                                            # primaryExpression
     |   functionCall                                                       # functionCallExpression
     |   (BANG | SUB) expression                                            # negationExpression
+    |   ADD expression                                                     # positiveExpression
     |   Identifier (DOT Identifier)*                                       # fieldReference
     |   expression CARET expression                                        # exponentiationExpression
     |   expression BITAND expression                                       # concatExpression

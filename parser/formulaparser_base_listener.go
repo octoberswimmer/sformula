@@ -44,6 +44,12 @@ func (s *BaseFormulaParserListener) EnterCompareExpression(ctx *CompareExpressio
 // ExitCompareExpression is called when production compareExpression is exited.
 func (s *BaseFormulaParserListener) ExitCompareExpression(ctx *CompareExpressionContext) {}
 
+// EnterPositiveExpression is called when production positiveExpression is entered.
+func (s *BaseFormulaParserListener) EnterPositiveExpression(ctx *PositiveExpressionContext) {}
+
+// ExitPositiveExpression is called when production positiveExpression is exited.
+func (s *BaseFormulaParserListener) ExitPositiveExpression(ctx *PositiveExpressionContext) {}
+
 // EnterEqualityExpression is called when production equalityExpression is entered.
 func (s *BaseFormulaParserListener) EnterEqualityExpression(ctx *EqualityExpressionContext) {}
 

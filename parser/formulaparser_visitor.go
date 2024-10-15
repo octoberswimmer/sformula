@@ -19,6 +19,9 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#compareExpression.
 	VisitCompareExpression(ctx *CompareExpressionContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#positiveExpression.
+	VisitPositiveExpression(ctx *PositiveExpressionContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#equalityExpression.
 	VisitEqualityExpression(ctx *EqualityExpressionContext) interface{}
 

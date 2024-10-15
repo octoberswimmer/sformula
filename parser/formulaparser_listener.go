@@ -19,6 +19,9 @@ type FormulaParserListener interface {
 	// EnterCompareExpression is called when entering the compareExpression production.
 	EnterCompareExpression(c *CompareExpressionContext)
 
+	// EnterPositiveExpression is called when entering the positiveExpression production.
+	EnterPositiveExpression(c *PositiveExpressionContext)
+
 	// EnterEqualityExpression is called when entering the equalityExpression production.
 	EnterEqualityExpression(c *EqualityExpressionContext)
 
@@ -336,6 +339,9 @@ type FormulaParserListener interface {
 
 	// ExitCompareExpression is called when exiting the compareExpression production.
 	ExitCompareExpression(c *CompareExpressionContext)
+
+	// ExitPositiveExpression is called when exiting the positiveExpression production.
+	ExitPositiveExpression(c *PositiveExpressionContext)
 
 	// ExitEqualityExpression is called when exiting the equalityExpression production.
 	ExitEqualityExpression(c *EqualityExpressionContext)
