@@ -852,12 +852,14 @@ func (v *FormatVisitor) VisitArithExpression(ctx *parser.ArithExpressionContext)
 	i := NewChainVisitor()
 	if len(ctx.Expression(0).GetText())+len(ctx.Expression(1).GetText()) < 60 {
 		defer restoreWrap(unwrap(v))
-	}
-	if i.visitRule(ctx.Expression(0)).(int)+i.visitRule(ctx.Expression(1)).(int) > 4 {
+	} else if i.visitRule(ctx.Expression(0)).(int)+i.visitRule(ctx.Expression(1)).(int) > 4 {
 		defer restoreWrap(wrap(v))
 	}
 	if v.wrap {
 		return fmt.Sprintf("%s %s\n%s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.indent(v.visitRule(ctx.Expression(1)).(string)))
+	}
+	if len(ctx.GetText()) <= 5 {
+		return fmt.Sprintf("%s%s%s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression(1)))
 	}
 	return fmt.Sprintf("%s %s %s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression(1)))
 }
