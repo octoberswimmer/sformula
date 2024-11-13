@@ -68,11 +68,13 @@ func (s *BaseFormulaParserListener) EnterFunctionCallExpression(ctx *FunctionCal
 // ExitFunctionCallExpression is called when production functionCallExpression is exited.
 func (s *BaseFormulaParserListener) ExitFunctionCallExpression(ctx *FunctionCallExpressionContext) {}
 
-// EnterFieldReference is called when production fieldReference is entered.
-func (s *BaseFormulaParserListener) EnterFieldReference(ctx *FieldReferenceContext) {}
+// EnterFieldReferenceExpression is called when production fieldReferenceExpression is entered.
+func (s *BaseFormulaParserListener) EnterFieldReferenceExpression(ctx *FieldReferenceExpressionContext) {
+}
 
-// ExitFieldReference is called when production fieldReference is exited.
-func (s *BaseFormulaParserListener) ExitFieldReference(ctx *FieldReferenceContext) {}
+// ExitFieldReferenceExpression is called when production fieldReferenceExpression is exited.
+func (s *BaseFormulaParserListener) ExitFieldReferenceExpression(ctx *FieldReferenceExpressionContext) {
+}
 
 // EnterExponentiationExpression is called when production exponentiationExpression is entered.
 func (s *BaseFormulaParserListener) EnterExponentiationExpression(ctx *ExponentiationExpressionContext) {
@@ -88,11 +90,23 @@ func (s *BaseFormulaParserListener) EnterArithExpression(ctx *ArithExpressionCon
 // ExitArithExpression is called when production arithExpression is exited.
 func (s *BaseFormulaParserListener) ExitArithExpression(ctx *ArithExpressionContext) {}
 
+// EnterVariableExpression is called when production variableExpression is entered.
+func (s *BaseFormulaParserListener) EnterVariableExpression(ctx *VariableExpressionContext) {}
+
+// ExitVariableExpression is called when production variableExpression is exited.
+func (s *BaseFormulaParserListener) ExitVariableExpression(ctx *VariableExpressionContext) {}
+
 // EnterConcatExpression is called when production concatExpression is entered.
 func (s *BaseFormulaParserListener) EnterConcatExpression(ctx *ConcatExpressionContext) {}
 
 // ExitConcatExpression is called when production concatExpression is exited.
 func (s *BaseFormulaParserListener) ExitConcatExpression(ctx *ConcatExpressionContext) {}
+
+// EnterFieldReference is called when production fieldReference is entered.
+func (s *BaseFormulaParserListener) EnterFieldReference(ctx *FieldReferenceContext) {}
+
+// ExitFieldReference is called when production fieldReference is exited.
+func (s *BaseFormulaParserListener) ExitFieldReference(ctx *FieldReferenceContext) {}
 
 // EnterFunctionCall is called when production functionCall is entered.
 func (s *BaseFormulaParserListener) EnterFunctionCall(ctx *FunctionCallContext) {}

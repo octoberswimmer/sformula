@@ -19,7 +19,9 @@ type FormatVisitor struct {
 	commentsOutput map[int]struct{}
 	newlinesOutput map[int]struct{}
 	parser.BaseFormulaParserVisitor
-	wrap bool
+	wrap                     bool
+	allowVariableExpressions bool
+	errors                   error
 }
 
 func NewFormatVisitor(tokens *antlr.CommonTokenStream) *FormatVisitor {

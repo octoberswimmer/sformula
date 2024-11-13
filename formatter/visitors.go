@@ -5,6 +5,7 @@ import (
 	"strings"
 
 	"github.com/antlr4-go/antlr/v4"
+	"github.com/hashicorp/go-multierror"
 	"github.com/octoberswimmer/sformula/parser"
 )
 
@@ -736,6 +737,10 @@ func (v *FormatVisitor) VisitFieldReference(ctx *parser.FieldReferenceContext) i
 	return ctx.GetText()
 }
 
+func (v *FormatVisitor) VisitFieldReferenceExpression(ctx *parser.FieldReferenceExpressionContext) interface{} {
+	return v.visitRule(ctx.FieldReference())
+}
+
 func (v *FormatVisitor) VisitSearchExpression(ctx *parser.SearchExpressionContext) interface{} {
 	return ctx.GetText()
 }
@@ -822,6 +827,13 @@ func (v *FormatVisitor) VisitMonthExpression(ctx *parser.MonthExpressionContext)
 
 func (v *FormatVisitor) VisitDayExpression(ctx *parser.DayExpressionContext) interface{} {
 	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitVariableExpression(ctx *parser.VariableExpressionContext) interface{} {
+	if !v.allowVariableExpressions {
+		v.errors = multierror.Append(v.errors, fmt.Errorf("Variable expressions not supported: %s", ctx.GetText()))
+	}
+	return fmt.Sprintf("{!%s}", v.visitRule(ctx.FieldReference()))
 }
 
 func (v *FormatVisitor) VisitCompareExpression(ctx *parser.CompareExpressionContext) interface{} {

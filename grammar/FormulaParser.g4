@@ -10,15 +10,20 @@ expression
     |   functionCall                                                       # functionCallExpression
     |   (BANG | SUB) expression                                            # negationExpression
     |   ADD expression                                                     # positiveExpression
-    |   Identifier (DOT Identifier)*                                       # fieldReference
+    |   fieldReference                                                     # fieldReferenceExpression
     |   expression CARET expression                                        # exponentiationExpression
     |   expression BITAND expression                                       # concatExpression
     |   expression (ADD | SUB | DIV | MUL) expression                      # arithExpression
     |   expression (GT | LT) ASSIGN? expression                            # compareExpression
     |   expression (ASSIGN | EQUAL | NOTEQUAL | LESSANDGREATER) expression # equalityExpression
     |   expression (AND | OR) expression                                   # logicExpression
+    |   BRACEBANG fieldReference RBRACE                                    # variableExpression
     ;
 
+fieldReference
+    : Identifier (DOT Identifier)*
+    | fieldReference DOT VALUE
+    ;
 
 functionCall
     : abs

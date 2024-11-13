@@ -12,6 +12,13 @@ import (
 	"github.com/octoberswimmer/sformula/parser"
 )
 
+type FormulaType int
+
+const (
+	StandardFormula FormulaType = iota
+	FlowFormula
+)
+
 type errorListener struct {
 	*antlr.DefaultErrorListener
 	logger io.Writer
@@ -21,7 +28,7 @@ func (e *errorListener) SyntaxError(_ antlr.Recognizer, _ interface{}, line, col
 	_, _ = fmt.Fprintln(e.logger, "line "+strconv.Itoa(line)+":"+strconv.Itoa(column)+" "+msg)
 }
 
-func Format(f string) (string, error) {
+func formatFormula(f string, formulaType FormulaType) (string, error) {
 	input := antlr.NewInputStream(f)
 	lexer := parser.NewFormulaLexer(input)
 	lexer.RemoveErrorListeners()
@@ -35,9 +42,9 @@ func Format(f string) (string, error) {
 	p := parser.NewFormulaParser(stream)
 	p.RemoveErrorListeners()
 	p.AddErrorListener(errors)
-	// p.AddErrorListener(antlr.NewDiagnosticErrorListener(false))
 
 	v := NewFormatVisitor(stream)
+	v.allowVariableExpressions = (formulaType == FlowFormula)
 	out, ok := v.visitRule(p.CompilationUnit()).(string)
 	if !ok {
 		return f, fmt.Errorf("Unexpected result parsing formula")
@@ -45,8 +52,19 @@ func Format(f string) (string, error) {
 	if buf.Len() != 0 {
 		return f, fmt.Errorf("syntax error: %s", string(buf.Bytes()))
 	}
+	if v.errors != nil {
+		return f, v.errors
+	}
 	out = removeExtraCommentIndentation(out)
 	return out, nil
+}
+
+func FormatFlowFormula(f string) (string, error) {
+	return formatFormula(f, FlowFormula)
+}
+
+func Format(f string) (string, error) {
+	return formatFormula(f, StandardFormula)
 }
 
 func removeIndentationFromComment(comment string) string {

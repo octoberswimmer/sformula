@@ -31,8 +31,8 @@ type FormulaParserListener interface {
 	// EnterFunctionCallExpression is called when entering the functionCallExpression production.
 	EnterFunctionCallExpression(c *FunctionCallExpressionContext)
 
-	// EnterFieldReference is called when entering the fieldReference production.
-	EnterFieldReference(c *FieldReferenceContext)
+	// EnterFieldReferenceExpression is called when entering the fieldReferenceExpression production.
+	EnterFieldReferenceExpression(c *FieldReferenceExpressionContext)
 
 	// EnterExponentiationExpression is called when entering the exponentiationExpression production.
 	EnterExponentiationExpression(c *ExponentiationExpressionContext)
@@ -40,8 +40,14 @@ type FormulaParserListener interface {
 	// EnterArithExpression is called when entering the arithExpression production.
 	EnterArithExpression(c *ArithExpressionContext)
 
+	// EnterVariableExpression is called when entering the variableExpression production.
+	EnterVariableExpression(c *VariableExpressionContext)
+
 	// EnterConcatExpression is called when entering the concatExpression production.
 	EnterConcatExpression(c *ConcatExpressionContext)
+
+	// EnterFieldReference is called when entering the fieldReference production.
+	EnterFieldReference(c *FieldReferenceContext)
 
 	// EnterFunctionCall is called when entering the functionCall production.
 	EnterFunctionCall(c *FunctionCallContext)
@@ -352,8 +358,8 @@ type FormulaParserListener interface {
 	// ExitFunctionCallExpression is called when exiting the functionCallExpression production.
 	ExitFunctionCallExpression(c *FunctionCallExpressionContext)
 
-	// ExitFieldReference is called when exiting the fieldReference production.
-	ExitFieldReference(c *FieldReferenceContext)
+	// ExitFieldReferenceExpression is called when exiting the fieldReferenceExpression production.
+	ExitFieldReferenceExpression(c *FieldReferenceExpressionContext)
 
 	// ExitExponentiationExpression is called when exiting the exponentiationExpression production.
 	ExitExponentiationExpression(c *ExponentiationExpressionContext)
@@ -361,8 +367,14 @@ type FormulaParserListener interface {
 	// ExitArithExpression is called when exiting the arithExpression production.
 	ExitArithExpression(c *ArithExpressionContext)
 
+	// ExitVariableExpression is called when exiting the variableExpression production.
+	ExitVariableExpression(c *VariableExpressionContext)
+
 	// ExitConcatExpression is called when exiting the concatExpression production.
 	ExitConcatExpression(c *ConcatExpressionContext)
+
+	// ExitFieldReference is called when exiting the fieldReference production.
+	ExitFieldReference(c *FieldReferenceContext)
 
 	// ExitFunctionCall is called when exiting the functionCall production.
 	ExitFunctionCall(c *FunctionCallContext)

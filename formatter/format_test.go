@@ -128,3 +128,30 @@ func TestCompilationUnit(t *testing.T) {
 		}
 	}
 }
+
+// Flow formulas allow variable expressions
+func TestFlowFormulas(t *testing.T) {
+	if testing.Verbose() {
+		log.SetLevel(log.DebugLevel)
+
+	}
+	tests :=
+		[]struct {
+			input  string
+			output string
+		}{
+			{
+				`{!$Api.Session_ID}`,
+				`{!$Api.Session_ID}`,
+			},
+		}
+	for _, tt := range tests {
+		out, err := FormatFlowFormula(tt.input)
+		if err != nil {
+			t.Errorf("error parsing formula: %s", err.Error())
+		}
+		if out != tt.output {
+			t.Errorf("unexpected format.  expected:\n%s\ngot:\n%s\n", tt.output, out)
+		}
+	}
+}

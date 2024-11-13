@@ -167,6 +167,10 @@ EQUAL           : '==';
 AND             : '&&';
 OR              : '||';
 
+// Flows support variable expressions
+BRACEBANG  : '{!';
+RBRACE  : '}';
+
 fragment A : [aA];
 fragment B : [bB];
 fragment C : [cC];

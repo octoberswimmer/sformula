@@ -39,7 +39,7 @@ func (v *BaseFormulaParserVisitor) VisitFunctionCallExpression(ctx *FunctionCall
 	return v.VisitChildren(ctx)
 }
 
-func (v *BaseFormulaParserVisitor) VisitFieldReference(ctx *FieldReferenceContext) interface{} {
+func (v *BaseFormulaParserVisitor) VisitFieldReferenceExpression(ctx *FieldReferenceExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -51,7 +51,15 @@ func (v *BaseFormulaParserVisitor) VisitArithExpression(ctx *ArithExpressionCont
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitVariableExpression(ctx *VariableExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitConcatExpression(ctx *ConcatExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitFieldReference(ctx *FieldReferenceContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

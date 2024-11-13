@@ -31,8 +31,8 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#functionCallExpression.
 	VisitFunctionCallExpression(ctx *FunctionCallExpressionContext) interface{}
 
-	// Visit a parse tree produced by FormulaParser#fieldReference.
-	VisitFieldReference(ctx *FieldReferenceContext) interface{}
+	// Visit a parse tree produced by FormulaParser#fieldReferenceExpression.
+	VisitFieldReferenceExpression(ctx *FieldReferenceExpressionContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#exponentiationExpression.
 	VisitExponentiationExpression(ctx *ExponentiationExpressionContext) interface{}
@@ -40,8 +40,14 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#arithExpression.
 	VisitArithExpression(ctx *ArithExpressionContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#variableExpression.
+	VisitVariableExpression(ctx *VariableExpressionContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#concatExpression.
 	VisitConcatExpression(ctx *ConcatExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#fieldReference.
+	VisitFieldReference(ctx *FieldReferenceContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#functionCall.
 	VisitFunctionCall(ctx *FunctionCallContext) interface{}
