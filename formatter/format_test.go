@@ -112,6 +112,47 @@ func TestCompilationUnit(t *testing.T) {
 				`NOW() + (1/24)`,
 				`NOW() + (1/24)`,
 			},
+			{
+				`BLANKVALUE(Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+				BLANKVALUE(Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+				BLANKVALUE(Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+				BLANKVALUE(Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+				BLANKVALUE(Parent.Parent.Parent.Parent.Parent.Parent.Id,
+				BLANKVALUE(Parent.Parent.Parent.Parent.Parent.Id,
+				BLANKVALUE(Parent.Parent.Parent.Parent.Id,
+				BLANKVALUE(Parent.Parent.Parent.Id,
+				BLANKVALUE(Parent.Parent.Id,
+				BLANKVALUE(Parent.Id,
+				Id))))))))))`,
+				`BLANKVALUE(
+	Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+	BLANKVALUE(
+		Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+		BLANKVALUE(
+			Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+			BLANKVALUE(
+				Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+				BLANKVALUE(
+					Parent.Parent.Parent.Parent.Parent.Parent.Id,
+					BLANKVALUE(
+						Parent.Parent.Parent.Parent.Parent.Id,
+						BLANKVALUE(
+							Parent.Parent.Parent.Parent.Id,
+							BLANKVALUE(
+								Parent.Parent.Parent.Id,
+								BLANKVALUE(
+									Parent.Parent.Id,
+									BLANKVALUE(Parent.Id, Id)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)`,
+			},
 		}
 	for _, tt := range tests {
 		input := antlr.NewInputStream(tt.input)

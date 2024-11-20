@@ -637,8 +637,11 @@ func (v *FormatVisitor) VisitPriorvalue(ctx *parser.PriorvalueContext) interface
 }
 
 func (v *FormatVisitor) VisitBlankvalue(ctx *parser.BlankvalueContext) interface{} {
-	if len(ctx.GetText()) < 60 {
+	if len(ctx.GetText()) < 40 {
 		defer restoreWrap(unwrap(v))
+	}
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
 	}
 	if v.wrap {
 		return fmt.Sprintf("BLANKVALUE(\n%s,\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)), v.indent(v.visitRule(ctx.SubstituteValue()).(string)))
