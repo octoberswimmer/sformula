@@ -63,6 +63,10 @@ func (v *BaseFormulaParserVisitor) VisitFieldReference(ctx *FieldReferenceContex
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitFieldPart(ctx *FieldPartContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitFunctionCall(ctx *FunctionCallContext) interface{} {
 	return v.VisitChildren(ctx)
 }

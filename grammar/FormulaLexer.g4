@@ -148,6 +148,8 @@ LetterOrDigit
 
 LPAREN          : '(';
 RPAREN          : ')';
+LBRACK          : '[';
+RBRACK          : ']';
 DOT             : '.';
 COMMA           : ',';
 

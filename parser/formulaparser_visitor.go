@@ -49,6 +49,9 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#fieldReference.
 	VisitFieldReference(ctx *FieldReferenceContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#fieldPart.
+	VisitFieldPart(ctx *FieldPartContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#functionCall.
 	VisitFunctionCall(ctx *FunctionCallContext) interface{}
 

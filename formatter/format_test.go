@@ -153,6 +153,44 @@ func TestCompilationUnit(t *testing.T) {
 	)
 )`,
 			},
+			{
+				// Array indexing support
+				`items[0]`,
+				`items[0]`,
+			},
+			{
+				`items[0].Name`,
+				`items[0].Name`,
+			},
+			{
+				`clinics[0].Location__r.Name`,
+				`clinics[0].Location__r.Name`,
+			},
+			{
+				// Array indexing with complex expressions
+				`items[index + 1].field`,
+				`items[index + 1].field`,
+			},
+			{
+				// Array indexing in functions
+				`IF(items[0].Active__c, items[0].Name, "Inactive")`,
+				`IF(items[0].Active__c, items[0].Name, "Inactive")`,
+			},
+			{
+				// Array indexing with string concatenation
+				`"Item: " & items[0].Name & " - " & items[0].Status__c`,
+				`"Item: " & items[0].Name & " - " & items[0].Status__c`,
+			},
+			{
+				// Complex Visualforce expression with array indexing
+				`clinics[0].Location__r.SchedulingOwner__r.User__r.FirstName & ' ' & clinics[0].Location__r.SchedulingOwner__r.User__r.LastName`,
+				`clinics[0].Location__r.SchedulingOwner__r.User__r.FirstName & ' ' & clinics[0].Location__r.SchedulingOwner__r.User__r.LastName`,
+			},
+			{
+				// Array size check with IF
+				`IF(clinics.size > 1, "clinics", "a clinic")`,
+				`IF(clinics.size > 1, "clinics", "a clinic")`,
+			},
 		}
 	for _, tt := range tests {
 		input := antlr.NewInputStream(tt.input)
@@ -188,6 +226,19 @@ func TestFlowFormulas(t *testing.T) {
 			{
 				`{!$Api.Session_ID}`,
 				`{!$Api.Session_ID}`,
+			},
+			{
+				// Visualforce expressions with array indexing
+				`{!items[0]}`,
+				`{!items[0]}`,
+			},
+			{
+				`{!clinics[0].Location__r.Name}`,
+				`{!clinics[0].Location__r.Name}`,
+			},
+			{
+				`{!items[index].Name}`,
+				`{!items[index].Name}`,
 			},
 		}
 	for _, tt := range tests {

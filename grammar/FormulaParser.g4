@@ -21,8 +21,12 @@ expression
     ;
 
 fieldReference
-    : Identifier (DOT Identifier)*
+    : fieldPart (DOT fieldPart)*
     | fieldReference DOT VALUE
+    ;
+
+fieldPart
+    : Identifier (LBRACK expression RBRACK)?
     ;
 
 functionCall

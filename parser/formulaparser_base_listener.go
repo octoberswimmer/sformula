@@ -108,6 +108,12 @@ func (s *BaseFormulaParserListener) EnterFieldReference(ctx *FieldReferenceConte
 // ExitFieldReference is called when production fieldReference is exited.
 func (s *BaseFormulaParserListener) ExitFieldReference(ctx *FieldReferenceContext) {}
 
+// EnterFieldPart is called when production fieldPart is entered.
+func (s *BaseFormulaParserListener) EnterFieldPart(ctx *FieldPartContext) {}
+
+// ExitFieldPart is called when production fieldPart is exited.
+func (s *BaseFormulaParserListener) ExitFieldPart(ctx *FieldPartContext) {}
+
 // EnterFunctionCall is called when production functionCall is entered.
 func (s *BaseFormulaParserListener) EnterFunctionCall(ctx *FunctionCallContext) {}
 

@@ -49,6 +49,9 @@ type FormulaParserListener interface {
 	// EnterFieldReference is called when entering the fieldReference production.
 	EnterFieldReference(c *FieldReferenceContext)
 
+	// EnterFieldPart is called when entering the fieldPart production.
+	EnterFieldPart(c *FieldPartContext)
+
 	// EnterFunctionCall is called when entering the functionCall production.
 	EnterFunctionCall(c *FunctionCallContext)
 
@@ -375,6 +378,9 @@ type FormulaParserListener interface {
 
 	// ExitFieldReference is called when exiting the fieldReference production.
 	ExitFieldReference(c *FieldReferenceContext)
+
+	// ExitFieldPart is called when exiting the fieldPart production.
+	ExitFieldPart(c *FieldPartContext)
 
 	// ExitFunctionCall is called when exiting the functionCall production.
 	ExitFunctionCall(c *FunctionCallContext)

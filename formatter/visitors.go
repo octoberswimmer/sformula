@@ -737,7 +737,37 @@ func (v *FormatVisitor) VisitNumChars(ctx *parser.NumCharsContext) interface{} {
 }
 
 func (v *FormatVisitor) VisitFieldReference(ctx *parser.FieldReferenceContext) interface{} {
-	return ctx.GetText()
+	// Check if this is a VALUE reference (fieldReference DOT VALUE)
+	if ctx.VALUE() != nil {
+		return fmt.Sprintf("%s.VALUE", v.visitRule(ctx.FieldReference()))
+	}
+
+	// Handle fieldPart (DOT fieldPart)*
+	fieldParts := ctx.AllFieldPart()
+	if len(fieldParts) == 0 {
+		return ctx.GetText()
+	}
+
+	var result string
+	for i, fieldPart := range fieldParts {
+		if i > 0 {
+			result += "."
+		}
+		result += v.visitRule(fieldPart).(string)
+	}
+	return result
+}
+
+func (v *FormatVisitor) VisitFieldPart(ctx *parser.FieldPartContext) interface{} {
+	result := ctx.Identifier().GetText()
+
+	// Check for array indexing
+	if ctx.LBRACK() != nil && ctx.Expression() != nil {
+		indexExpr := v.visitRule(ctx.Expression())
+		result += fmt.Sprintf("[%s]", indexExpr)
+	}
+
+	return result
 }
 
 func (v *FormatVisitor) VisitFieldReferenceExpression(ctx *parser.FieldReferenceExpressionContext) interface{} {
