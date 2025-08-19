@@ -181,6 +181,9 @@ type FormulaParserListener interface {
 	// EnterMin is called when entering the min production.
 	EnterMin(c *MinContext)
 
+	// EnterMinute is called when entering the minute production.
+	EnterMinute(c *MinuteContext)
+
 	// EnterMod is called when entering the mod production.
 	EnterMod(c *ModContext)
 
@@ -216,6 +219,9 @@ type FormulaParserListener interface {
 
 	// EnterText is called when entering the text production.
 	EnterText(c *TextContext)
+
+	// EnterTimevalue is called when entering the timevalue production.
+	EnterTimevalue(c *TimevalueContext)
 
 	// EnterToday is called when entering the today production.
 	EnterToday(c *TodayContext)
@@ -511,6 +517,9 @@ type FormulaParserListener interface {
 	// ExitMin is called when exiting the min production.
 	ExitMin(c *MinContext)
 
+	// ExitMinute is called when exiting the minute production.
+	ExitMinute(c *MinuteContext)
+
 	// ExitMod is called when exiting the mod production.
 	ExitMod(c *ModContext)
 
@@ -546,6 +555,9 @@ type FormulaParserListener interface {
 
 	// ExitText is called when exiting the text production.
 	ExitText(c *TextContext)
+
+	// ExitTimevalue is called when exiting the timevalue production.
+	ExitTimevalue(c *TimevalueContext)
 
 	// ExitToday is called when exiting the today production.
 	ExitToday(c *TodayContext)

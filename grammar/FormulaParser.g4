@@ -72,6 +72,7 @@ functionCall
     | max
     | mid
     | min
+    | minute
     | mod
     | month
     | not
@@ -84,6 +85,7 @@ functionCall
     | substitute
     | trim
     | text
+    | timevalue
     | today
     | upper
     | value
@@ -136,6 +138,7 @@ lpad : LPAD LPAREN textExpression COMMA length (COMMA padString)? RPAREN ;
 max : MAX LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
 mid : MID LPAREN textExpression COMMA startNum COMMA numChars RPAREN ;
 min : MIN LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
+minute : MINUTE LPAREN expression RPAREN ;
 mod : MOD LPAREN num COMMA divisor RPAREN ;
 month : MONTH LPAREN expression RPAREN ;
 not : NOT LPAREN expression RPAREN ;
@@ -148,6 +151,7 @@ round : ROUND LPAREN num COMMA digits RPAREN ;
 substitute : SUBSTITUTE LPAREN textExpression COMMA oldText COMMA replacement RPAREN ;
 trim : TRIM LPAREN expression RPAREN ;
 text : TEXT LPAREN expression RPAREN ;
+timevalue : TIMEVALUE LPAREN expression RPAREN ;
 today : TODAY LPAREN RPAREN ;
 upper : UPPER LPAREN expression RPAREN ;
 value : VALUE LPAREN expression RPAREN ;

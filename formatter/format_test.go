@@ -191,6 +191,93 @@ func TestCompilationUnit(t *testing.T) {
 				`IF(clinics.size > 1, "clinics", "a clinic")`,
 				`IF(clinics.size > 1, "clinics", "a clinic")`,
 			},
+			{
+				// HOUR function test - simple
+				`HOUR(NOW())`,
+				`HOUR(NOW())`,
+			},
+			{
+				// HOUR function test - with field reference
+				`HOUR(CreatedDate)`,
+				`HOUR(CreatedDate)`,
+			},
+			{
+				// HOUR function test - with expression
+				`HOUR(NOW() + 1)`,
+				`HOUR(NOW() + 1)`,
+			},
+			{
+				// HOUR function test - wrapped due to length
+				`HOUR(DATETIMEVALUE("2024-01-01 14:30:00") + (1/24))`,
+				`HOUR(DATETIMEVALUE("2024-01-01 14:30:00") + (1/24))`,
+			},
+			{
+				// HOUR function test - in IF condition
+				`IF(HOUR(NOW()) > 12, "Afternoon", "Morning")`,
+				`IF(HOUR(NOW()) > 12, "Afternoon", "Morning")`,
+			},
+			{
+				// HOUR function test - comparison
+				`HOUR(CreatedDate) >= 9 && HOUR(CreatedDate) < 17`,
+				`HOUR(CreatedDate) >= 9 &&
+	HOUR(CreatedDate) < 17`,
+			},
+			{
+				// TIMEVALUE function test - simple
+				`TIMEVALUE("14:30:00")`,
+				`TIMEVALUE("14:30:00")`,
+			},
+			{
+				// TIMEVALUE function test - with field reference
+				`TIMEVALUE(TextField__c)`,
+				`TIMEVALUE(TextField__c)`,
+			},
+			{
+				// TIMEVALUE function test - with concatenation
+				`TIMEVALUE(HOUR(NOW()) & ":00:00")`,
+				`TIMEVALUE(HOUR(NOW()) & ":00:00")`,
+			},
+			{
+				// TIMEVALUE function test - wrapped due to length
+				`TIMEVALUE("12:00:00") + (1/24)`,
+				`TIMEVALUE("12:00:00") + (1/24)`,
+			},
+			{
+				// TIMEVALUE function test - in IF condition
+				`IF(TIMEVALUE("09:00:00") < NOW(), "Past 9 AM", "Before 9 AM")`,
+				`IF(TIMEVALUE("09:00:00") < NOW(), "Past 9 AM", "Before 9 AM")`,
+			},
+			{
+				// MINUTE function test - simple
+				`MINUTE(NOW())`,
+				`MINUTE(NOW())`,
+			},
+			{
+				// MINUTE function test - with field reference
+				`MINUTE(CreatedDate)`,
+				`MINUTE(CreatedDate)`,
+			},
+			{
+				// MINUTE function test - with expression
+				`MINUTE(NOW() + (30/1440))`,
+				`MINUTE(NOW() + (30 / 1440))`,
+			},
+			{
+				// MINUTE function test - wrapped due to length
+				`MINUTE(DATETIMEVALUE("2024-01-01 14:30:45"))`,
+				`MINUTE(DATETIMEVALUE("2024-01-01 14:30:45"))`,
+			},
+			{
+				// MINUTE function test - in IF condition
+				`IF(MINUTE(NOW()) >= 30, "Past half hour", "Before half hour")`,
+				`IF(MINUTE(NOW()) >= 30, "Past half hour", "Before half hour")`,
+			},
+			{
+				// MINUTE function test - comparison
+				`MINUTE(StartTime__c) == 0 || MINUTE(StartTime__c) == 30`,
+				`MINUTE(StartTime__c) == 0 ||
+	MINUTE(StartTime__c) == 30`,
+			},
 		}
 	for _, tt := range tests {
 		input := antlr.NewInputStream(tt.input)
@@ -239,6 +326,36 @@ func TestFlowFormulas(t *testing.T) {
 			{
 				`{!items[index].Name}`,
 				`{!items[index].Name}`,
+			},
+			{
+				// HOUR function in flow formula
+				`HOUR({!$Flow.CurrentDateTime})`,
+				`HOUR({!$Flow.CurrentDateTime})`,
+			},
+			{
+				// HOUR function with flow variable in comparison
+				`HOUR({!StartTime}) < 12`,
+				`HOUR({!StartTime}) < 12`,
+			},
+			{
+				// TIMEVALUE function in flow formula
+				`TIMEVALUE({!$Flow.CurrentTime})`,
+				`TIMEVALUE({!$Flow.CurrentTime})`,
+			},
+			{
+				// TIMEVALUE function with flow variable
+				`TIMEVALUE({!TimeString}) > TIMEVALUE("12:00:00")`,
+				`TIMEVALUE({!TimeString}) > TIMEVALUE("12:00:00")`,
+			},
+			{
+				// MINUTE function in flow formula
+				`MINUTE({!$Flow.CurrentDateTime})`,
+				`MINUTE({!$Flow.CurrentDateTime})`,
+			},
+			{
+				// MINUTE function with flow variable in calculation
+				`MINUTE({!AppointmentTime}) + 15`,
+				`MINUTE({!AppointmentTime}) + 15`,
 			},
 		}
 	for _, tt := range tests {

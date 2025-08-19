@@ -372,6 +372,12 @@ func (s *BaseFormulaParserListener) EnterMin(ctx *MinContext) {}
 // ExitMin is called when production min is exited.
 func (s *BaseFormulaParserListener) ExitMin(ctx *MinContext) {}
 
+// EnterMinute is called when production minute is entered.
+func (s *BaseFormulaParserListener) EnterMinute(ctx *MinuteContext) {}
+
+// ExitMinute is called when production minute is exited.
+func (s *BaseFormulaParserListener) ExitMinute(ctx *MinuteContext) {}
+
 // EnterMod is called when production mod is entered.
 func (s *BaseFormulaParserListener) EnterMod(ctx *ModContext) {}
 
@@ -443,6 +449,12 @@ func (s *BaseFormulaParserListener) EnterText(ctx *TextContext) {}
 
 // ExitText is called when production text is exited.
 func (s *BaseFormulaParserListener) ExitText(ctx *TextContext) {}
+
+// EnterTimevalue is called when production timevalue is entered.
+func (s *BaseFormulaParserListener) EnterTimevalue(ctx *TimevalueContext) {}
+
+// ExitTimevalue is called when production timevalue is exited.
+func (s *BaseFormulaParserListener) ExitTimevalue(ctx *TimevalueContext) {}
 
 // EnterToday is called when production today is entered.
 func (s *BaseFormulaParserListener) EnterToday(ctx *TodayContext) {}

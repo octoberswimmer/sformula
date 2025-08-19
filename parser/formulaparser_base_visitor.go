@@ -239,6 +239,10 @@ func (v *BaseFormulaParserVisitor) VisitMin(ctx *MinContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitMinute(ctx *MinuteContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitMod(ctx *ModContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -284,6 +288,10 @@ func (v *BaseFormulaParserVisitor) VisitTrim(ctx *TrimContext) interface{} {
 }
 
 func (v *BaseFormulaParserVisitor) VisitText(ctx *TextContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitTimevalue(ctx *TimevalueContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

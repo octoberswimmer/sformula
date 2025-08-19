@@ -423,6 +423,16 @@ func (v *FormatVisitor) VisitText(ctx *parser.TextContext) interface{} {
 	return fmt.Sprintf("TEXT(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
+func (v *FormatVisitor) VisitTimevalue(ctx *parser.TimevalueContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("TIMEVALUE(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("TIMEVALUE(%s)", v.visitRule(ctx.Expression()).(string))
+}
+
 func (v *FormatVisitor) VisitFloor(ctx *parser.FloorContext) interface{} {
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
@@ -507,6 +517,32 @@ func (v *FormatVisitor) VisitDay(ctx *parser.DayContext) interface{} {
 		return fmt.Sprintf("DAY(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
 	}
 	return fmt.Sprintf("DAY(%s)", v.visitRule(ctx.Expression()).(string))
+}
+
+func (v *FormatVisitor) VisitHour(ctx *parser.HourContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("HOUR(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("HOUR(%s)", v.visitRule(ctx.Expression()).(string))
+}
+
+func (v *FormatVisitor) VisitMinute(ctx *parser.MinuteContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("MINUTE(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("MINUTE(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
 func (v *FormatVisitor) VisitMonth(ctx *parser.MonthContext) interface{} {

@@ -181,6 +181,9 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#min.
 	VisitMin(ctx *MinContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#minute.
+	VisitMinute(ctx *MinuteContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#mod.
 	VisitMod(ctx *ModContext) interface{}
 
@@ -216,6 +219,9 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#text.
 	VisitText(ctx *TextContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#timevalue.
+	VisitTimevalue(ctx *TimevalueContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#today.
 	VisitToday(ctx *TodayContext) interface{}
