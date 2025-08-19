@@ -357,6 +357,16 @@ func TestFlowFormulas(t *testing.T) {
 				`MINUTE({!AppointmentTime}) + 15`,
 				`MINUTE({!AppointmentTime}) + 15`,
 			},
+			{
+				// Test case sensitivity for .value (should preserve original case)
+				`ISBLANK(TRIM({!Phone.value}))`,
+				`ISBLANK(TRIM({!Phone.value}))`,
+			},
+			{
+				// Test uppercase .VALUE (should preserve original case)
+				`ISBLANK(TRIM({!Phone.VALUE}))`,
+				`ISBLANK(TRIM({!Phone.VALUE}))`,
+			},
 		}
 	for _, tt := range tests {
 		out, err := FormatFlowFormula(tt.input)

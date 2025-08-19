@@ -775,7 +775,8 @@ func (v *FormatVisitor) VisitNumChars(ctx *parser.NumCharsContext) interface{} {
 func (v *FormatVisitor) VisitFieldReference(ctx *parser.FieldReferenceContext) interface{} {
 	// Check if this is a VALUE reference (fieldReference DOT VALUE)
 	if ctx.VALUE() != nil {
-		return fmt.Sprintf("%s.VALUE", v.visitRule(ctx.FieldReference()))
+		// Preserve the original case of "value" from the input
+		return fmt.Sprintf("%s.%s", v.visitRule(ctx.FieldReference()), ctx.VALUE().GetText())
 	}
 
 	// Handle fieldPart (DOT fieldPart)*
