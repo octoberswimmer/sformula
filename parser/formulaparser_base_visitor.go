@@ -19,6 +19,18 @@ func (v *BaseFormulaParserVisitor) VisitNegationExpression(ctx *NegationExpressi
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitNegativeExpression(ctx *NegativeExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitVariableExpression(ctx *VariableExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitConcatExpression(ctx *ConcatExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitCompareExpression(ctx *CompareExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -48,14 +60,6 @@ func (v *BaseFormulaParserVisitor) VisitExponentiationExpression(ctx *Exponentia
 }
 
 func (v *BaseFormulaParserVisitor) VisitArithExpression(ctx *ArithExpressionContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseFormulaParserVisitor) VisitVariableExpression(ctx *VariableExpressionContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseFormulaParserVisitor) VisitConcatExpression(ctx *ConcatExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

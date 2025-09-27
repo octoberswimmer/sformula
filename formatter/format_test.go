@@ -278,6 +278,101 @@ func TestCompilationUnit(t *testing.T) {
 				`MINUTE(StartTime__c) == 0 ||
 	MINUTE(StartTime__c) == 30`,
 			},
+			{
+				// negativeExpression - simple negative number
+				`-5`,
+				`-5`,
+			},
+			{
+				// negativeExpression - negative decimal
+				`-3.14159`,
+				`-3.14159`,
+			},
+			{
+				// negativeExpression - negative field reference
+				`-Amount__c`,
+				`-Amount__c`,
+			},
+			{
+				// negativeExpression - negative function result
+				`-ABS(Amount__c)`,
+				`-ABS(Amount__c)`,
+			},
+			{
+				// negativeExpression - negative expression in parentheses
+				`-(5 + 3)`,
+				`-(5 + 3)`,
+			},
+			{
+				// negativeExpression - double negative
+				`--5`,
+				`--5`,
+			},
+			{
+				// negativeExpression - triple negative
+				`---Amount__c`,
+				`---Amount__c`,
+			},
+			{
+				// negativeExpression - negative in arithmetic
+				`10 + -5`,
+				`10 + -5`,
+			},
+			{
+				// negativeExpression - negative in multiplication
+				`-3 * 4`,
+				`-3 * 4`,
+			},
+			{
+				// negativeExpression - negative in division
+				`-10 / 2`,
+				`-10 / 2`,
+			},
+			{
+				// negativeExpression - negative in comparison
+				`Amount__c > -100`,
+				`Amount__c > -100`,
+			},
+			{
+				// negativeExpression - negative in IF condition
+				`IF(Amount__c < -50, "Negative", "Positive")`,
+				`IF(Amount__c < -50, "Negative", "Positive")`,
+			},
+			{
+				// negativeExpression - negative in function arguments
+				`MAX(-10, -20, -5)`,
+				`MAX(-10, -20, -5)`,
+			},
+			{
+				// negativeExpression - complex negative expression
+				`-(Amount__c * 0.1) + -TaxRate__c`,
+				`-(Amount__c * 0.1) + -TaxRate__c`,
+			},
+			{
+				// negativeExpression - negative with nested functions
+				`-ROUND(Amount__c * 0.15, 2)`,
+				`-ROUND(Amount__c * 0.15, 2)`,
+			},
+			{
+				// negativeExpression - negative in CASE expression
+				`CASE(Status__c, "Refund", -Amount__c, "Credit", -Amount__c/2, 0)`,
+				`CASE(
+	Status__c,
+		"Refund", -Amount__c,
+		"Credit", -Amount__c / 2,
+	0
+)`,
+			},
+			{
+				// negativeExpression - negative with array indexing
+				`-items[0].Amount__c`,
+				`-items[0].Amount__c`,
+			},
+			{
+				// negativeExpression - negative in complex arithmetic
+				`(Price__c * -Discount__c) + -ShippingCost__c`,
+				`(Price__c * -Discount__c) + -ShippingCost__c`,
+			},
 		}
 	for _, tt := range tests {
 		input := antlr.NewInputStream(tt.input)

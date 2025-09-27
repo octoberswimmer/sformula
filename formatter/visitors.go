@@ -928,8 +928,10 @@ func (v *FormatVisitor) VisitArithExpression(ctx *parser.ArithExpressionContext)
 	if v.wrap {
 		return fmt.Sprintf("%s %s\n%s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.indent(v.visitRule(ctx.Expression(1)).(string)))
 	}
-	if len(ctx.GetText()) <= 5 {
-		return fmt.Sprintf("%s%s%s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression(1)))
+	// Keep compact format for very short division expressions like 1/24
+	op := ctx.GetChild(1).(antlr.TerminalNode).GetText()
+	if op == "/" && len(ctx.GetText()) == 4 {
+		return fmt.Sprintf("%s%s%s", v.visitRule(ctx.Expression(0)), op, v.visitRule(ctx.Expression(1)))
 	}
 	return fmt.Sprintf("%s %s %s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression(1)))
 }
@@ -952,6 +954,10 @@ func (v *FormatVisitor) VisitEqualityExpression(ctx *parser.EqualityExpressionCo
 }
 
 func (v *FormatVisitor) VisitNegationExpression(ctx *parser.NegationExpressionContext) interface{} {
+	return fmt.Sprintf("%s%s", ctx.GetChild(0).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitNegativeExpression(ctx *parser.NegativeExpressionContext) interface{} {
 	return fmt.Sprintf("%s%s", ctx.GetChild(0).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression()))
 }
 

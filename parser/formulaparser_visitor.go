@@ -16,6 +16,15 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#negationExpression.
 	VisitNegationExpression(ctx *NegationExpressionContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#negativeExpression.
+	VisitNegativeExpression(ctx *NegativeExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#variableExpression.
+	VisitVariableExpression(ctx *VariableExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#concatExpression.
+	VisitConcatExpression(ctx *ConcatExpressionContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#compareExpression.
 	VisitCompareExpression(ctx *CompareExpressionContext) interface{}
 
@@ -39,12 +48,6 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#arithExpression.
 	VisitArithExpression(ctx *ArithExpressionContext) interface{}
-
-	// Visit a parse tree produced by FormulaParser#variableExpression.
-	VisitVariableExpression(ctx *VariableExpressionContext) interface{}
-
-	// Visit a parse tree produced by FormulaParser#concatExpression.
-	VisitConcatExpression(ctx *ConcatExpressionContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#fieldReference.
 	VisitFieldReference(ctx *FieldReferenceContext) interface{}

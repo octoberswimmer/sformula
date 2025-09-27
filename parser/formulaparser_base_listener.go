@@ -38,6 +38,24 @@ func (s *BaseFormulaParserListener) EnterNegationExpression(ctx *NegationExpress
 // ExitNegationExpression is called when production negationExpression is exited.
 func (s *BaseFormulaParserListener) ExitNegationExpression(ctx *NegationExpressionContext) {}
 
+// EnterNegativeExpression is called when production negativeExpression is entered.
+func (s *BaseFormulaParserListener) EnterNegativeExpression(ctx *NegativeExpressionContext) {}
+
+// ExitNegativeExpression is called when production negativeExpression is exited.
+func (s *BaseFormulaParserListener) ExitNegativeExpression(ctx *NegativeExpressionContext) {}
+
+// EnterVariableExpression is called when production variableExpression is entered.
+func (s *BaseFormulaParserListener) EnterVariableExpression(ctx *VariableExpressionContext) {}
+
+// ExitVariableExpression is called when production variableExpression is exited.
+func (s *BaseFormulaParserListener) ExitVariableExpression(ctx *VariableExpressionContext) {}
+
+// EnterConcatExpression is called when production concatExpression is entered.
+func (s *BaseFormulaParserListener) EnterConcatExpression(ctx *ConcatExpressionContext) {}
+
+// ExitConcatExpression is called when production concatExpression is exited.
+func (s *BaseFormulaParserListener) ExitConcatExpression(ctx *ConcatExpressionContext) {}
+
 // EnterCompareExpression is called when production compareExpression is entered.
 func (s *BaseFormulaParserListener) EnterCompareExpression(ctx *CompareExpressionContext) {}
 
@@ -89,18 +107,6 @@ func (s *BaseFormulaParserListener) EnterArithExpression(ctx *ArithExpressionCon
 
 // ExitArithExpression is called when production arithExpression is exited.
 func (s *BaseFormulaParserListener) ExitArithExpression(ctx *ArithExpressionContext) {}
-
-// EnterVariableExpression is called when production variableExpression is entered.
-func (s *BaseFormulaParserListener) EnterVariableExpression(ctx *VariableExpressionContext) {}
-
-// ExitVariableExpression is called when production variableExpression is exited.
-func (s *BaseFormulaParserListener) ExitVariableExpression(ctx *VariableExpressionContext) {}
-
-// EnterConcatExpression is called when production concatExpression is entered.
-func (s *BaseFormulaParserListener) EnterConcatExpression(ctx *ConcatExpressionContext) {}
-
-// ExitConcatExpression is called when production concatExpression is exited.
-func (s *BaseFormulaParserListener) ExitConcatExpression(ctx *ConcatExpressionContext) {}
 
 // EnterFieldReference is called when production fieldReference is entered.
 func (s *BaseFormulaParserListener) EnterFieldReference(ctx *FieldReferenceContext) {}

@@ -16,6 +16,15 @@ type FormulaParserListener interface {
 	// EnterNegationExpression is called when entering the negationExpression production.
 	EnterNegationExpression(c *NegationExpressionContext)
 
+	// EnterNegativeExpression is called when entering the negativeExpression production.
+	EnterNegativeExpression(c *NegativeExpressionContext)
+
+	// EnterVariableExpression is called when entering the variableExpression production.
+	EnterVariableExpression(c *VariableExpressionContext)
+
+	// EnterConcatExpression is called when entering the concatExpression production.
+	EnterConcatExpression(c *ConcatExpressionContext)
+
 	// EnterCompareExpression is called when entering the compareExpression production.
 	EnterCompareExpression(c *CompareExpressionContext)
 
@@ -39,12 +48,6 @@ type FormulaParserListener interface {
 
 	// EnterArithExpression is called when entering the arithExpression production.
 	EnterArithExpression(c *ArithExpressionContext)
-
-	// EnterVariableExpression is called when entering the variableExpression production.
-	EnterVariableExpression(c *VariableExpressionContext)
-
-	// EnterConcatExpression is called when entering the concatExpression production.
-	EnterConcatExpression(c *ConcatExpressionContext)
 
 	// EnterFieldReference is called when entering the fieldReference production.
 	EnterFieldReference(c *FieldReferenceContext)
@@ -352,6 +355,15 @@ type FormulaParserListener interface {
 	// ExitNegationExpression is called when exiting the negationExpression production.
 	ExitNegationExpression(c *NegationExpressionContext)
 
+	// ExitNegativeExpression is called when exiting the negativeExpression production.
+	ExitNegativeExpression(c *NegativeExpressionContext)
+
+	// ExitVariableExpression is called when exiting the variableExpression production.
+	ExitVariableExpression(c *VariableExpressionContext)
+
+	// ExitConcatExpression is called when exiting the concatExpression production.
+	ExitConcatExpression(c *ConcatExpressionContext)
+
 	// ExitCompareExpression is called when exiting the compareExpression production.
 	ExitCompareExpression(c *CompareExpressionContext)
 
@@ -375,12 +387,6 @@ type FormulaParserListener interface {
 
 	// ExitArithExpression is called when exiting the arithExpression production.
 	ExitArithExpression(c *ArithExpressionContext)
-
-	// ExitVariableExpression is called when exiting the variableExpression production.
-	ExitVariableExpression(c *VariableExpressionContext)
-
-	// ExitConcatExpression is called when exiting the concatExpression production.
-	ExitConcatExpression(c *ConcatExpressionContext)
 
 	// ExitFieldReference is called when exiting the fieldReference production.
 	ExitFieldReference(c *FieldReferenceContext)

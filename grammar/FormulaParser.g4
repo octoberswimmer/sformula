@@ -8,7 +8,8 @@ compilationUnit
 expression
     :   primary                                                            # primaryExpression
     |   functionCall                                                       # functionCallExpression
-    |   (BANG | SUB) expression                                            # negationExpression
+    |   BANG expression                                                    # negationExpression
+    |   SUB expression                                                     # negativeExpression
     |   ADD expression                                                     # positiveExpression
     |   fieldReference                                                     # fieldReferenceExpression
     |   expression CARET expression                                        # exponentiationExpression
