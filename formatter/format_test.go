@@ -197,6 +197,11 @@ func TestCompilationUnit(t *testing.T) {
 				`HOUR(NOW())`,
 			},
 			{
+				// WEEKDAY function test - simple
+				`WEEKDAY(TODAY())`,
+				`WEEKDAY(TODAY())`,
+			},
+			{
 				// HOUR function test - with field reference
 				`HOUR(CreatedDate)`,
 				`HOUR(CreatedDate)`,

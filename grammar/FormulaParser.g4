@@ -46,6 +46,7 @@ functionCall
     | datevalue
     | datetimevalue
     | day
+    | weekday
     | distance
     | exp
     | find
@@ -111,6 +112,7 @@ date : DATE LPAREN yearExpression COMMA monthExpression COMMA dayExpression RPAR
 datevalue : DATEVALUE LPAREN expression RPAREN ;
 datetimevalue : DATETIMEVALUE LPAREN expression RPAREN ;
 day : DAY LPAREN expression RPAREN ;
+weekday : WEEKDAY LPAREN expression RPAREN ;
 distance : DISTANCE LPAREN expression COMMA expression COMMA unitExpression RPAREN ;
 exp : EXP LPAREN expression RPAREN ;
 find : FIND LPAREN searchExpression COMMA textExpression (COMMA startNum)? RPAREN ;

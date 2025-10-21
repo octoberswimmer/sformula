@@ -103,6 +103,9 @@ type FormulaParserListener interface {
 	// EnterDay is called when entering the day production.
 	EnterDay(c *DayContext)
 
+	// EnterWeekday is called when entering the weekday production.
+	EnterWeekday(c *WeekdayContext)
+
 	// EnterDistance is called when entering the distance production.
 	EnterDistance(c *DistanceContext)
 
@@ -441,6 +444,9 @@ type FormulaParserListener interface {
 
 	// ExitDay is called when exiting the day production.
 	ExitDay(c *DayContext)
+
+	// ExitWeekday is called when exiting the weekday production.
+	ExitWeekday(c *WeekdayContext)
 
 	// ExitDistance is called when exiting the distance production.
 	ExitDistance(c *DistanceContext)

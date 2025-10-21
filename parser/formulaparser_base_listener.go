@@ -216,6 +216,12 @@ func (s *BaseFormulaParserListener) EnterDay(ctx *DayContext) {}
 // ExitDay is called when production day is exited.
 func (s *BaseFormulaParserListener) ExitDay(ctx *DayContext) {}
 
+// EnterWeekday is called when production weekday is entered.
+func (s *BaseFormulaParserListener) EnterWeekday(ctx *WeekdayContext) {}
+
+// ExitWeekday is called when production weekday is exited.
+func (s *BaseFormulaParserListener) ExitWeekday(ctx *WeekdayContext) {}
+
 // EnterDistance is called when production distance is entered.
 func (s *BaseFormulaParserListener) EnterDistance(ctx *DistanceContext) {}
 

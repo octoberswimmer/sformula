@@ -519,6 +519,16 @@ func (v *FormatVisitor) VisitDay(ctx *parser.DayContext) interface{} {
 	return fmt.Sprintf("DAY(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
+func (v *FormatVisitor) VisitWeekday(ctx *parser.WeekdayContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("WEEKDAY(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("WEEKDAY(%s)", v.visitRule(ctx.Expression()).(string))
+}
+
 func (v *FormatVisitor) VisitHour(ctx *parser.HourContext) interface{} {
 	if len(ctx.GetText()) < 40 {
 		defer restoreWrap(unwrap(v))

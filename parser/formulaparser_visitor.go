@@ -103,6 +103,9 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#day.
 	VisitDay(ctx *DayContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#weekday.
+	VisitWeekday(ctx *WeekdayContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#distance.
 	VisitDistance(ctx *DistanceContext) interface{}
 

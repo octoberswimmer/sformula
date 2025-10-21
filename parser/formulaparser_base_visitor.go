@@ -135,6 +135,10 @@ func (v *BaseFormulaParserVisitor) VisitDay(ctx *DayContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitWeekday(ctx *WeekdayContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitDistance(ctx *DistanceContext) interface{} {
 	return v.VisitChildren(ctx)
 }
