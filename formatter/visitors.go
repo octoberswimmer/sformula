@@ -695,6 +695,19 @@ func (v *FormatVisitor) VisitBlankvalue(ctx *parser.BlankvalueContext) interface
 	return fmt.Sprintf("BLANKVALUE(%s, %s)", v.visitRule(ctx.Expression()), v.visitRule(ctx.SubstituteValue()))
 }
 
+func (v *FormatVisitor) VisitNullvalue(ctx *parser.NullvalueContext) interface{} {
+	if len(ctx.GetText()) < 40 {
+		defer restoreWrap(unwrap(v))
+	}
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("NULLVALUE(\n%s,\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)), v.indent(v.visitRule(ctx.SubstituteValue()).(string)))
+	}
+	return fmt.Sprintf("NULLVALUE(%s, %s)", v.visitRule(ctx.Expression()), v.visitRule(ctx.SubstituteValue()))
+}
+
 func (v *FormatVisitor) VisitToday(ctx *parser.TodayContext) interface{} {
 	return "TODAY()"
 }

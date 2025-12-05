@@ -95,6 +95,10 @@ func (v *BaseFormulaParserVisitor) VisitBlankvalue(ctx *BlankvalueContext) inter
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitNullvalue(ctx *NullvalueContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitBr(ctx *BrContext) interface{} {
 	return v.VisitChildren(ctx)
 }

@@ -73,6 +73,9 @@ type FormulaParserListener interface {
 	// EnterBlankvalue is called when entering the blankvalue production.
 	EnterBlankvalue(c *BlankvalueContext)
 
+	// EnterNullvalue is called when entering the nullvalue production.
+	EnterNullvalue(c *NullvalueContext)
+
 	// EnterBr is called when entering the br production.
 	EnterBr(c *BrContext)
 
@@ -414,6 +417,9 @@ type FormulaParserListener interface {
 
 	// ExitBlankvalue is called when exiting the blankvalue production.
 	ExitBlankvalue(c *BlankvalueContext)
+
+	// ExitNullvalue is called when exiting the nullvalue production.
+	ExitNullvalue(c *NullvalueContext)
 
 	// ExitBr is called when exiting the br production.
 	ExitBr(c *BrContext)

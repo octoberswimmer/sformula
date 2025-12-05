@@ -36,6 +36,7 @@ functionCall
     | and
     | begins
     | blankvalue
+    | nullvalue
     | br
     | case
     | casesafeid
@@ -100,6 +101,7 @@ addMonths : ADDMONTHS LPAREN dateExpression COMMA num RPAREN ;
 and : AND_FUNC LPAREN expression (COMMA expression)* RPAREN ;
 begins : BEGINS LPAREN textExpression COMMA compareText RPAREN ;
 blankvalue : BLANKVALUE LPAREN expression COMMA substituteValue RPAREN ;
+nullvalue : NULLVALUE LPAREN expression COMMA substituteValue RPAREN ;
 // TODO: only allow BR() without without whitespace within parentheses and
 // surrounded by concatenation operators?
 br : BR LPAREN RPAREN ;

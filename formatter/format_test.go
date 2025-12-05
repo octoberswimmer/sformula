@@ -154,6 +154,58 @@ func TestCompilationUnit(t *testing.T) {
 )`,
 			},
 			{
+				// NULLVALUE function - simple
+				`NULLVALUE(Name__c, "Unknown")`,
+				`NULLVALUE(Name__c, "Unknown")`,
+			},
+			{
+				// NULLVALUE function - with expression
+				`NULLVALUE(Account.Name, "No Account")`,
+				`NULLVALUE(Account.Name, "No Account")`,
+			},
+			{
+				// NULLVALUE function - nested
+				`NULLVALUE(Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+			NULLVALUE(Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+			NULLVALUE(Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+			NULLVALUE(Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+			NULLVALUE(Parent.Parent.Parent.Parent.Parent.Parent.Id,
+			NULLVALUE(Parent.Parent.Parent.Parent.Parent.Id,
+			NULLVALUE(Parent.Parent.Parent.Parent.Id,
+			NULLVALUE(Parent.Parent.Parent.Id,
+			NULLVALUE(Parent.Parent.Id,
+			NULLVALUE(Parent.Id,
+			Id))))))))))`,
+				`NULLVALUE(
+	Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+	NULLVALUE(
+		Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+		NULLVALUE(
+			Parent.Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+			NULLVALUE(
+				Parent.Parent.Parent.Parent.Parent.Parent.Parent.Id,
+				NULLVALUE(
+					Parent.Parent.Parent.Parent.Parent.Parent.Id,
+					NULLVALUE(
+						Parent.Parent.Parent.Parent.Parent.Id,
+						NULLVALUE(
+							Parent.Parent.Parent.Parent.Id,
+							NULLVALUE(
+								Parent.Parent.Parent.Id,
+								NULLVALUE(
+									Parent.Parent.Id,
+									NULLVALUE(Parent.Id, Id)
+								)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+)`,
+			},
+			{
 				// Array indexing support
 				`items[0]`,
 				`items[0]`,

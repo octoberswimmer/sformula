@@ -73,6 +73,9 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#blankvalue.
 	VisitBlankvalue(ctx *BlankvalueContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#nullvalue.
+	VisitNullvalue(ctx *NullvalueContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#br.
 	VisitBr(ctx *BrContext) interface{}
 

@@ -156,6 +156,12 @@ func (s *BaseFormulaParserListener) EnterBlankvalue(ctx *BlankvalueContext) {}
 // ExitBlankvalue is called when production blankvalue is exited.
 func (s *BaseFormulaParserListener) ExitBlankvalue(ctx *BlankvalueContext) {}
 
+// EnterNullvalue is called when production nullvalue is entered.
+func (s *BaseFormulaParserListener) EnterNullvalue(ctx *NullvalueContext) {}
+
+// ExitNullvalue is called when production nullvalue is exited.
+func (s *BaseFormulaParserListener) ExitNullvalue(ctx *NullvalueContext) {}
+
 // EnterBr is called when production br is entered.
 func (s *BaseFormulaParserListener) EnterBr(ctx *BrContext) {}
 
