@@ -8,6 +8,7 @@ compilationUnit
 expression
     :   primary                                                            # primaryExpression
     |   functionCall                                                       # functionCallExpression
+    |   NOT expression                                                     # negationExpression
     |   BANG expression                                                    # negationExpression
     |   SUB expression                                                     # negativeExpression
     |   ADD expression                                                     # positiveExpression

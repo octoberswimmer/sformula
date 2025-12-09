@@ -977,7 +977,14 @@ func (v *FormatVisitor) VisitEqualityExpression(ctx *parser.EqualityExpressionCo
 }
 
 func (v *FormatVisitor) VisitNegationExpression(ctx *parser.NegationExpressionContext) interface{} {
-	return fmt.Sprintf("%s%s", ctx.GetChild(0).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression()))
+	op := ctx.GetChild(0).(antlr.TerminalNode).GetText()
+	expr := strings.TrimSpace(v.visitRule(ctx.Expression()).(string))
+
+	// Format NOT as a unary operator with a space; keep ! tight to its operand.
+	if strings.EqualFold(op, "NOT") {
+		return fmt.Sprintf("%s %s", op, expr)
+	}
+	return fmt.Sprintf("%s%s", op, expr)
 }
 
 func (v *FormatVisitor) VisitNegativeExpression(ctx *parser.NegativeExpressionContext) interface{} {

@@ -109,6 +109,18 @@ func TestCompilationUnit(t *testing.T) {
 				`1 + +++3 - -------5 - +-+-++--2`,
 			},
 			{
+				`NOT TRUE`,
+				`NOT TRUE`,
+			},
+			{
+				`NOT ISBLANK(Field__c)`,
+				`NOT ISBLANK(Field__c)`,
+			},
+			{
+				`NOT(ISBLANK(Field__c))`,
+				`NOT(ISBLANK(Field__c))`,
+			},
+			{
 				`NOW() + (1/24)`,
 				`NOW() + (1/24)`,
 			},
