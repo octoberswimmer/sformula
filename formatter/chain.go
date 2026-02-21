@@ -55,7 +55,11 @@ func (v *ChainVisitor) VisitConcatExpression(ctx *parser.ConcatExpressionContext
 	return 1 + v.visitRule(ctx.Expression(0)).(int) + v.visitRule(ctx.Expression(1)).(int)
 }
 
-func (v *ChainVisitor) VisitArithExpression(ctx *parser.ArithExpressionContext) interface{} {
+func (v *ChainVisitor) VisitMultiplicativeExpression(ctx *parser.MultiplicativeExpressionContext) interface{} {
+	return 1 + v.visitRule(ctx.Expression(0)).(int) + v.visitRule(ctx.Expression(1)).(int)
+}
+
+func (v *ChainVisitor) VisitAdditiveExpression(ctx *parser.AdditiveExpressionContext) interface{} {
 	return 1 + v.visitRule(ctx.Expression(0)).(int) + v.visitRule(ctx.Expression(1)).(int)
 }
 

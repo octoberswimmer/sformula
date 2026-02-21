@@ -23,6 +23,14 @@ func (v *BaseFormulaParserVisitor) VisitNegativeExpression(ctx *NegativeExpressi
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitAdditiveExpression(ctx *AdditiveExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitMultiplicativeExpression(ctx *MultiplicativeExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitVariableExpression(ctx *VariableExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -56,10 +64,6 @@ func (v *BaseFormulaParserVisitor) VisitFieldReferenceExpression(ctx *FieldRefer
 }
 
 func (v *BaseFormulaParserVisitor) VisitExponentiationExpression(ctx *ExponentiationExpressionContext) interface{} {
-	return v.VisitChildren(ctx)
-}
-
-func (v *BaseFormulaParserVisitor) VisitArithExpression(ctx *ArithExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -159,6 +163,10 @@ func (v *BaseFormulaParserVisitor) VisitFloor(ctx *FloorContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitFormatduration(ctx *FormatdurationContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitGeolocation(ctx *GeolocationContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -231,6 +239,14 @@ func (v *BaseFormulaParserVisitor) VisitLen(ctx *LenContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitLn(ctx *LnContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitLog(ctx *LogContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitLower(ctx *LowerContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -288,6 +304,14 @@ func (v *BaseFormulaParserVisitor) VisitRight(ctx *RightContext) interface{} {
 }
 
 func (v *BaseFormulaParserVisitor) VisitRound(ctx *RoundContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitRpad(ctx *RpadContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitSqrt(ctx *SqrtContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 

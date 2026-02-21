@@ -14,8 +14,9 @@ expression
     |   ADD expression                                                     # positiveExpression
     |   fieldReference                                                     # fieldReferenceExpression
     |   expression CARET expression                                        # exponentiationExpression
+    |   expression (MUL | DIV) expression                                  # multiplicativeExpression
+    |   expression (ADD | SUB) expression                                  # additiveExpression
     |   expression BITAND expression                                       # concatExpression
-    |   expression (ADD | SUB | DIV | MUL) expression                      # arithExpression
     |   expression (GT | LT) ASSIGN? expression                            # compareExpression
     |   expression (ASSIGN | EQUAL | NOTEQUAL | LESSANDGREATER) expression # equalityExpression
     |   expression (AND | OR) expression                                   # logicExpression
@@ -53,6 +54,7 @@ functionCall
     | exp
     | find
     | floor
+    | formatduration
     | geolocation
     | getrecordids
     | getsessionid
@@ -71,6 +73,8 @@ functionCall
     | isnumber
     | left
     | len
+    | ln
+    | log
     | lpad
     | lower
     | max
@@ -86,6 +90,8 @@ functionCall
     | regex
     | right
     | round
+    | rpad
+    | sqrt
     | substitute
     | trim
     | text
@@ -120,6 +126,7 @@ distance : DISTANCE LPAREN expression COMMA expression COMMA unitExpression RPAR
 exp : EXP LPAREN expression RPAREN ;
 find : FIND LPAREN searchExpression COMMA textExpression (COMMA startNum)? RPAREN ;
 floor : FLOOR LPAREN expression RPAREN ;
+formatduration : FORMATDURATION LPAREN expression (COMMA expression)? RPAREN ;
 geolocation : GEOLOCATION LPAREN latitudeExpression COMMA longitudeExpression RPAREN ;
 // TOOD: Only allow literals, $SObjectType.<object>?
 getrecordids : GETRECORDIDS LPAREN expression RPAREN ;
@@ -139,6 +146,8 @@ isnumber : ISNUMBER LPAREN expression RPAREN ;
 ispickval: ISPICKVAL LPAREN fieldExpression COMMA valueExpression RPAREN ;
 left : LEFT LPAREN textExpression COMMA numChars RPAREN ;
 len : LEN LPAREN expression RPAREN ;
+ln : LN LPAREN expression RPAREN ;
+log : LOG LPAREN expression RPAREN ;
 lower : LOWER LPAREN expression RPAREN ;
 lpad : LPAD LPAREN textExpression COMMA length (COMMA padString)? RPAREN ;
 max : MAX LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
@@ -154,6 +163,8 @@ priorvalue : PRIORVALUE LPAREN fieldExpression RPAREN ;
 regex : REGEX LPAREN textExpression COMMA regexExpression RPAREN ;
 right : RIGHT LPAREN textExpression COMMA numChars RPAREN ;
 round : ROUND LPAREN num COMMA digits RPAREN ;
+rpad : RPAD LPAREN textExpression COMMA length (COMMA padString)? RPAREN ;
+sqrt : SQRT LPAREN expression RPAREN ;
 substitute : SUBSTITUTE LPAREN textExpression COMMA oldText COMMA replacement RPAREN ;
 trim : TRIM LPAREN expression RPAREN ;
 text : TEXT LPAREN expression RPAREN ;

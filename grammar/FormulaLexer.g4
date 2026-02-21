@@ -25,6 +25,7 @@ DISTANCE       : D I S T A N C E;
 EXP            : E X P;
 FIND           : F I N D;
 FLOOR          : F L O O R;
+FORMATDURATION : F O R M A T D U R A T I O N;
 GEOLOCATION    : G E O L O C A T I O N;
 GETRECORDIDS   : G E T R E C O R D I D S;
 GETSESSIONID   : G E T S E S S I O N I D;

@@ -19,6 +19,12 @@ type FormulaParserListener interface {
 	// EnterNegativeExpression is called when entering the negativeExpression production.
 	EnterNegativeExpression(c *NegativeExpressionContext)
 
+	// EnterAdditiveExpression is called when entering the additiveExpression production.
+	EnterAdditiveExpression(c *AdditiveExpressionContext)
+
+	// EnterMultiplicativeExpression is called when entering the multiplicativeExpression production.
+	EnterMultiplicativeExpression(c *MultiplicativeExpressionContext)
+
 	// EnterVariableExpression is called when entering the variableExpression production.
 	EnterVariableExpression(c *VariableExpressionContext)
 
@@ -45,9 +51,6 @@ type FormulaParserListener interface {
 
 	// EnterExponentiationExpression is called when entering the exponentiationExpression production.
 	EnterExponentiationExpression(c *ExponentiationExpressionContext)
-
-	// EnterArithExpression is called when entering the arithExpression production.
-	EnterArithExpression(c *ArithExpressionContext)
 
 	// EnterFieldReference is called when entering the fieldReference production.
 	EnterFieldReference(c *FieldReferenceContext)
@@ -121,6 +124,9 @@ type FormulaParserListener interface {
 	// EnterFloor is called when entering the floor production.
 	EnterFloor(c *FloorContext)
 
+	// EnterFormatduration is called when entering the formatduration production.
+	EnterFormatduration(c *FormatdurationContext)
+
 	// EnterGeolocation is called when entering the geolocation production.
 	EnterGeolocation(c *GeolocationContext)
 
@@ -175,6 +181,12 @@ type FormulaParserListener interface {
 	// EnterLen is called when entering the len production.
 	EnterLen(c *LenContext)
 
+	// EnterLn is called when entering the ln production.
+	EnterLn(c *LnContext)
+
+	// EnterLog is called when entering the log production.
+	EnterLog(c *LogContext)
+
 	// EnterLower is called when entering the lower production.
 	EnterLower(c *LowerContext)
 
@@ -219,6 +231,12 @@ type FormulaParserListener interface {
 
 	// EnterRound is called when entering the round production.
 	EnterRound(c *RoundContext)
+
+	// EnterRpad is called when entering the rpad production.
+	EnterRpad(c *RpadContext)
+
+	// EnterSqrt is called when entering the sqrt production.
+	EnterSqrt(c *SqrtContext)
 
 	// EnterSubstitute is called when entering the substitute production.
 	EnterSubstitute(c *SubstituteContext)
@@ -364,6 +382,12 @@ type FormulaParserListener interface {
 	// ExitNegativeExpression is called when exiting the negativeExpression production.
 	ExitNegativeExpression(c *NegativeExpressionContext)
 
+	// ExitAdditiveExpression is called when exiting the additiveExpression production.
+	ExitAdditiveExpression(c *AdditiveExpressionContext)
+
+	// ExitMultiplicativeExpression is called when exiting the multiplicativeExpression production.
+	ExitMultiplicativeExpression(c *MultiplicativeExpressionContext)
+
 	// ExitVariableExpression is called when exiting the variableExpression production.
 	ExitVariableExpression(c *VariableExpressionContext)
 
@@ -390,9 +414,6 @@ type FormulaParserListener interface {
 
 	// ExitExponentiationExpression is called when exiting the exponentiationExpression production.
 	ExitExponentiationExpression(c *ExponentiationExpressionContext)
-
-	// ExitArithExpression is called when exiting the arithExpression production.
-	ExitArithExpression(c *ArithExpressionContext)
 
 	// ExitFieldReference is called when exiting the fieldReference production.
 	ExitFieldReference(c *FieldReferenceContext)
@@ -466,6 +487,9 @@ type FormulaParserListener interface {
 	// ExitFloor is called when exiting the floor production.
 	ExitFloor(c *FloorContext)
 
+	// ExitFormatduration is called when exiting the formatduration production.
+	ExitFormatduration(c *FormatdurationContext)
+
 	// ExitGeolocation is called when exiting the geolocation production.
 	ExitGeolocation(c *GeolocationContext)
 
@@ -520,6 +544,12 @@ type FormulaParserListener interface {
 	// ExitLen is called when exiting the len production.
 	ExitLen(c *LenContext)
 
+	// ExitLn is called when exiting the ln production.
+	ExitLn(c *LnContext)
+
+	// ExitLog is called when exiting the log production.
+	ExitLog(c *LogContext)
+
 	// ExitLower is called when exiting the lower production.
 	ExitLower(c *LowerContext)
 
@@ -564,6 +594,12 @@ type FormulaParserListener interface {
 
 	// ExitRound is called when exiting the round production.
 	ExitRound(c *RoundContext)
+
+	// ExitRpad is called when exiting the rpad production.
+	ExitRpad(c *RpadContext)
+
+	// ExitSqrt is called when exiting the sqrt production.
+	ExitSqrt(c *SqrtContext)
 
 	// ExitSubstitute is called when exiting the substitute production.
 	ExitSubstitute(c *SubstituteContext)

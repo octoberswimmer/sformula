@@ -19,6 +19,12 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#negativeExpression.
 	VisitNegativeExpression(ctx *NegativeExpressionContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#additiveExpression.
+	VisitAdditiveExpression(ctx *AdditiveExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#multiplicativeExpression.
+	VisitMultiplicativeExpression(ctx *MultiplicativeExpressionContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#variableExpression.
 	VisitVariableExpression(ctx *VariableExpressionContext) interface{}
 
@@ -45,9 +51,6 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#exponentiationExpression.
 	VisitExponentiationExpression(ctx *ExponentiationExpressionContext) interface{}
-
-	// Visit a parse tree produced by FormulaParser#arithExpression.
-	VisitArithExpression(ctx *ArithExpressionContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#fieldReference.
 	VisitFieldReference(ctx *FieldReferenceContext) interface{}
@@ -121,6 +124,9 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#floor.
 	VisitFloor(ctx *FloorContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#formatduration.
+	VisitFormatduration(ctx *FormatdurationContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#geolocation.
 	VisitGeolocation(ctx *GeolocationContext) interface{}
 
@@ -175,6 +181,12 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#len.
 	VisitLen(ctx *LenContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#ln.
+	VisitLn(ctx *LnContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#log.
+	VisitLog(ctx *LogContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#lower.
 	VisitLower(ctx *LowerContext) interface{}
 
@@ -219,6 +231,12 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#round.
 	VisitRound(ctx *RoundContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#rpad.
+	VisitRpad(ctx *RpadContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#sqrt.
+	VisitSqrt(ctx *SqrtContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#substitute.
 	VisitSubstitute(ctx *SubstituteContext) interface{}

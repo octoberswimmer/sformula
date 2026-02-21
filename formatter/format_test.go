@@ -442,6 +442,51 @@ func TestCompilationUnit(t *testing.T) {
 				`(Price__c * -Discount__c) + -ShippingCost__c`,
 				`(Price__c * -Discount__c) + -ShippingCost__c`,
 			},
+			{
+				// LPAD function - simple
+				`LPAD("ab", 5, "x")`,
+				`LPAD("ab", 5, "x")`,
+			},
+			{
+				// LPAD function - with field reference
+				`LPAD(Name__c, 10, "0")`,
+				`LPAD(Name__c, 10, "0")`,
+			},
+			{
+				// LPAD function - without pad string (uses space)
+				`LPAD(Name__c, 15)`,
+				`LPAD(Name__c, 15)`,
+			},
+			{
+				// LPAD function - with expression for length
+				`LPAD(Code__c, MaxLength__c, "0")`,
+				`LPAD(Code__c, MaxLength__c, "0")`,
+			},
+			{
+				// RPAD function - simple
+				`RPAD("ab", 5, "x")`,
+				`RPAD("ab", 5, "x")`,
+			},
+			{
+				// RPAD function - with field reference
+				`RPAD(Name__c, 10, "-")`,
+				`RPAD(Name__c, 10, "-")`,
+			},
+			{
+				// RPAD function - without pad string (uses space)
+				`RPAD(Name__c, 20)`,
+				`RPAD(Name__c, 20)`,
+			},
+			{
+				// RPAD function - with expression for length
+				`RPAD(Description__c, MaxLength__c, ".")`,
+				`RPAD(Description__c, MaxLength__c, ".")`,
+			},
+			{
+				// LPAD function - in concatenation
+				`LPAD(AccountNumber__c, 8, "0") & "-" & RPAD(Name__c, 20)`,
+				`LPAD(AccountNumber__c, 8, "0") & "-" & RPAD(Name__c, 20)`,
+			},
 		}
 	for _, tt := range tests {
 		input := antlr.NewInputStream(tt.input)

@@ -210,6 +210,60 @@ func (v *FormatVisitor) VisitLpad(ctx *parser.LpadContext) interface{} {
 	return fmt.Sprintf("LPAD(%s)", strings.Join(args, ", "))
 }
 
+func (v *FormatVisitor) VisitLn(ctx *parser.LnContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("LN(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("LN(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitLog(ctx *parser.LogContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("LOG(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("LOG(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitRpad(ctx *parser.RpadContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		args := []string{
+			v.indent(v.visitRule(ctx.TextExpression()).(string)),
+			v.indent(v.visitRule(ctx.Length()).(string)),
+		}
+		if s := ctx.PadString(); s != nil {
+			args = append(args, v.indent(v.visitRule(s).(string)))
+		}
+		return fmt.Sprintf("RPAD(\n%s\n)", strings.Join(args, ",\n"))
+	}
+	args := []string{
+		v.visitRule(ctx.TextExpression()).(string),
+		v.visitRule(ctx.Length()).(string),
+	}
+	if s := ctx.PadString(); s != nil {
+		args = append(args, v.visitRule(s).(string))
+	}
+	return fmt.Sprintf("RPAD(%s)", strings.Join(args, ", "))
+}
+
+func (v *FormatVisitor) VisitSqrt(ctx *parser.SqrtContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("SQRT(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("SQRT(%s)", v.visitRule(ctx.Expression()))
+}
+
 func (v *FormatVisitor) VisitIf(ctx *parser.IfContext) interface{} {
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))
@@ -941,7 +995,7 @@ func (v *FormatVisitor) VisitConcatExpression(ctx *parser.ConcatExpressionContex
 	return fmt.Sprintf("%s & %s", v.visitRule(ctx.Expression(0)), v.visitRule(ctx.Expression(1)))
 }
 
-func (v *FormatVisitor) VisitArithExpression(ctx *parser.ArithExpressionContext) interface{} {
+func (v *FormatVisitor) VisitMultiplicativeExpression(ctx *parser.MultiplicativeExpressionContext) interface{} {
 	i := NewChainVisitor()
 	if len(ctx.Expression(0).GetText())+len(ctx.Expression(1).GetText()) < 60 {
 		defer restoreWrap(unwrap(v))
@@ -955,6 +1009,19 @@ func (v *FormatVisitor) VisitArithExpression(ctx *parser.ArithExpressionContext)
 	op := ctx.GetChild(1).(antlr.TerminalNode).GetText()
 	if op == "/" && len(ctx.GetText()) == 4 {
 		return fmt.Sprintf("%s%s%s", v.visitRule(ctx.Expression(0)), op, v.visitRule(ctx.Expression(1)))
+	}
+	return fmt.Sprintf("%s %s %s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression(1)))
+}
+
+func (v *FormatVisitor) VisitAdditiveExpression(ctx *parser.AdditiveExpressionContext) interface{} {
+	i := NewChainVisitor()
+	if len(ctx.Expression(0).GetText())+len(ctx.Expression(1).GetText()) < 60 {
+		defer restoreWrap(unwrap(v))
+	} else if i.visitRule(ctx.Expression(0)).(int)+i.visitRule(ctx.Expression(1)).(int) > 4 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("%s %s\n%s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.indent(v.visitRule(ctx.Expression(1)).(string)))
 	}
 	return fmt.Sprintf("%s %s %s", v.visitRule(ctx.Expression(0)), ctx.GetChild(1).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression(1)))
 }
@@ -993,4 +1060,27 @@ func (v *FormatVisitor) VisitNegativeExpression(ctx *parser.NegativeExpressionCo
 
 func (v *FormatVisitor) VisitPositiveExpression(ctx *parser.PositiveExpressionContext) interface{} {
 	return fmt.Sprintf("%s%s", ctx.GetChild(0).(antlr.TerminalNode).GetText(), v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitFormatduration(ctx *parser.FormatdurationContext) interface{} {
+	exprs := ctx.AllExpression()
+	if len(exprs) == 0 {
+		return "FORMATDURATION()"
+	}
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if len(exprs) == 1 {
+		if v.wrap {
+			return fmt.Sprintf("FORMATDURATION(\n%s\n)", v.indent(v.visitRule(exprs[0]).(string)))
+		}
+		return fmt.Sprintf("FORMATDURATION(%s)", v.visitRule(exprs[0]))
+	}
+	// Two arguments
+	if v.wrap {
+		return fmt.Sprintf("FORMATDURATION(\n%s,\n%s\n)",
+			v.indent(v.visitRule(exprs[0]).(string)),
+			v.indent(v.visitRule(exprs[1]).(string)))
+	}
+	return fmt.Sprintf("FORMATDURATION(%s, %s)", v.visitRule(exprs[0]), v.visitRule(exprs[1]))
 }

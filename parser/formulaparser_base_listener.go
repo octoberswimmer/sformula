@@ -44,6 +44,20 @@ func (s *BaseFormulaParserListener) EnterNegativeExpression(ctx *NegativeExpress
 // ExitNegativeExpression is called when production negativeExpression is exited.
 func (s *BaseFormulaParserListener) ExitNegativeExpression(ctx *NegativeExpressionContext) {}
 
+// EnterAdditiveExpression is called when production additiveExpression is entered.
+func (s *BaseFormulaParserListener) EnterAdditiveExpression(ctx *AdditiveExpressionContext) {}
+
+// ExitAdditiveExpression is called when production additiveExpression is exited.
+func (s *BaseFormulaParserListener) ExitAdditiveExpression(ctx *AdditiveExpressionContext) {}
+
+// EnterMultiplicativeExpression is called when production multiplicativeExpression is entered.
+func (s *BaseFormulaParserListener) EnterMultiplicativeExpression(ctx *MultiplicativeExpressionContext) {
+}
+
+// ExitMultiplicativeExpression is called when production multiplicativeExpression is exited.
+func (s *BaseFormulaParserListener) ExitMultiplicativeExpression(ctx *MultiplicativeExpressionContext) {
+}
+
 // EnterVariableExpression is called when production variableExpression is entered.
 func (s *BaseFormulaParserListener) EnterVariableExpression(ctx *VariableExpressionContext) {}
 
@@ -101,12 +115,6 @@ func (s *BaseFormulaParserListener) EnterExponentiationExpression(ctx *Exponenti
 // ExitExponentiationExpression is called when production exponentiationExpression is exited.
 func (s *BaseFormulaParserListener) ExitExponentiationExpression(ctx *ExponentiationExpressionContext) {
 }
-
-// EnterArithExpression is called when production arithExpression is entered.
-func (s *BaseFormulaParserListener) EnterArithExpression(ctx *ArithExpressionContext) {}
-
-// ExitArithExpression is called when production arithExpression is exited.
-func (s *BaseFormulaParserListener) ExitArithExpression(ctx *ArithExpressionContext) {}
 
 // EnterFieldReference is called when production fieldReference is entered.
 func (s *BaseFormulaParserListener) EnterFieldReference(ctx *FieldReferenceContext) {}
@@ -252,6 +260,12 @@ func (s *BaseFormulaParserListener) EnterFloor(ctx *FloorContext) {}
 // ExitFloor is called when production floor is exited.
 func (s *BaseFormulaParserListener) ExitFloor(ctx *FloorContext) {}
 
+// EnterFormatduration is called when production formatduration is entered.
+func (s *BaseFormulaParserListener) EnterFormatduration(ctx *FormatdurationContext) {}
+
+// ExitFormatduration is called when production formatduration is exited.
+func (s *BaseFormulaParserListener) ExitFormatduration(ctx *FormatdurationContext) {}
+
 // EnterGeolocation is called when production geolocation is entered.
 func (s *BaseFormulaParserListener) EnterGeolocation(ctx *GeolocationContext) {}
 
@@ -360,6 +374,18 @@ func (s *BaseFormulaParserListener) EnterLen(ctx *LenContext) {}
 // ExitLen is called when production len is exited.
 func (s *BaseFormulaParserListener) ExitLen(ctx *LenContext) {}
 
+// EnterLn is called when production ln is entered.
+func (s *BaseFormulaParserListener) EnterLn(ctx *LnContext) {}
+
+// ExitLn is called when production ln is exited.
+func (s *BaseFormulaParserListener) ExitLn(ctx *LnContext) {}
+
+// EnterLog is called when production log is entered.
+func (s *BaseFormulaParserListener) EnterLog(ctx *LogContext) {}
+
+// ExitLog is called when production log is exited.
+func (s *BaseFormulaParserListener) ExitLog(ctx *LogContext) {}
+
 // EnterLower is called when production lower is entered.
 func (s *BaseFormulaParserListener) EnterLower(ctx *LowerContext) {}
 
@@ -449,6 +475,18 @@ func (s *BaseFormulaParserListener) EnterRound(ctx *RoundContext) {}
 
 // ExitRound is called when production round is exited.
 func (s *BaseFormulaParserListener) ExitRound(ctx *RoundContext) {}
+
+// EnterRpad is called when production rpad is entered.
+func (s *BaseFormulaParserListener) EnterRpad(ctx *RpadContext) {}
+
+// ExitRpad is called when production rpad is exited.
+func (s *BaseFormulaParserListener) ExitRpad(ctx *RpadContext) {}
+
+// EnterSqrt is called when production sqrt is entered.
+func (s *BaseFormulaParserListener) EnterSqrt(ctx *SqrtContext) {}
+
+// ExitSqrt is called when production sqrt is exited.
+func (s *BaseFormulaParserListener) ExitSqrt(ctx *SqrtContext) {}
 
 // EnterSubstitute is called when production substitute is entered.
 func (s *BaseFormulaParserListener) EnterSubstitute(ctx *SubstituteContext) {}
