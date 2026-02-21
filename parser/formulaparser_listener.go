@@ -64,8 +64,23 @@ type FormulaParserListener interface {
 	// EnterAbs is called when entering the abs production.
 	EnterAbs(c *AbsContext)
 
+	// EnterAcos is called when entering the acos production.
+	EnterAcos(c *AcosContext)
+
 	// EnterAddMonths is called when entering the addMonths production.
 	EnterAddMonths(c *AddMonthsContext)
+
+	// EnterAscii is called when entering the ascii production.
+	EnterAscii(c *AsciiContext)
+
+	// EnterAsin is called when entering the asin production.
+	EnterAsin(c *AsinContext)
+
+	// EnterAtan is called when entering the atan production.
+	EnterAtan(c *AtanContext)
+
+	// EnterAtan2 is called when entering the atan2 production.
+	EnterAtan2(c *Atan2Context)
 
 	// EnterAnd is called when entering the and production.
 	EnterAnd(c *AndContext)
@@ -91,8 +106,14 @@ type FormulaParserListener interface {
 	// EnterCeiling is called when entering the ceiling production.
 	EnterCeiling(c *CeilingContext)
 
+	// EnterChr is called when entering the chr production.
+	EnterChr(c *ChrContext)
+
 	// EnterContains is called when entering the contains production.
 	EnterContains(c *ContainsContext)
+
+	// EnterCos is called when entering the cos production.
+	EnterCos(c *CosContext)
 
 	// EnterCurrencyrate is called when entering the currencyrate production.
 	EnterCurrencyrate(c *CurrencyrateContext)
@@ -108,6 +129,9 @@ type FormulaParserListener interface {
 
 	// EnterDay is called when entering the day production.
 	EnterDay(c *DayContext)
+
+	// EnterDayofyear is called when entering the dayofyear production.
+	EnterDayofyear(c *DayofyearContext)
 
 	// EnterWeekday is called when entering the weekday production.
 	EnterWeekday(c *WeekdayContext)
@@ -126,6 +150,9 @@ type FormulaParserListener interface {
 
 	// EnterFormatduration is called when entering the formatduration production.
 	EnterFormatduration(c *FormatdurationContext)
+
+	// EnterFromunixtime is called when entering the fromunixtime production.
+	EnterFromunixtime(c *FromunixtimeContext)
 
 	// EnterGeolocation is called when entering the geolocation production.
 	EnterGeolocation(c *GeolocationContext)
@@ -154,6 +181,9 @@ type FormulaParserListener interface {
 	// EnterImageproxyurl is called when entering the imageproxyurl production.
 	EnterImageproxyurl(c *ImageproxyurlContext)
 
+	// EnterInitcap is called when entering the initcap production.
+	EnterInitcap(c *InitcapContext)
+
 	// EnterIncludes is called when entering the includes production.
 	EnterIncludes(c *IncludesContext)
 
@@ -165,6 +195,12 @@ type FormulaParserListener interface {
 
 	// EnterIsnew is called when entering the isnew production.
 	EnterIsnew(c *IsnewContext)
+
+	// EnterIsoweek is called when entering the isoweek production.
+	EnterIsoweek(c *IsoweekContext)
+
+	// EnterIsoyear is called when entering the isoyear production.
+	EnterIsoyear(c *IsoyearContext)
 
 	// EnterIsnull is called when entering the isnull production.
 	EnterIsnull(c *IsnullContext)
@@ -220,6 +256,12 @@ type FormulaParserListener interface {
 	// EnterOr is called when entering the or production.
 	EnterOr(c *OrContext)
 
+	// EnterPi is called when entering the pi production.
+	EnterPi(c *PiContext)
+
+	// EnterPicklistcount is called when entering the picklistcount production.
+	EnterPicklistcount(c *PicklistcountContext)
+
 	// EnterPriorvalue is called when entering the priorvalue production.
 	EnterPriorvalue(c *PriorvalueContext)
 
@@ -235,14 +277,23 @@ type FormulaParserListener interface {
 	// EnterRpad is called when entering the rpad production.
 	EnterRpad(c *RpadContext)
 
+	// EnterSin is called when entering the sin production.
+	EnterSin(c *SinContext)
+
 	// EnterSqrt is called when entering the sqrt production.
 	EnterSqrt(c *SqrtContext)
 
 	// EnterSubstitute is called when entering the substitute production.
 	EnterSubstitute(c *SubstituteContext)
 
+	// EnterTan is called when entering the tan production.
+	EnterTan(c *TanContext)
+
 	// EnterTrim is called when entering the trim production.
 	EnterTrim(c *TrimContext)
+
+	// EnterTrunc is called when entering the trunc production.
+	EnterTrunc(c *TruncContext)
 
 	// EnterText is called when entering the text production.
 	EnterText(c *TextContext)
@@ -252,6 +303,9 @@ type FormulaParserListener interface {
 
 	// EnterToday is called when entering the today production.
 	EnterToday(c *TodayContext)
+
+	// EnterUnixtimestamp is called when entering the unixtimestamp production.
+	EnterUnixtimestamp(c *UnixtimestampContext)
 
 	// EnterUpper is called when entering the upper production.
 	EnterUpper(c *UpperContext)
@@ -364,6 +418,12 @@ type FormulaParserListener interface {
 	// EnterNumChars is called when entering the numChars production.
 	EnterNumChars(c *NumCharsContext)
 
+	// EnterYExpression is called when entering the yExpression production.
+	EnterYExpression(c *YExpressionContext)
+
+	// EnterXExpression is called when entering the xExpression production.
+	EnterXExpression(c *XExpressionContext)
+
 	// EnterPrimary is called when entering the primary production.
 	EnterPrimary(c *PrimaryContext)
 
@@ -427,8 +487,23 @@ type FormulaParserListener interface {
 	// ExitAbs is called when exiting the abs production.
 	ExitAbs(c *AbsContext)
 
+	// ExitAcos is called when exiting the acos production.
+	ExitAcos(c *AcosContext)
+
 	// ExitAddMonths is called when exiting the addMonths production.
 	ExitAddMonths(c *AddMonthsContext)
+
+	// ExitAscii is called when exiting the ascii production.
+	ExitAscii(c *AsciiContext)
+
+	// ExitAsin is called when exiting the asin production.
+	ExitAsin(c *AsinContext)
+
+	// ExitAtan is called when exiting the atan production.
+	ExitAtan(c *AtanContext)
+
+	// ExitAtan2 is called when exiting the atan2 production.
+	ExitAtan2(c *Atan2Context)
 
 	// ExitAnd is called when exiting the and production.
 	ExitAnd(c *AndContext)
@@ -454,8 +529,14 @@ type FormulaParserListener interface {
 	// ExitCeiling is called when exiting the ceiling production.
 	ExitCeiling(c *CeilingContext)
 
+	// ExitChr is called when exiting the chr production.
+	ExitChr(c *ChrContext)
+
 	// ExitContains is called when exiting the contains production.
 	ExitContains(c *ContainsContext)
+
+	// ExitCos is called when exiting the cos production.
+	ExitCos(c *CosContext)
 
 	// ExitCurrencyrate is called when exiting the currencyrate production.
 	ExitCurrencyrate(c *CurrencyrateContext)
@@ -471,6 +552,9 @@ type FormulaParserListener interface {
 
 	// ExitDay is called when exiting the day production.
 	ExitDay(c *DayContext)
+
+	// ExitDayofyear is called when exiting the dayofyear production.
+	ExitDayofyear(c *DayofyearContext)
 
 	// ExitWeekday is called when exiting the weekday production.
 	ExitWeekday(c *WeekdayContext)
@@ -489,6 +573,9 @@ type FormulaParserListener interface {
 
 	// ExitFormatduration is called when exiting the formatduration production.
 	ExitFormatduration(c *FormatdurationContext)
+
+	// ExitFromunixtime is called when exiting the fromunixtime production.
+	ExitFromunixtime(c *FromunixtimeContext)
 
 	// ExitGeolocation is called when exiting the geolocation production.
 	ExitGeolocation(c *GeolocationContext)
@@ -517,6 +604,9 @@ type FormulaParserListener interface {
 	// ExitImageproxyurl is called when exiting the imageproxyurl production.
 	ExitImageproxyurl(c *ImageproxyurlContext)
 
+	// ExitInitcap is called when exiting the initcap production.
+	ExitInitcap(c *InitcapContext)
+
 	// ExitIncludes is called when exiting the includes production.
 	ExitIncludes(c *IncludesContext)
 
@@ -528,6 +618,12 @@ type FormulaParserListener interface {
 
 	// ExitIsnew is called when exiting the isnew production.
 	ExitIsnew(c *IsnewContext)
+
+	// ExitIsoweek is called when exiting the isoweek production.
+	ExitIsoweek(c *IsoweekContext)
+
+	// ExitIsoyear is called when exiting the isoyear production.
+	ExitIsoyear(c *IsoyearContext)
 
 	// ExitIsnull is called when exiting the isnull production.
 	ExitIsnull(c *IsnullContext)
@@ -583,6 +679,12 @@ type FormulaParserListener interface {
 	// ExitOr is called when exiting the or production.
 	ExitOr(c *OrContext)
 
+	// ExitPi is called when exiting the pi production.
+	ExitPi(c *PiContext)
+
+	// ExitPicklistcount is called when exiting the picklistcount production.
+	ExitPicklistcount(c *PicklistcountContext)
+
 	// ExitPriorvalue is called when exiting the priorvalue production.
 	ExitPriorvalue(c *PriorvalueContext)
 
@@ -598,14 +700,23 @@ type FormulaParserListener interface {
 	// ExitRpad is called when exiting the rpad production.
 	ExitRpad(c *RpadContext)
 
+	// ExitSin is called when exiting the sin production.
+	ExitSin(c *SinContext)
+
 	// ExitSqrt is called when exiting the sqrt production.
 	ExitSqrt(c *SqrtContext)
 
 	// ExitSubstitute is called when exiting the substitute production.
 	ExitSubstitute(c *SubstituteContext)
 
+	// ExitTan is called when exiting the tan production.
+	ExitTan(c *TanContext)
+
 	// ExitTrim is called when exiting the trim production.
 	ExitTrim(c *TrimContext)
+
+	// ExitTrunc is called when exiting the trunc production.
+	ExitTrunc(c *TruncContext)
 
 	// ExitText is called when exiting the text production.
 	ExitText(c *TextContext)
@@ -615,6 +726,9 @@ type FormulaParserListener interface {
 
 	// ExitToday is called when exiting the today production.
 	ExitToday(c *TodayContext)
+
+	// ExitUnixtimestamp is called when exiting the unixtimestamp production.
+	ExitUnixtimestamp(c *UnixtimestampContext)
 
 	// ExitUpper is called when exiting the upper production.
 	ExitUpper(c *UpperContext)
@@ -726,6 +840,12 @@ type FormulaParserListener interface {
 
 	// ExitNumChars is called when exiting the numChars production.
 	ExitNumChars(c *NumCharsContext)
+
+	// ExitYExpression is called when exiting the yExpression production.
+	ExitYExpression(c *YExpressionContext)
+
+	// ExitXExpression is called when exiting the xExpression production.
+	ExitXExpression(c *XExpressionContext)
 
 	// ExitPrimary is called when exiting the primary production.
 	ExitPrimary(c *PrimaryContext)

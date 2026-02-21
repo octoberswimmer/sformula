@@ -64,8 +64,23 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#abs.
 	VisitAbs(ctx *AbsContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#acos.
+	VisitAcos(ctx *AcosContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#addMonths.
 	VisitAddMonths(ctx *AddMonthsContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#ascii.
+	VisitAscii(ctx *AsciiContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#asin.
+	VisitAsin(ctx *AsinContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#atan.
+	VisitAtan(ctx *AtanContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#atan2.
+	VisitAtan2(ctx *Atan2Context) interface{}
 
 	// Visit a parse tree produced by FormulaParser#and.
 	VisitAnd(ctx *AndContext) interface{}
@@ -91,8 +106,14 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#ceiling.
 	VisitCeiling(ctx *CeilingContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#chr.
+	VisitChr(ctx *ChrContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#contains.
 	VisitContains(ctx *ContainsContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#cos.
+	VisitCos(ctx *CosContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#currencyrate.
 	VisitCurrencyrate(ctx *CurrencyrateContext) interface{}
@@ -108,6 +129,9 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#day.
 	VisitDay(ctx *DayContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#dayofyear.
+	VisitDayofyear(ctx *DayofyearContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#weekday.
 	VisitWeekday(ctx *WeekdayContext) interface{}
@@ -126,6 +150,9 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#formatduration.
 	VisitFormatduration(ctx *FormatdurationContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#fromunixtime.
+	VisitFromunixtime(ctx *FromunixtimeContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#geolocation.
 	VisitGeolocation(ctx *GeolocationContext) interface{}
@@ -154,6 +181,9 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#imageproxyurl.
 	VisitImageproxyurl(ctx *ImageproxyurlContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#initcap.
+	VisitInitcap(ctx *InitcapContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#includes.
 	VisitIncludes(ctx *IncludesContext) interface{}
 
@@ -165,6 +195,12 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#isnew.
 	VisitIsnew(ctx *IsnewContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#isoweek.
+	VisitIsoweek(ctx *IsoweekContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#isoyear.
+	VisitIsoyear(ctx *IsoyearContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#isnull.
 	VisitIsnull(ctx *IsnullContext) interface{}
@@ -220,6 +256,12 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#or.
 	VisitOr(ctx *OrContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#pi.
+	VisitPi(ctx *PiContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#picklistcount.
+	VisitPicklistcount(ctx *PicklistcountContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#priorvalue.
 	VisitPriorvalue(ctx *PriorvalueContext) interface{}
 
@@ -235,14 +277,23 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#rpad.
 	VisitRpad(ctx *RpadContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#sin.
+	VisitSin(ctx *SinContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#sqrt.
 	VisitSqrt(ctx *SqrtContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#substitute.
 	VisitSubstitute(ctx *SubstituteContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#tan.
+	VisitTan(ctx *TanContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#trim.
 	VisitTrim(ctx *TrimContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#trunc.
+	VisitTrunc(ctx *TruncContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#text.
 	VisitText(ctx *TextContext) interface{}
@@ -252,6 +303,9 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#today.
 	VisitToday(ctx *TodayContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#unixtimestamp.
+	VisitUnixtimestamp(ctx *UnixtimestampContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#upper.
 	VisitUpper(ctx *UpperContext) interface{}
@@ -363,6 +417,12 @@ type FormulaParserVisitor interface {
 
 	// Visit a parse tree produced by FormulaParser#numChars.
 	VisitNumChars(ctx *NumCharsContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#yExpression.
+	VisitYExpression(ctx *YExpressionContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#xExpression.
+	VisitXExpression(ctx *XExpressionContext) interface{}
 
 	// Visit a parse tree produced by FormulaParser#primary.
 	VisitPrimary(ctx *PrimaryContext) interface{}

@@ -83,3 +83,77 @@ func TestClearFormulaLexerDFA(t *testing.T) {
 
 	parseFormula(t, `Account.Name`)
 }
+
+func TestTrigFunctions(t *testing.T) {
+	tests := []string{
+		`ACOS(0.5)`,
+		`ASIN(0.5)`,
+		`ATAN(1)`,
+		`ATAN2(1, 2)`,
+		`COS(0)`,
+		`SIN(0)`,
+		`TAN(0)`,
+		`PI()`,
+	}
+
+	for _, formula := range tests {
+		t.Run(formula, func(t *testing.T) {
+			parseFormula(t, formula)
+		})
+	}
+}
+
+func TestStringFunctions(t *testing.T) {
+	tests := []string{
+		`ASCII("A")`,
+		`CHR(65)`,
+		`INITCAP("hello world")`,
+	}
+
+	for _, formula := range tests {
+		t.Run(formula, func(t *testing.T) {
+			parseFormula(t, formula)
+		})
+	}
+}
+
+func TestDateTimeFunctions(t *testing.T) {
+	tests := []string{
+		`DAYOFYEAR(TODAY())`,
+		`ISOWEEK(TODAY())`,
+		`ISOYEAR(TODAY())`,
+		`UNIXTIMESTAMP(NOW())`,
+		`FROMUNIXTIME(1234567890)`,
+	}
+
+	for _, formula := range tests {
+		t.Run(formula, func(t *testing.T) {
+			parseFormula(t, formula)
+		})
+	}
+}
+
+func TestNumericFunctions(t *testing.T) {
+	tests := []string{
+		`TRUNC(3.14159, 2)`,
+		`TRUNC(123.456, 0)`,
+	}
+
+	for _, formula := range tests {
+		t.Run(formula, func(t *testing.T) {
+			parseFormula(t, formula)
+		})
+	}
+}
+
+func TestPicklistFunctions(t *testing.T) {
+	tests := []string{
+		`PICKLISTCOUNT(Field__c)`,
+	}
+
+	for _, formula := range tests {
+		t.Run(formula, func(t *testing.T) {
+			parseFormula(t, formula)
+		})
+	}
+}

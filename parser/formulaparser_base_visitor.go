@@ -83,7 +83,27 @@ func (v *BaseFormulaParserVisitor) VisitAbs(ctx *AbsContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitAcos(ctx *AcosContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitAddMonths(ctx *AddMonthsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitAscii(ctx *AsciiContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitAsin(ctx *AsinContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitAtan(ctx *AtanContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitAtan2(ctx *Atan2Context) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -119,7 +139,15 @@ func (v *BaseFormulaParserVisitor) VisitCeiling(ctx *CeilingContext) interface{}
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitChr(ctx *ChrContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitContains(ctx *ContainsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitCos(ctx *CosContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -140,6 +168,10 @@ func (v *BaseFormulaParserVisitor) VisitDatetimevalue(ctx *DatetimevalueContext)
 }
 
 func (v *BaseFormulaParserVisitor) VisitDay(ctx *DayContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitDayofyear(ctx *DayofyearContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -164,6 +196,10 @@ func (v *BaseFormulaParserVisitor) VisitFloor(ctx *FloorContext) interface{} {
 }
 
 func (v *BaseFormulaParserVisitor) VisitFormatduration(ctx *FormatdurationContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitFromunixtime(ctx *FromunixtimeContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -203,6 +239,10 @@ func (v *BaseFormulaParserVisitor) VisitImageproxyurl(ctx *ImageproxyurlContext)
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitInitcap(ctx *InitcapContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitIncludes(ctx *IncludesContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -216,6 +256,14 @@ func (v *BaseFormulaParserVisitor) VisitIschanged(ctx *IschangedContext) interfa
 }
 
 func (v *BaseFormulaParserVisitor) VisitIsnew(ctx *IsnewContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitIsoweek(ctx *IsoweekContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitIsoyear(ctx *IsoyearContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -291,6 +339,14 @@ func (v *BaseFormulaParserVisitor) VisitOr(ctx *OrContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitPi(ctx *PiContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitPicklistcount(ctx *PicklistcountContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitPriorvalue(ctx *PriorvalueContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -311,6 +367,10 @@ func (v *BaseFormulaParserVisitor) VisitRpad(ctx *RpadContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitSin(ctx *SinContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitSqrt(ctx *SqrtContext) interface{} {
 	return v.VisitChildren(ctx)
 }
@@ -319,7 +379,15 @@ func (v *BaseFormulaParserVisitor) VisitSubstitute(ctx *SubstituteContext) inter
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitTan(ctx *TanContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitTrim(ctx *TrimContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitTrunc(ctx *TruncContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -332,6 +400,10 @@ func (v *BaseFormulaParserVisitor) VisitTimevalue(ctx *TimevalueContext) interfa
 }
 
 func (v *BaseFormulaParserVisitor) VisitToday(ctx *TodayContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitUnixtimestamp(ctx *UnixtimestampContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
@@ -480,6 +552,14 @@ func (v *BaseFormulaParserVisitor) VisitStart(ctx *StartContext) interface{} {
 }
 
 func (v *BaseFormulaParserVisitor) VisitNumChars(ctx *NumCharsContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitYExpression(ctx *YExpressionContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitXExpression(ctx *XExpressionContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
