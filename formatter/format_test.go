@@ -487,6 +487,112 @@ func TestCompilationUnit(t *testing.T) {
 				`LPAD(AccountNumber__c, 8, "0") & "-" & RPAD(Name__c, 20)`,
 				`LPAD(AccountNumber__c, 8, "0") & "-" & RPAD(Name__c, 20)`,
 			},
+			// Trigonometric functions
+			{
+				`ACOS(0.5)`,
+				`ACOS(0.5)`,
+			},
+			{
+				`ASIN(0.5)`,
+				`ASIN(0.5)`,
+			},
+			{
+				`ATAN(1)`,
+				`ATAN(1)`,
+			},
+			{
+				`ATAN2(1, 2)`,
+				`ATAN2(1, 2)`,
+			},
+			{
+				`COS(0)`,
+				`COS(0)`,
+			},
+			{
+				`SIN(0)`,
+				`SIN(0)`,
+			},
+			{
+				`TAN(0)`,
+				`TAN(0)`,
+			},
+			{
+				`PI()`,
+				`PI()`,
+			},
+			{
+				// Trig functions with field references
+				`COS(Angle__c) * Radius__c`,
+				`COS(Angle__c) * Radius__c`,
+			},
+			{
+				// ATAN2 with field references
+				`ATAN2(Y__c, X__c)`,
+				`ATAN2(Y__c, X__c)`,
+			},
+			// String functions
+			{
+				`ASCII("A")`,
+				`ASCII("A")`,
+			},
+			{
+				`CHR(65)`,
+				`CHR(65)`,
+			},
+			{
+				`INITCAP("hello world")`,
+				`INITCAP("hello world")`,
+			},
+			{
+				// INITCAP with field reference
+				`INITCAP(Name__c)`,
+				`INITCAP(Name__c)`,
+			},
+			// Date/Time functions
+			{
+				`DAYOFYEAR(TODAY())`,
+				`DAYOFYEAR(TODAY())`,
+			},
+			{
+				`ISOWEEK(TODAY())`,
+				`ISOWEEK(TODAY())`,
+			},
+			{
+				`ISOYEAR(TODAY())`,
+				`ISOYEAR(TODAY())`,
+			},
+			{
+				`UNIXTIMESTAMP(NOW())`,
+				`UNIXTIMESTAMP(NOW())`,
+			},
+			{
+				`FROMUNIXTIME(1234567890)`,
+				`FROMUNIXTIME(1234567890)`,
+			},
+			{
+				// DAYOFYEAR with field reference
+				`DAYOFYEAR(CreatedDate)`,
+				`DAYOFYEAR(CreatedDate)`,
+			},
+			{
+				// ISOWEEK with field reference
+				`ISOWEEK(CloseDate__c)`,
+				`ISOWEEK(CloseDate__c)`,
+			},
+			// Numeric functions
+			{
+				`TRUNC(3.14159, 2)`,
+				`TRUNC(3.14159, 2)`,
+			},
+			{
+				`TRUNC(Amount__c, 0)`,
+				`TRUNC(Amount__c, 0)`,
+			},
+			// Picklist functions
+			{
+				`PICKLISTCOUNT(MultiSelect__c)`,
+				`PICKLISTCOUNT(MultiSelect__c)`,
+			},
 		}
 	for _, tt := range tests {
 		input := antlr.NewInputStream(tt.input)

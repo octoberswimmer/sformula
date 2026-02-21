@@ -1084,3 +1084,187 @@ func (v *FormatVisitor) VisitFormatduration(ctx *parser.FormatdurationContext) i
 	}
 	return fmt.Sprintf("FORMATDURATION(%s, %s)", v.visitRule(exprs[0]), v.visitRule(exprs[1]))
 }
+
+func (v *FormatVisitor) VisitAcos(ctx *parser.AcosContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("ACOS(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("ACOS(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitAsin(ctx *parser.AsinContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("ASIN(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("ASIN(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitAtan(ctx *parser.AtanContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("ATAN(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("ATAN(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitAtan2(ctx *parser.Atan2Context) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("ATAN2(\n%s,\n%s\n)",
+			v.indent(v.visitRule(ctx.YExpression()).(string)),
+			v.indent(v.visitRule(ctx.XExpression()).(string)))
+	}
+	return fmt.Sprintf("ATAN2(%s, %s)", v.visitRule(ctx.YExpression()), v.visitRule(ctx.XExpression()))
+}
+
+func (v *FormatVisitor) VisitCos(ctx *parser.CosContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("COS(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("COS(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitSin(ctx *parser.SinContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("SIN(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("SIN(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitTan(ctx *parser.TanContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("TAN(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("TAN(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitPi(ctx *parser.PiContext) interface{} {
+	return "PI()"
+}
+
+func (v *FormatVisitor) VisitAscii(ctx *parser.AsciiContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("ASCII(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("ASCII(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitChr(ctx *parser.ChrContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("CHR(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("CHR(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitInitcap(ctx *parser.InitcapContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("INITCAP(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("INITCAP(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitDayofyear(ctx *parser.DayofyearContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("DAYOFYEAR(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("DAYOFYEAR(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitIsoweek(ctx *parser.IsoweekContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("ISOWEEK(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("ISOWEEK(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitIsoyear(ctx *parser.IsoyearContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("ISOYEAR(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("ISOYEAR(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitUnixtimestamp(ctx *parser.UnixtimestampContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("UNIXTIMESTAMP(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("UNIXTIMESTAMP(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitFromunixtime(ctx *parser.FromunixtimeContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("FROMUNIXTIME(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("FROMUNIXTIME(%s)", v.visitRule(ctx.Expression()))
+}
+
+func (v *FormatVisitor) VisitTrunc(ctx *parser.TruncContext) interface{} {
+	if len(ctx.GetText()) < 60 {
+		defer restoreWrap(unwrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("TRUNC(\n%s,\n%s\n)", v.indent(v.visitRule(ctx.Num()).(string)), v.indent(v.visitRule(ctx.Digits()).(string)))
+	}
+	return fmt.Sprintf("TRUNC(%s, %s)", v.visitRule(ctx.Num()), v.visitRule(ctx.Digits()))
+}
+
+func (v *FormatVisitor) VisitPicklistcount(ctx *parser.PicklistcountContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("PICKLISTCOUNT(\n%s\n)", v.indent(v.visitRule(ctx.FieldExpression()).(string)))
+	}
+	return fmt.Sprintf("PICKLISTCOUNT(%s)", v.visitRule(ctx.FieldExpression()))
+}
+
+func (v *FormatVisitor) VisitYExpression(ctx *parser.YExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
+
+func (v *FormatVisitor) VisitXExpression(ctx *parser.XExpressionContext) interface{} {
+	return v.visitRule(ctx.Expression())
+}
