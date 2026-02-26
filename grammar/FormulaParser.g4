@@ -29,7 +29,7 @@ fieldReference
     ;
 
 fieldPart
-    : Identifier (LBRACK expression RBRACK)?
+    : (Identifier | VALUE) (LBRACK expression RBRACK)?
     ;
 
 functionCall

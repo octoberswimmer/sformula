@@ -682,6 +682,16 @@ func TestFlowFormulas(t *testing.T) {
 				`ISBLANK(TRIM({!Phone.VALUE}))`,
 				`ISBLANK(TRIM({!Phone.VALUE}))`,
 			},
+			{
+				// Test value keyword as first part of field reference
+				`{!value.Payment_Method__c}`,
+				`{!value.Payment_Method__c}`,
+			},
+			{
+				// Test VALUE keyword as first part of field reference with nested field
+				`{!value.Account.Name}`,
+				`{!value.Account.Name}`,
+			},
 		}
 	for _, tt := range tests {
 		out, err := FormatFlowFormula(tt.input)
