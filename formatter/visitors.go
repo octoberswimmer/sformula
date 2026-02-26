@@ -873,12 +873,7 @@ func (v *FormatVisitor) VisitFieldReference(ctx *parser.FieldReferenceContext) i
 }
 
 func (v *FormatVisitor) VisitFieldPart(ctx *parser.FieldPartContext) interface{} {
-	var result string
-	if ctx.Identifier() != nil {
-		result = ctx.Identifier().GetText()
-	} else if ctx.VALUE() != nil {
-		result = ctx.VALUE().GetText()
-	}
+	result := ctx.Identifier().GetText()
 
 	// Check for array indexing
 	if ctx.LBRACK() != nil && ctx.Expression() != nil {

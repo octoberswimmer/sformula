@@ -157,18 +157,3 @@ func TestPicklistFunctions(t *testing.T) {
 		})
 	}
 }
-
-func TestFieldReferenceWithValueKeyword(t *testing.T) {
-	tests := []string{
-		`value.Field__c`,
-		`value.Payment_Method__c`,
-		`Object.value`,
-		`value.Nested.Field`,
-	}
-
-	for _, formula := range tests {
-		t.Run(formula, func(t *testing.T) {
-			parseFormula(t, formula)
-		})
-	}
-}
