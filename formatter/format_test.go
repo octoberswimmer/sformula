@@ -121,6 +121,14 @@ func TestCompilationUnit(t *testing.T) {
 				`NOT(ISBLANK(Field__c))`,
 			},
 			{
+				`VLOOKUP($ObjectType.VLookupReference__c.Fields.Expected_Result__c,$ObjectType.VLookupReference__c.Fields.Name,Key__c) != Value__c`,
+				`VLOOKUP(
+	$ObjectType.VLookupReference__c.Fields.Expected_Result__c,
+	$ObjectType.VLookupReference__c.Fields.Name,
+	Key__c
+) != Value__c`,
+			},
+			{
 				`NOW() + (1/24)`,
 				`NOW() + (1/24)`,
 			},

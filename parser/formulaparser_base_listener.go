@@ -638,6 +638,12 @@ func (s *BaseFormulaParserListener) EnterValue(ctx *ValueContext) {}
 // ExitValue is called when production value is exited.
 func (s *BaseFormulaParserListener) ExitValue(ctx *ValueContext) {}
 
+// EnterVlookup is called when production vlookup is entered.
+func (s *BaseFormulaParserListener) EnterVlookup(ctx *VlookupContext) {}
+
+// ExitVlookup is called when production vlookup is exited.
+func (s *BaseFormulaParserListener) ExitVlookup(ctx *VlookupContext) {}
+
 // EnterYear is called when production year is entered.
 func (s *BaseFormulaParserListener) EnterYear(ctx *YearContext) {}
 

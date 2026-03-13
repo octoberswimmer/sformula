@@ -1261,6 +1261,24 @@ func (v *FormatVisitor) VisitPicklistcount(ctx *parser.PicklistcountContext) int
 	return fmt.Sprintf("PICKLISTCOUNT(%s)", v.visitRule(ctx.FieldExpression()))
 }
 
+func (v *FormatVisitor) VisitVlookup(ctx *parser.VlookupContext) interface{} {
+	if len(ctx.GetText()) > 80 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("VLOOKUP(\n%s,\n%s,\n%s\n)",
+			v.indent(v.visitRule(ctx.FieldExpression(0)).(string)),
+			v.indent(v.visitRule(ctx.FieldExpression(1)).(string)),
+			v.indent(v.visitRule(ctx.Expression()).(string)),
+		)
+	}
+	return fmt.Sprintf("VLOOKUP(%s, %s, %s)",
+		v.visitRule(ctx.FieldExpression(0)),
+		v.visitRule(ctx.FieldExpression(1)),
+		v.visitRule(ctx.Expression()),
+	)
+}
+
 func (v *FormatVisitor) VisitYExpression(ctx *parser.YExpressionContext) interface{} {
 	return v.visitRule(ctx.Expression())
 }

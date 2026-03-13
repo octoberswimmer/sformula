@@ -313,6 +313,9 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#value.
 	VisitValue(ctx *ValueContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#vlookup.
+	VisitVlookup(ctx *VlookupContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#year.
 	VisitYear(ctx *YearContext) interface{}
 

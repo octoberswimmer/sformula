@@ -415,6 +415,10 @@ func (v *BaseFormulaParserVisitor) VisitValue(ctx *ValueContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitVlookup(ctx *VlookupContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitYear(ctx *YearContext) interface{} {
 	return v.VisitChildren(ctx)
 }

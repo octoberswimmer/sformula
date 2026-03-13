@@ -117,6 +117,7 @@ functionCall
     | unixtimestamp
     | upper
     | value
+    | vlookup
     | year
 
     ;
@@ -208,6 +209,7 @@ today : TODAY LPAREN RPAREN ;
 unixtimestamp : UNIXTIMESTAMP LPAREN expression RPAREN ;
 upper : UPPER LPAREN expression RPAREN ;
 value : VALUE LPAREN expression RPAREN ;
+vlookup : VLOOKUP LPAREN fieldExpression COMMA fieldExpression COMMA expression RPAREN ;
 year : YEAR LPAREN expression RPAREN ;
 
 

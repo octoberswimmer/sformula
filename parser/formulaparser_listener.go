@@ -313,6 +313,9 @@ type FormulaParserListener interface {
 	// EnterValue is called when entering the value production.
 	EnterValue(c *ValueContext)
 
+	// EnterVlookup is called when entering the vlookup production.
+	EnterVlookup(c *VlookupContext)
+
 	// EnterYear is called when entering the year production.
 	EnterYear(c *YearContext)
 
@@ -735,6 +738,9 @@ type FormulaParserListener interface {
 
 	// ExitValue is called when exiting the value production.
 	ExitValue(c *ValueContext)
+
+	// ExitVlookup is called when exiting the vlookup production.
+	ExitVlookup(c *VlookupContext)
 
 	// ExitYear is called when exiting the year production.
 	ExitYear(c *YearContext)
