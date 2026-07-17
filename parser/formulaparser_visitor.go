@@ -232,6 +232,12 @@ type FormulaParserVisitor interface {
 	// Visit a parse tree produced by FormulaParser#max.
 	VisitMax(ctx *MaxContext) interface{}
 
+	// Visit a parse tree produced by FormulaParser#mceiling.
+	VisitMceiling(ctx *MceilingContext) interface{}
+
+	// Visit a parse tree produced by FormulaParser#mfloor.
+	VisitMfloor(ctx *MfloorContext) interface{}
+
 	// Visit a parse tree produced by FormulaParser#mid.
 	VisitMid(ctx *MidContext) interface{}
 

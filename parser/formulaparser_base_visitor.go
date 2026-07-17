@@ -307,6 +307,14 @@ func (v *BaseFormulaParserVisitor) VisitMax(ctx *MaxContext) interface{} {
 	return v.VisitChildren(ctx)
 }
 
+func (v *BaseFormulaParserVisitor) VisitMceiling(ctx *MceilingContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
+func (v *BaseFormulaParserVisitor) VisitMfloor(ctx *MfloorContext) interface{} {
+	return v.VisitChildren(ctx)
+}
+
 func (v *BaseFormulaParserVisitor) VisitMid(ctx *MidContext) interface{} {
 	return v.VisitChildren(ctx)
 }

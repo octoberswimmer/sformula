@@ -232,6 +232,12 @@ type FormulaParserListener interface {
 	// EnterMax is called when entering the max production.
 	EnterMax(c *MaxContext)
 
+	// EnterMceiling is called when entering the mceiling production.
+	EnterMceiling(c *MceilingContext)
+
+	// EnterMfloor is called when entering the mfloor production.
+	EnterMfloor(c *MfloorContext)
+
 	// EnterMid is called when entering the mid production.
 	EnterMid(c *MidContext)
 
@@ -657,6 +663,12 @@ type FormulaParserListener interface {
 
 	// ExitMax is called when exiting the max production.
 	ExitMax(c *MaxContext)
+
+	// ExitMceiling is called when exiting the mceiling production.
+	ExitMceiling(c *MceilingContext)
+
+	// ExitMfloor is called when exiting the mfloor production.
+	ExitMfloor(c *MfloorContext)
 
 	// ExitMid is called when exiting the mid production.
 	ExitMid(c *MidContext)

@@ -497,6 +497,26 @@ func (v *FormatVisitor) VisitFloor(ctx *parser.FloorContext) interface{} {
 	return fmt.Sprintf("FLOOR(%s)", v.visitRule(ctx.Expression()).(string))
 }
 
+func (v *FormatVisitor) VisitMfloor(ctx *parser.MfloorContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("MFLOOR(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("MFLOOR(%s)", v.visitRule(ctx.Expression()).(string))
+}
+
+func (v *FormatVisitor) VisitMceiling(ctx *parser.MceilingContext) interface{} {
+	if len(ctx.GetText()) > 60 {
+		defer restoreWrap(wrap(v))
+	}
+	if v.wrap {
+		return fmt.Sprintf("MCEILING(\n%s\n)", v.indent(v.visitRule(ctx.Expression()).(string)))
+	}
+	return fmt.Sprintf("MCEILING(%s)", v.visitRule(ctx.Expression()).(string))
+}
+
 func (v *FormatVisitor) VisitCasesafeid(ctx *parser.CasesafeidContext) interface{} {
 	if len(ctx.GetText()) > 60 {
 		defer restoreWrap(wrap(v))

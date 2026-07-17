@@ -90,6 +90,8 @@ functionCall
     | lpad
     | lower
     | max
+    | mceiling
+    | mfloor
     | mid
     | min
     | minute
@@ -182,6 +184,8 @@ log : LOG LPAREN expression RPAREN ;
 lower : LOWER LPAREN expression RPAREN ;
 lpad : LPAD LPAREN textExpression COMMA length (COMMA padString)? RPAREN ;
 max : MAX LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
+mceiling : MCEILING LPAREN expression RPAREN ;
+mfloor : MFLOOR LPAREN expression RPAREN ;
 mid : MID LPAREN textExpression COMMA startNum COMMA numChars RPAREN ;
 min : MIN LPAREN expression COMMA expression (COMMA expression)* RPAREN ;
 minute : MINUTE LPAREN expression RPAREN ;

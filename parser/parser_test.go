@@ -137,6 +137,12 @@ func TestNumericFunctions(t *testing.T) {
 	tests := []string{
 		`TRUNC(3.14159, 2)`,
 		`TRUNC(123.456, 0)`,
+		`MFLOOR(1.5)`,
+		`MFLOOR(-2.3)`,
+		`MCEILING(1.5)`,
+		`MCEILING(-2.7)`,
+		`MFLOOR(Amount__c / 3)`,
+		`MCEILING(Amount__c * 0.1)`,
 	}
 
 	for _, formula := range tests {

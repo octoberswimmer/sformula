@@ -476,6 +476,18 @@ func (s *BaseFormulaParserListener) EnterMax(ctx *MaxContext) {}
 // ExitMax is called when production max is exited.
 func (s *BaseFormulaParserListener) ExitMax(ctx *MaxContext) {}
 
+// EnterMceiling is called when production mceiling is entered.
+func (s *BaseFormulaParserListener) EnterMceiling(ctx *MceilingContext) {}
+
+// ExitMceiling is called when production mceiling is exited.
+func (s *BaseFormulaParserListener) ExitMceiling(ctx *MceilingContext) {}
+
+// EnterMfloor is called when production mfloor is entered.
+func (s *BaseFormulaParserListener) EnterMfloor(ctx *MfloorContext) {}
+
+// ExitMfloor is called when production mfloor is exited.
+func (s *BaseFormulaParserListener) ExitMfloor(ctx *MfloorContext) {}
+
 // EnterMid is called when production mid is entered.
 func (s *BaseFormulaParserListener) EnterMid(ctx *MidContext) {}
 
